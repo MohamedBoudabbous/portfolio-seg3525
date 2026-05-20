@@ -128,3 +128,26 @@ section h2 {
     transform: translateY(0);
   }
 }
+
+.project-hero {
+  min-height: 60vh;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  padding: 80px 20px;
+}
+
+.project-subtitle {
+  max-width: 850px;
+  margin: auto;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.project-badge {
+  padding: 12px 18px;
+  font-size: 0.95rem;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
