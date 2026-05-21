@@ -1,187 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CardGame - Memory Game</title>
-
+  <title>CardGame - Jeu de mémoire</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
-    <a href="index.html" class="btn btn-outline-light">Retour au portfolio</a>
+    <div class="d-flex gap-2">
+      <a href="en/memory-game.html" class="btn btn-outline-light btn-sm lang-switch">English</a>
+      <a href="index.html" class="btn btn-outline-light">Retour au portfolio</a>
+    </div>
   </div>
 </nav>
 
 <section class="project-hero text-center text-white d-flex align-items-center">
   <div class="container">
-    <h1 class="display-3 fw-bold">CardGame - Memory Game</h1>
+    <h1 class="display-3 fw-bold">CardGame - Jeu de mémoire</h1>
     <p class="lead project-subtitle">
-      A modular C++ memory card game built with object-oriented programming, multiple gameplay modes, automated tests and a CMake-based build system.
+      Jeu de mémoire modulaire en C++ conçu avec la programmation orientée objet, plusieurs modes de jeu, des tests automatisés et un système de build avec CMake.
     </p>
-
     <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
       <span class="badge bg-light text-dark project-badge">C++</span>
-      <span class="badge bg-primary project-badge">OOP</span>
+      <span class="badge bg-primary project-badge">POO</span>
       <span class="badge bg-success project-badge">CMake</span>
-      <span class="badge bg-warning text-dark project-badge">Testing</span>
+      <span class="badge bg-warning text-dark project-badge">Tests</span>
     </div>
   </div>
 </section>
 
 <section class="container py-5">
   <div class="row align-items-center g-5">
+    <div class="col-lg-6"><img src="images/cardgame/01-intro-screen.png" alt="Écran d’introduction CardGame" class="img-fluid rounded shadow-lg project-section-image"></div>
     <div class="col-lg-6">
-      <img src="images/cardgame/01-intro-screen.png" alt="CardGame intro screen" class="img-fluid rounded shadow-lg">
-    </div>
-
-    <div class="col-lg-6">
-      <h2 class="fw-bold mb-4">Project Overview</h2>
-      <p>
-        CardGame is a console-based memory game developed in C++. The project was designed to practise modular programming, object-oriented design and interactive game logic.
-      </p>
-      <p>
-        The code is organized around different responsibilities such as game logic, user interface, rule management and automated testing.
-      </p>
+      <h2 class="fw-bold mb-4">Présentation du projet</h2>
+      <p>CardGame est un jeu de mémoire en console développé en C++. Le projet a été conçu pour pratiquer la programmation modulaire, la conception orientée objet et la logique d’un jeu interactif.</p>
+      <p>Le code est organisé autour de responsabilités distinctes : logique du jeu, interface utilisateur, gestion des règles et tests automatisés.</p>
     </div>
   </div>
 </section>
 
 <section class="bg-light py-5">
   <div class="container">
-    <h2 class="fw-bold text-center mb-5">Gameplay Progression</h2>
-
+    <h2 class="fw-bold text-center mb-5">Progression du gameplay</h2>
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border-0 shadow-lg h-100">
-          <img src="images/cardgame/02-main-menu.png" class="card-img-top" alt="CardGame main menu">
-          <div class="card-body">
-            <h4>Main Menu</h4>
-            <p>The game starts with several available modes, including normal play, expert mode and automated tests.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border-0 shadow-lg h-100">
-          <img src="images/cardgame/04-gameplay-board.png" class="card-img-top" alt="CardGame gameplay board">
-          <div class="card-body">
-            <h4>Gameplay Board</h4>
-            <p>The player interacts with a memory board where cards must be revealed and matched correctly.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border-0 shadow-lg h-100">
-          <img src="images/cardgame/05-card-match.png" class="card-img-top" alt="CardGame card match system">
-          <div class="card-body">
-            <h4>Matching System</h4>
-            <p>The game validates selected cards and updates the score when a successful match is detected.</p>
-          </div>
-        </div>
-      </div>
+      <div class="col-md-4"><div class="card border-0 shadow-lg h-100"><img src="images/cardgame/02-main-menu.png" class="card-img-top" alt="Menu principal"><div class="card-body"><h4>Menu principal</h4><p>Le jeu démarre avec plusieurs modes disponibles, notamment le mode normal, le mode expert et les tests automatisés.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow-lg h-100"><img src="images/cardgame/04-gameplay-board.png" class="card-img-top" alt="Plateau de jeu"><div class="card-body"><h4>Plateau de jeu</h4><p>Le joueur interagit avec un plateau de cartes cachées qui doivent être révélées et associées correctement.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow-lg h-100"><img src="images/cardgame/05-card-match.png" class="card-img-top" alt="Système de correspondance"><div class="card-body"><h4>Système de correspondance</h4><p>Le jeu valide les cartes sélectionnées et met à jour le score lorsqu’une correspondance est détectée.</p></div></div></div>
     </div>
   </div>
 </section>
 
 <section class="container py-5">
-  <h2 class="fw-bold text-center mb-5">Advanced Rules and Testing</h2>
-
+  <h2 class="fw-bold text-center mb-5">Règles avancées et tests</h2>
   <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card border-0 shadow h-100">
-        <img src="images/cardgame/06-expert-rules.png" class="card-img-top" alt="Expert rules">
-        <div class="card-body">
-          <h4>Expert Rules</h4>
-          <p>Expert mode adds more advanced gameplay logic and additional rule complexity.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card border-0 shadow h-100">
-        <img src="images/cardgame/07-turn-manager.png" class="card-img-top" alt="Turn manager">
-        <div class="card-body">
-          <h4>Turn Management</h4>
-          <p>The project manages player turns and expected actions during the game flow.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card border-0 shadow h-100">
-        <img src="images/cardgame/08-tests.png" class="card-img-top" alt="Automated tests">
-        <div class="card-body">
-          <h4>Automated Tests</h4>
-          <p>Automated tests validate core behavior such as card logic, board generation and rule handling.</p>
-        </div>
-      </div>
-    </div>
+    <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/06-expert-rules.png" class="card-img-top" alt="Règles expertes"><div class="card-body"><h4>Règles expertes</h4><p>Le mode expert ajoute une logique de jeu plus avancée et des règles supplémentaires.</p></div></div></div>
+    <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/07-turn-manager.png" class="card-img-top" alt="Gestion des tours"><div class="card-body"><h4>Gestion des tours</h4><p>Le projet gère les tours des joueurs et les actions attendues pendant le déroulement du jeu.</p></div></div></div>
+    <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/08-tests.png" class="card-img-top" alt="Tests automatisés"><div class="card-body"><h4>Tests automatisés</h4><p>Les tests valident les comportements essentiels comme la logique des cartes, la génération du plateau et la gestion des règles.</p></div></div></div>
   </div>
 </section>
 
 <section class="bg-light py-5">
   <div class="container">
-    <h2 class="fw-bold text-center mb-5">Technical Design</h2>
-
+    <h2 class="fw-bold text-center mb-5">Conception technique</h2>
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <img src="images/cardgame/09-project-structure.png" class="card-img-top" alt="Project structure">
-          <div class="card-body">
-            <h4>Project Structure</h4>
-            <p>The project is separated into modules to improve readability, maintainability and organization.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <img src="images/cardgame/10-oop-design.png" class="card-img-top" alt="OOP design">
-          <div class="card-body">
-            <h4>OOP Design</h4>
-            <p>The implementation uses classes to model game entities such as cards, board, players and rules.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <img src="images/cardgame/11-build-system.png" class="card-img-top" alt="Build system">
-          <div class="card-body">
-            <h4>Build System</h4>
-            <p>The project uses CMake to organize compilation and generate the executable.</p>
-          </div>
-        </div>
-      </div>
+      <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/09-project-structure.png" class="card-img-top" alt="Structure du projet"><div class="card-body"><h4>Structure du projet</h4><p>Le projet est séparé en modules pour améliorer la lisibilité, la maintenabilité et l’organisation.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/10-oop-design.png" class="card-img-top" alt="Conception POO"><div class="card-body"><h4>Conception POO</h4><p>L’implémentation utilise des classes pour modéliser les cartes, le plateau, les joueurs et les règles.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow h-100"><img src="images/cardgame/11-build-system.png" class="card-img-top" alt="Système de build"><div class="card-body"><h4>Système de build</h4><p>Le projet utilise CMake pour organiser la compilation et générer l’exécutable.</p></div></div></div>
     </div>
   </div>
 </section>
 
 <section class="container py-5 text-center">
-  <img src="images/cardgame/12-final-screen.png" alt="Final project summary" class="img-fluid rounded shadow-lg mb-5">
-
-  <h2 class="fw-bold mb-4">GitHub Repository</h2>
-  <p class="lead mb-4">
-    The complete source code is available on GitHub.
-  </p>
-
-  <a href="https://github.com/MohamedBoudabbous16/CardGame" target="_blank" class="btn btn-dark btn-lg px-5">
-    View on GitHub
-  </a>
-
-  <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2">
-    Retour
-  </a>
+  <img src="images/cardgame/12-final-screen.png" alt="Résumé final du projet" class="img-fluid rounded shadow-lg mb-5 project-section-image">
+  <h2 class="fw-bold mb-4">Dépôt GitHub</h2>
+  <p class="lead mb-4">Le code source complet est disponible sur GitHub.</p>
+  <a href="https://github.com/MohamedBoudabbous16/CardGame" target="_blank" class="btn btn-dark btn-lg px-5">Voir sur GitHub</a>
+  <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2">Retour</a>
 </section>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

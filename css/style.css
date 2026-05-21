@@ -151,3 +151,35 @@ section h2 {
   height: 220px;
   object-fit: cover;
 }
+
+/* Language switch */
+.lang-switch {
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+}
+
+.project-hero h1,
+.hero-section h1 {
+  letter-spacing: -0.03em;
+}
+
+.project-section-image {
+  max-height: 520px;
+  width: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.card-img-top {
+  background: #ffffff;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
