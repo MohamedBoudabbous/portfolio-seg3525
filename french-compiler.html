@@ -1,113 +1,542 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>French Compiler | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>French Compiler - Compilateur Java</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <main class="project-page">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
 
-    <section class="hero">
-      <h1>French Compiler</h1>
-      <p class="subtitle">Compilateur de langage personnalisé en Java</p>
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
 
-      <p>
-        J’ai conçu et implémenté un compilateur pour un langage de programmation
-        inspiré du français. Le projet inclut l’analyse lexicale, le parsing,
-        la construction d’AST, l’analyse sémantique, la représentation
-        intermédiaire ainsi que la génération de code Java.
-      </p>
-
-      <a href="https://github.com/MohamedBoudabbous16/FrenchCompiler"
-         class="btn"
-         target="_blank">
-        Voir le dépôt GitHub
+    <div class="d-flex gap-2">
+      <a href="en/french-compiler.html"
+         class="btn btn-outline-light btn-sm lang-switch">
+         English
       </a>
-    </section>
 
-    <section>
-      <h2>Présentation du projet</h2>
+      <a href="index.html"
+         class="btn btn-outline-light">
+         Retour au portfolio
+      </a>
+    </div>
 
-      <p>
-        Ce projet transforme un code source écrit dans une syntaxe inspirée du
-        français en code Java exécutable. Le compilateur suit un pipeline complet
-        allant de l’analyse du code source jusqu’à la génération finale de code.
-        L’objectif principal était de comprendre la conception des langages de
-        programmation ainsi que les mécanismes internes des compilateurs.
-      </p>
-    </section>
+  </div>
+</nav>
 
-    <section>
-      <h2>Pipeline du compilateur</h2>
+<section class="project-hero text-center text-white d-flex align-items-center">
 
-      <div class="pipeline">
-        <div>Code Source</div>
-        <span>↓</span>
+  <div class="container">
 
-        <div>Analyse Lexicale (Lexer)</div>
-        <span>↓</span>
+    <h1 class="display-3 fw-bold">
+      French Compiler
+    </h1>
 
-        <div>Parsing</div>
-        <span>↓</span>
+    <p class="lead project-subtitle">
+      Compilateur pédagogique en Java pour un langage inspiré du français :
+      lexeur, parseur, AST, analyse sémantique, IR,
+      optimisations et génération de code Java.
+    </p>
 
-        <div>AST</div>
-        <span>↓</span>
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
 
-        <div>Analyse Sémantique</div>
-        <span>↓</span>
+      <span class="badge bg-light text-dark project-badge">
+        Java
+      </span>
 
-        <div>Représentation Intermédiaire</div>
-        <span>↓</span>
+      <span class="badge bg-primary project-badge">
+        Compiler Design
+      </span>
 
-        <div>Génération de Code Java</div>
+      <span class="badge bg-success project-badge">
+        AST / IR
+      </span>
+
+      <span class="badge bg-warning text-dark project-badge">
+        Codegen
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5">
+
+  <div class="row g-5">
+
+    <!-- IMAGES -->
+    <div class="col-lg-6">
+
+      <div class="compiler-image-card mb-4">
+
+        <img
+          src="images/FrenchCompiler/structure1.png"
+          alt="Structure du projet French Compiler"
+          class="img-fluid project-section-image"
+        >
+
       </div>
-    </section>
 
-    <section>
-      <h2>Fonctionnalités principales</h2>
+      <div class="compiler-image-card">
 
-      <ul>
-        <li>Analyse lexicale avec reconnaissance des tokens</li>
-        <li>Parser pour une grammaire personnalisée</li>
-        <li>Construction d’Abstract Syntax Trees (AST)</li>
-        <li>Validation sémantique et diagnostics d’erreurs</li>
-        <li>Représentation intermédiaire (IR)</li>
-        <li>Génération automatique de code Java</li>
-        <li>Architecture modulaire du compilateur</li>
-      </ul>
-    </section>
+        <img
+          src="images/FrenchCompiler/structure2.png"
+          alt="Architecture du compilateur French Compiler"
+          class="img-fluid project-section-image"
+        >
 
-    <section>
-      <h2>Compétences techniques démontrées</h2>
+      </div>
 
-      <ul>
-        <li>Java</li>
-        <li>Conception de compilateurs</li>
-        <li>AST et IR</li>
-        <li>Parsing récursif</li>
-        <li>Analyse sémantique</li>
-        <li>Génération de code</li>
-        <li>Gestion des erreurs et diagnostics</li>
-      </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>Ce que j’ai appris</h2>
+    <!-- TEXTE -->
+    <div class="col-lg-6 d-flex align-items-start">
 
-      <p>
-        Ce projet m’a permis d’approfondir ma compréhension de l’architecture
-        des compilateurs, de la conception de langages, de l’analyse
-        sémantique et de la génération de code. Il m’a également appris à
-        structurer un projet Java complexe en plusieurs modules clairement
-        séparés, incluant les diagnostics, les représentations intermédiaires
-        et les différentes étapes de transformation du code.
-      </p>
-    </section>
+      <div class="project-overview-box">
 
-  </main>
+        <h2 class="fw-bold mb-4">
+          Présentation du projet
+        </h2>
+
+        <p>
+          Ce projet consiste à construire un compilateur complet
+          pour un langage de programmation personnalisé utilisant
+          des mots-clés inspirés du français.
+        </p>
+
+        <p>
+          Le compilateur lit un programme source,
+          construit des représentations structurées,
+          valide les règles sémantiques
+          et génère du code Java compilable.
+        </p>
+
+        <p>
+          Le projet est organisé comme un véritable pipeline
+          de compilation incluant :
+        </p>
+
+        <ul class="project-list">
+
+          <li>Analyse lexicale (Lexeur)</li>
+
+          <li>Analyse syntaxique (Parseur)</li>
+
+          <li>Construction de l’AST</li>
+
+          <li>Analyse sémantique</li>
+
+          <li>Représentation intermédiaire (IR)</li>
+
+          <li>Optimisations</li>
+
+          <li>Génération de code Java</li>
+
+        </ul>
+
+        <div class="mt-4 d-flex flex-wrap gap-3">
+
+          <a
+            href="https://github.com/MohamedBoudabbous16/FrenchCompiler"
+            target="_blank"
+            class="btn btn-dark"
+          >
+            Voir le dépôt GitHub
+          </a>
+
+          <a
+            href="#pipeline"
+            class="btn btn-outline-dark"
+          >
+            Explorer le pipeline
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="pipeline" class="bg-light py-5">
+
+  <div class="container">
+
+    <h2 class="fw-bold text-center mb-5">
+      Pipeline du compilateur
+    </h2>
+
+    <div class="row g-4 text-center">
+
+      <div class="col-md-3">
+        <div class="pipeline-box">1. Code source</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">2. Lexeur</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">3. Parseur</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">4. AST</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">5. Analyse sémantique</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">6. IR</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">7. Optimisations</div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pipeline-box">8. Java généré</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5">
+
+  <h2 class="fw-bold text-center mb-5">
+    Composants techniques
+  </h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="images/FrenchCompiler/Lexeur1.png"
+          class="card-img-top"
+          alt="Lexeur"
+        >
+
+        <div class="card-body">
+
+          <h4>Analyse lexicale</h4>
+
+          <p>
+            Le lexeur transforme le texte source en jetons
+            et conserve les informations de position
+            afin de produire des diagnostics précis.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="images/FrenchCompiler/AST.png"
+          class="card-img-top"
+          alt="AST"
+        >
+
+        <div class="card-body">
+
+          <h4>AST</h4>
+
+          <p>
+            L’arbre syntaxique abstrait représente
+            la structure logique du programme :
+            fonctions, blocs, instructions et expressions.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="images/FrenchCompiler/IR.png"
+          class="card-img-top"
+          alt="IR"
+        >
+
+        <div class="card-body">
+
+          <h4>Représentation intermédiaire</h4>
+
+          <p>
+            L’IR rend le compilateur plus modulaire
+            et prépare les étapes d’inspection,
+            d’optimisation et de génération de code.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow-lg h-100">
+
+        <img
+          src="images/FrenchCompiler/Diagnostics.png"
+          class="card-img-top"
+          alt="Diagnostics"
+        >
+
+        <div class="card-body">
+
+          <h4>Diagnostics</h4>
+
+          <p>
+            Le système de diagnostics centralise
+            les erreurs avec lignes, colonnes,
+            intervalles et messages
+            pour faciliter le débogage.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bg-light py-5">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <h2 class="fw-bold mb-4">
+          Conversion AST → IR → Java
+        </h2>
+
+        <p>
+          Le projet sépare clairement les responsabilités :
+          l’AST décrit le programme source,
+          l’IR simplifie la manipulation interne,
+          puis le générateur produit du Java compilable.
+        </p>
+
+        <ul>
+
+          <li>
+            Conversion structurée avec
+            <strong>AstVersIr</strong>.
+          </li>
+
+          <li>
+            Génération Java avec
+            <strong>IrVersJava</strong>
+            et
+            <strong>JavaGenerator</strong>.
+          </li>
+
+          <li>
+            Support de fonctions comme
+            <code>lire()</code>
+            avec injection du runtime Java.
+          </li>
+
+          <li>
+            Tests Maven/JUnit pour valider
+            le modèle IR et la génération.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="col-lg-6">
+
+        <img
+          src="images/FrenchCompiler/Convertisseur.png"
+          alt="Convertisseur AST vers IR"
+          class="img-fluid rounded shadow-lg project-section-image mb-4"
+        >
+
+        <img
+          src="images/FrenchCompiler/javaGenerator1.png"
+          alt="Génération Java"
+          class="img-fluid rounded shadow-lg project-section-image"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5">
+
+  <h2 class="fw-bold text-center mb-5">
+    Tests et validation
+  </h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-6">
+
+      <img
+        src="images/FrenchCompiler/Test1.png"
+        alt="Tests du compilateur"
+        class="img-fluid rounded shadow-lg gallery-img"
+      >
+
+    </div>
+
+    <div class="col-md-6">
+
+      <img
+        src="images/FrenchCompiler/Test2.png"
+        alt="Tests Maven JUnit"
+        class="img-fluid rounded shadow-lg gallery-img"
+      >
+
+    </div>
+
+    <div class="col-md-6">
+
+      <img
+        src="images/FrenchCompiler/Test3.png"
+        alt="Validation du compilateur"
+        class="img-fluid rounded shadow-lg gallery-img"
+      >
+
+    </div>
+
+    <div class="col-md-6">
+
+      <img
+        src="images/FrenchCompiler/Test4.png"
+        alt="Résultats de tests"
+        class="img-fluid rounded shadow-lg gallery-img"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bg-light py-5">
+
+  <div class="container">
+
+    <h2 class="fw-bold mb-4">
+      Compétences démontrées
+    </h2>
+
+    <div class="row g-3">
+
+      <div class="col-md-4">
+
+        <div class="card p-3 h-100">
+
+          <h5>Java avancé</h5>
+
+          <p>
+            Organisation modulaire,
+            objets, records,
+            exceptions et tests.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card p-3 h-100">
+
+          <h5>Conception de compilateurs</h5>
+
+          <p>
+            Lexing, parsing, AST,
+            analyse sémantique,
+            IR et codegen.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card p-3 h-100">
+
+          <h5>Architecture logicielle</h5>
+
+          <p>
+            Séparation claire entre modules,
+            pipeline testable
+            et maintenance facilitée.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="bg-dark text-white text-center py-4">
+
+  <p class="mb-1">
+    © 2026 Mohamed Boudabbous
+  </p>
+
+  <a class="footer-link" href="index.html">
+    Retour au portfolio
+  </a>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

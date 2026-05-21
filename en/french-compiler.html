@@ -1,97 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>French Compiler | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>French Compiler - Java Compiler Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
+    <div class="d-flex gap-2">
+      <a href="../french-compiler.html" class="btn btn-outline-light btn-sm lang-switch">Français</a>
+      <a href="index.html" class="btn btn-outline-light">Back to portfolio</a>
+    </div>
+  </div>
+</nav>
 
-  <main class="project-page">
+<section class="project-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <h1 class="display-3 fw-bold">French Compiler</h1>
+    <p class="lead project-subtitle">Educational Java compiler for a French-inspired language: lexer, parser, AST, semantic analysis, IR, optimizations and Java code generation.</p>
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <span class="badge bg-light text-dark project-badge">Java</span>
+      <span class="badge bg-primary project-badge">Compiler Design</span>
+      <span class="badge bg-success project-badge">AST / IR</span>
+      <span class="badge bg-warning text-dark project-badge">Codegen</span>
+    </div>
+  </div>
+</section>
 
-    <section class="hero">
-      <h1>French Compiler</h1>
-      <p class="subtitle">Custom Programming Language Compiler in Java</p>
+<section class="container py-5">
 
-      <p>
-        I designed and implemented a compiler for a custom French-inspired programming language.
-        The project includes lexical analysis, parsing, AST construction, semantic validation,
-        intermediate representation, and Java code generation.
-      </p>
+  <div class="row g-5">
 
-      <a href="https://github.com/MohamedBoudabbous16/FrenchCompiler" class="btn" target="_blank">
-        View Repository
-      </a>
-    </section>
+    <!-- LEFT COLUMN -->
+    <div class="col-lg-6">
 
-    <section>
-      <h2>Project Overview</h2>
-      <p>
-        This project transforms source code written in a custom French-like syntax into executable
-        Java code. The compiler follows a structured pipeline from source code analysis to final
-        code generation. The main goal was to understand how programming languages are designed,
-        analyzed, validated, and translated into a target language.
-      </p>
-    </section>
-
-    <section>
-      <h2>Compiler Pipeline</h2>
-
-      <div class="pipeline">
-        <div>French Source Code</div>
-        <span>↓</span>
-        <div>Lexer</div>
-        <span>↓</span>
-        <div>Parser</div>
-        <span>↓</span>
-        <div>AST</div>
-        <span>↓</span>
-        <div>Semantic Analysis</div>
-        <span>↓</span>
-        <div>Intermediate Representation</div>
-        <span>↓</span>
-        <div>Java Code Generation</div>
+      <div class="compiler-image-card mb-4">
+        <img
+          src="../images/FrenchCompiler/structure1.png"
+          alt="French Compiler project structure"
+          class="img-fluid project-section-image"
+        >
       </div>
-    </section>
 
-    <section>
-      <h2>Key Features</h2>
-      <ul>
-        <li>Lexical analysis with token recognition</li>
-        <li>Parser for a custom French-inspired grammar</li>
-        <li>Abstract Syntax Tree construction</li>
-        <li>Semantic validation and error diagnostics</li>
-        <li>Intermediate Representation layer</li>
-        <li>Java code generation from the custom language</li>
-        <li>Structured compiler architecture with separated modules</li>
-      </ul>
-    </section>
+      <div class="compiler-image-card">
+        <img
+          src="../images/FrenchCompiler/structure2.png"
+          alt="French Compiler architecture"
+          class="img-fluid project-section-image"
+        >
+      </div>
 
-    <section>
-      <h2>Technical Skills Demonstrated</h2>
-      <ul>
-        <li>Java programming</li>
-        <li>Compiler design</li>
-        <li>AST and IR architecture</li>
-        <li>Recursive parsing</li>
-        <li>Semantic analysis</li>
-        <li>Code generation</li>
-        <li>Error handling and diagnostics</li>
-      </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>What I Learned</h2>
-      <p>
-        Through this project, I strengthened my understanding of compiler architecture, language
-        design, semantic analysis, and code generation. I also improved my ability to structure a
-        large Java project into clear modules, including diagnostics, intermediate representations,
-        and transformation steps.
-      </p>
-    </section>
+    <!-- RIGHT COLUMN -->
+    <div class="col-lg-6 d-flex align-items-start">
 
-  </main>
+      <div class="project-overview-box">
 
+        <h2 class="fw-bold mb-4">Project Overview</h2>
+
+        <p>
+          This project implements a complete compiler for a custom programming
+          language inspired by French keywords.
+        </p>
+
+        <p>
+          The compiler reads source code, builds structured representations,
+          validates semantic rules and generates compilable Java code.
+        </p>
+
+        <p>
+          The project is organized as a real compilation pipeline including:
+        </p>
+
+        <ul class="project-list">
+          <li>Lexical analysis</li>
+          <li>Parsing</li>
+          <li>AST construction</li>
+          <li>Semantic analysis</li>
+          <li>Intermediate Representation (IR)</li>
+          <li>Optimizations</li>
+          <li>Java code generation</li>
+        </ul>
+
+        <div class="mt-4 d-flex flex-wrap gap-3">
+
+          <a
+            href="https://github.com/MohamedBoudabbous16/FrenchCompiler"
+            target="_blank"
+            class="btn btn-dark"
+          >
+            View on GitHub
+          </a>
+
+          <a
+            href="#pipeline"
+            class="btn btn-outline-dark"
+          >
+            Explore Pipeline
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">Compiler Pipeline</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-3"><div class="pipeline-box">1. Source code</div></div>
+      <div class="col-md-3"><div class="pipeline-box">2. Lexer</div></div>
+      <div class="col-md-3"><div class="pipeline-box">3. Parser</div></div>
+      <div class="col-md-3"><div class="pipeline-box">4. AST</div></div>
+      <div class="col-md-3"><div class="pipeline-box">5. Semantic analysis</div></div>
+      <div class="col-md-3"><div class="pipeline-box">6. IR</div></div>
+      <div class="col-md-3"><div class="pipeline-box">7. Optimizations</div></div>
+      <div class="col-md-3"><div class="pipeline-box">8. Generated Java</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="fw-bold text-center mb-5">Technical Components</h2>
+  <div class="row g-4">
+    <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="../images/FrenchCompiler/Lexeur1.png" class="card-img-top" alt="Lexer"><div class="card-body"><h4>Lexical Analysis</h4><p>The lexer converts source text into tokens and keeps position information for precise diagnostics.</p></div></div></div>
+    <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="../images/FrenchCompiler/AST.png" class="card-img-top" alt="AST"><div class="card-body"><h4>AST</h4><p>The abstract syntax tree represents the logical structure of the program: functions, blocks, statements and expressions.</p></div></div></div>
+    <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="../images/FrenchCompiler/IR.png" class="card-img-top" alt="IR"><div class="card-body"><h4>Intermediate Representation</h4><p>The IR makes the compiler more modular and prepares inspection, optimization and code generation steps.</p></div></div></div>
+    <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="../images/FrenchCompiler/Diagnostics.png" class="card-img-top" alt="Diagnostics"><div class="card-body"><h4>Diagnostics</h4><p>The diagnostics system centralizes errors with lines, columns, intervals and messages to support debugging.</p></div></div></div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-4">AST → IR → Java Conversion</h2>
+        <p>The project separates responsibilities clearly: the AST describes the source program, the IR simplifies internal transformations, and the generator produces compilable Java code.</p>
+        <ul>
+          <li>Structured conversion with <strong>AstVersIr</strong>.</li>
+          <li>Java generation through <strong>IrVersJava</strong> and <strong>JavaGenerator</strong>.</li>
+          <li>Runtime support for functions such as <code>lire()</code>.</li>
+          <li>Maven/JUnit tests to validate the IR model and generated code.</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <img src="../images/FrenchCompiler/Convertisseur.png" alt="AST to IR converter" class="img-fluid rounded shadow-lg project-section-image mb-4">
+        <img src="../images/FrenchCompiler/javaGenerator1.png" alt="Java generation" class="img-fluid rounded shadow-lg project-section-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="fw-bold text-center mb-5">Tests and Validation</h2>
+  <div class="row g-4">
+    <div class="col-md-6"><img src="../images/FrenchCompiler/Test1.png" alt="Compiler tests" class="img-fluid rounded shadow-lg gallery-img"></div>
+    <div class="col-md-6"><img src="../images/FrenchCompiler/Test2.png" alt="Maven JUnit tests" class="img-fluid rounded shadow-lg gallery-img"></div>
+    <div class="col-md-6"><img src="../images/FrenchCompiler/Test3.png" alt="Compiler validation" class="img-fluid rounded shadow-lg gallery-img"></div>
+    <div class="col-md-6"><img src="../images/FrenchCompiler/Test4.png" alt="Test results" class="img-fluid rounded shadow-lg gallery-img"></div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Skills Demonstrated</h2>
+    <div class="row g-3">
+      <div class="col-md-4"><div class="card p-3 h-100"><h5>Advanced Java</h5><p>Modular organization, objects, records, exceptions and tests.</p></div></div>
+      <div class="col-md-4"><div class="card p-3 h-100"><h5>Compiler Design</h5><p>Lexing, parsing, AST, semantic analysis, IR and code generation.</p></div></div>
+      <div class="col-md-4"><div class="card p-3 h-100"><h5>Software Architecture</h5><p>Clear separation between modules, testable pipeline and maintainable design.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-4">
+  <p class="mb-1">© 2026 Mohamed Boudabbous</p>
+  <a class="footer-link" href="index.html">Back to portfolio</a>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
