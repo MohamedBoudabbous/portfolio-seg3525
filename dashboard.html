@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>e-Hotels Project</title>
+  <title>eHotels Project</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -12,8 +12,9 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
+
     <a class="navbar-brand fw-bold" href="index.html">
       Mohamed Boudabbous
     </a>
@@ -21,89 +22,306 @@
     <a href="index.html" class="btn btn-outline-light">
       Retour au portfolio
     </a>
+
   </div>
 </nav>
 
-<section class="container py-5">
+<section class="project-hero text-center text-white d-flex align-items-center">
 
-  <div class="text-center mb-5">
-    <h1 class="display-4 fw-bold">
-      e-Hotels Management System
+  <div class="container">
+
+    <h1 class="display-3 fw-bold">
+      eHotels Management System
     </h1>
 
-    <p class="lead">
-      Database-driven hotel management system for reservations, rooms, clients, employees and rentals.
-    </p>
-  </div>
-
-  <div class="card border-0 shadow-lg p-4">
-
-    <h2>Project Overview</h2>
-
-    <p>
-      e-Hotels is a database and web application project designed to manage multiple hotel chains,
-      hotels, rooms, clients, employees, reservations and rentals.
-      The project focuses on relational database modeling, business rules and structured data management.
+    <p class="lead project-subtitle">
+      Database-driven hotel management system developed using relational database modeling, PostgreSQL and Spring Boot.
     </p>
 
-    <p>
-      The system includes core hotel operations such as room availability, reservation creation,
-      rental conversion, employee management and historical data preservation.
-    </p>
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
 
-    <h2 class="mt-4">Technologies</h2>
+      <span class="badge bg-light text-dark project-badge">
+        PostgreSQL
+      </span>
 
-    <div class="d-flex flex-wrap gap-2 mt-3">
-      <span class="badge bg-dark">PostgreSQL</span>
-      <span class="badge bg-primary">Spring Boot</span>
-      <span class="badge bg-success">SQL</span>
-      <span class="badge bg-secondary">ER Modeling</span>
-      <span class="badge bg-info text-dark">Database Design</span>
-    </div>
+      <span class="badge bg-primary project-badge">
+        Spring Boot
+      </span>
 
-    <h2 class="mt-5">Key Features</h2>
+      <span class="badge bg-success project-badge">
+        SQL
+      </span>
 
-    <ul class="mt-3">
-      <li>Multi-chain hotel management</li>
-      <li>Room, client, employee and reservation management</li>
-      <li>Relational schema with primary keys, foreign keys and constraints</li>
-      <li>Reservation-to-rental conversion logic</li>
-      <li>Business rules for availability and date consistency</li>
-      <li>Database views and indexes for search and reporting</li>
-    </ul>
+      <span class="badge bg-warning text-dark project-badge">
+        Database Design
+      </span>
 
-    <h2 class="mt-5">Portfolio Relevance</h2>
-
-    <p>
-      This project demonstrates my ability to design a complete data-centered system,
-      transform requirements into an ER model, implement a relational schema and prepare
-      a structured backend application around real business rules.
-    </p>
-
-    <h2 class="mt-5">GitHub Repository</h2>
-
-    <p class="mt-3">
-      The source code and project files are available on GitHub.
-    </p>
-
-    <div class="mt-4">
-      <a
-        href="https://github.com/MohamedBoudabbous16/eHotels"
-        target="_blank"
-        class="btn btn-dark btn-lg"
-      >
-        View on GitHub
-      </a>
-
-      <a
-        href="index.html"
-        class="btn btn-outline-secondary btn-lg ms-2"
-      >
-        Retour
-      </a>
     </div>
 
   </div>
+
+</section>
+
+<section class="container py-5">
+
+  <div class="row align-items-center g-5">
+
+    <div class="col-lg-6">
+
+      <img
+        src="images/ehotels/1.jpg"
+        alt="eHotels ER Diagram"
+        class="img-fluid rounded shadow-lg"
+      >
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <h2 class="fw-bold mb-4">
+        Project Overview
+      </h2>
+
+      <p>
+        eHotels is a complete hotel management system designed to manage hotel chains, hotels, rooms, employees, reservations and rentals.
+      </p>
+
+      <p>
+        The project focuses on database modeling, business logic, relational schemas and reservation management while respecting real-world hotel system constraints.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bg-light py-5">
+
+  <div class="container">
+
+    <h2 class="fw-bold text-center mb-5">
+      Database Modeling
+    </h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+          <img
+            src="images/ehotels/3.jpg"
+            class="card-img-top"
+            alt="ER Diagram"
+          >
+
+          <div class="card-body">
+
+            <h4>
+              ER Diagram
+            </h4>
+
+            <p>
+              The project includes a complete Entity-Relationship diagram representing hotel chains, hotels, rooms, clients, reservations and rentals.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="card border-0 shadow-lg h-100">
+
+          <img
+            src="images/ehotels/4.jpg"
+            class="card-img-top"
+            alt="Mermaid Diagram"
+          >
+
+          <div class="card-body">
+
+            <h4>
+              Mermaid Representation
+            </h4>
+
+            <p>
+              A technical Mermaid-based representation was also created to support implementation and database preparation.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5">
+
+  <h2 class="fw-bold text-center mb-5">
+    Relational Schema & Constraints
+  </h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow h-100">
+
+        <img
+          src="images/ehotels/9.jpg"
+          class="card-img-top"
+          alt="Relational Schema"
+        >
+
+        <div class="card-body">
+
+          <h4>
+            Relational Schema
+          </h4>
+
+          <p>
+            The relational model defines primary keys, foreign keys, normalization rules and business constraints for the hotel system.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card border-0 shadow h-100">
+
+        <img
+          src="images/ehotels/10.jpg"
+          class="card-img-top"
+          alt="Database Constraints"
+        >
+
+        <div class="card-body">
+
+          <h4>
+            Constraints & Business Rules
+          </h4>
+
+          <p>
+            Advanced constraints were implemented for reservation consistency, historical preservation and room availability management.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="bg-light py-5">
+
+  <div class="container">
+
+    <h2 class="fw-bold text-center mb-5">
+      Technical Highlights
+    </h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+
+        <div class="card feature-card border-0 shadow h-100 p-4 text-center">
+
+          <h4>
+            Relational Modeling
+          </h4>
+
+          <p>
+            Complete ER modeling and relational transformation process for a real-world database system.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card feature-card border-0 shadow h-100 p-4 text-center">
+
+          <h4>
+            SQL Constraints
+          </h4>
+
+          <p>
+            The schema integrates keys, normalization, constraints and business validation rules.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="card feature-card border-0 shadow h-100 p-4 text-center">
+
+          <h4>
+            Reservation Logic
+          </h4>
+
+          <p>
+            Reservation-to-rental conversion and room availability logic were modeled carefully.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5 text-center">
+
+  <img
+    src="images/ehotels/14.jpg"
+    alt="Final eHotels Screenshot"
+    class="img-fluid rounded shadow-lg mb-5"
+  >
+
+  <h2 class="fw-bold mb-4">
+    GitHub Repository
+  </h2>
+
+  <p class="lead mb-4">
+    The complete source code and project deliverables are available on GitHub.
+  </p>
+
+  <a
+    href="https://github.com/MohamedBoudabbous16/eHotels"
+    target="_blank"
+    class="btn btn-dark btn-lg px-5"
+  >
+    View on GitHub
+  </a>
+
+  <a
+    href="index.html"
+    class="btn btn-outline-secondary btn-lg ms-2"
+  >
+    Retour
+  </a>
 
 </section>
 
