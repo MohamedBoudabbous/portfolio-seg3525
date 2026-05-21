@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Order Application</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
+
+    <div class="d-flex gap-2">
+
+      <a href="en/pcorderapplication.html"
+         class="btn btn-outline-light btn-sm">
+
+         English
+
+      </a>
+
+      <a href="index.html"
+         class="btn btn-outline-light">
+
+         Retour au portfolio
+
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<section class="project-hero text-center text-white d-flex align-items-center">
+
+  <div class="container">
+
+    <h1 class="display-2 fw-bold">
+      PC Order Application
+    </h1>
+
+    <p class="lead mt-4">
+      Application Android développée en Java avec architecture MVC,
+      gestion des commandes, authentification et interfaces basées
+      sur les rôles utilisateurs.
+    </p>
+
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+
+      <span class="badge bg-light text-dark project-badge">
+        Java
+      </span>
+
+      <span class="badge bg-success project-badge">
+        Android
+      </span>
+
+      <span class="badge bg-primary project-badge">
+        MVC
+      </span>
+
+      <span class="badge bg-warning text-dark project-badge">
+        Authentification
+      </span>
+
+      <span class="badge bg-danger project-badge">
+        Gestion des rôles
+      </span>
+
+    </div>
+
+    <div class="mt-5">
+
+      <a href="https://github.com/MohamedBoudabbous16/PCOrederApplication"
+         target="_blank"
+         class="btn btn-light btn-lg px-4">
+
+         Voir sur GitHub
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="container py-5">
+
+  <h2 class="section-title">
+    Présentation du projet
+  </h2>
+
+  <p>
+    PC Order Application est une application Android conçue
+    pour gérer les commandes de composants informatiques.
+    Le projet implémente plusieurs rôles utilisateurs,
+    notamment Administrator, StoreKeeper, Assembler et Requester.
+    Chaque rôle dispose d’interfaces et de fonctionnalités
+    adaptées à ses responsabilités.
+  </p>
+
+  <h2 class="section-title">
+    Architecture de l’application
+  </h2>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-5">
+
+      <div class="pipeline-box">
+        Authentification
+      </div>
+
+      <div class="pipeline-arrow">↓</div>
+
+      <div class="pipeline-box">
+        Détection du rôle
+      </div>
+
+      <div class="pipeline-arrow">↓</div>
+
+      <div class="pipeline-box">
+        Interface utilisateur dédiée
+      </div>
+
+      <div class="pipeline-arrow">↓</div>
+
+      <div class="pipeline-box">
+        Gestion des commandes
+      </div>
+
+      <div class="pipeline-arrow">↓</div>
+
+      <div class="pipeline-box">
+        Modèles métier
+      </div>
+
+    </div>
+
+  </div>
+
+  <h2 class="section-title">
+    Diagrammes UML et conception
+  </h2>
+
+  <div class="row">
+
+    <div class="col-lg-6">
+
+      <img src="images/PCOrderApplication/Diagramme de classe.png"
+           class="gallery-img"
+           alt="Diagramme de classe">
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <img src="images/PCOrderApplication/Diagramme d'activite pour la création d'une commande par un Requester.png"
+           class="gallery-img"
+           alt="Diagramme activité requester">
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-6">
+
+      <img src="images/PCOrderApplication/Diagramme d'activite pour la manager les composant d'une commande par un StoreKeeper.png"
+           class="gallery-img"
+           alt="Diagramme StoreKeeper">
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <img src="images/PCOrderApplication/Ajout d'un Composant par le StoreKeeper.png"
+           class="gallery-img"
+           alt="Ajout composant">
+
+    </div>
+
+  </div>
+
+  <h2 class="section-title">
+    Fonctionnalités principales
+  </h2>
+
+  <ul>
+
+    <li>Authentification des utilisateurs.</li>
+
+    <li>Navigation basée sur les rôles utilisateurs.</li>
+
+    <li>Création, suppression et consultation des commandes.</li>
+
+    <li>Architecture basée sur le modèle MVC.</li>
+
+    <li>Gestion des composants et du stock.</li>
+
+    <li>Interfaces Android développées avec XML et ConstraintLayout.</li>
+
+    <li>Organisation modulaire du code Java.</li>
+
+  </ul>
+
+  <h2 class="section-title">
+    Démonstration vidéo
+  </h2>
+
+  <video controls class="video-preview">
+
+    <source src="images/PCOrderApplication/requester3.mp4"
+            type="video/mp4">
+
+  </video>
+
+  <h2 class="section-title">
+    Compétences démontrées
+  </h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+
+      <div class="card h-100 shadow-sm border-0">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            Développement Android
+          </h5>
+
+          <p class="card-text">
+            Conception d’interfaces Android et gestion de navigation avec Activities.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="card h-100 shadow-sm border-0">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            Architecture MVC
+          </h5>
+
+          <p class="card-text">
+            Séparation claire entre modèles, vues et logique applicative.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="card h-100 shadow-sm border-0">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            Gestion des rôles
+          </h5>
+
+          <p class="card-text">
+            Implémentation d’un système multi-utilisateur basé sur les rôles.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="mt-5 d-flex gap-3 flex-wrap">
+
+    <a href="https://github.com/MohamedBoudabbous16/PCOrederApplication"
+       target="_blank"
+       class="btn btn-dark btn-lg">
+
+       Voir le dépôt GitHub
+
+    </a>
+
+    <a href="index.html"
+       class="btn btn-outline-dark btn-lg">
+
+       Retour au portfolio
+
+    </a>
+
+  </div>
+
+</section>
+
+</body>
+</html>
