@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eHotels - Système de gestion hôtelière</title>
+  <title>eHotels - Conception d’interface usager</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
     <div class="d-flex gap-2">
-      <a href="en/dashboard.html" class="btn btn-outline-light btn-sm lang-switch">English</a>
+      <a href="en/dashboard.html" class="btn btn-outline-light btn-sm">English</a>
       <a href="index.html" class="btn btn-outline-light">Retour au portfolio</a>
     </div>
   </div>
@@ -21,63 +23,299 @@
 <section class="project-hero text-center text-white d-flex align-items-center">
   <div class="container">
     <h1 class="display-3 fw-bold">eHotels Management System</h1>
-    <p class="lead project-subtitle">Système de gestion hôtelière basé sur la modélisation relationnelle, PostgreSQL, Spring Boot et des règles métier liées aux réservations.</p>
+    <p class="lead project-subtitle">
+      Interface web de gestion hôtelière conçue avec une attention particulière à la navigation,
+      aux formulaires, aux flux utilisateurs et à la lisibilité des données.
+    </p>
+
     <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
-      <span class="badge bg-light text-dark project-badge">PostgreSQL</span>
+      <span class="badge bg-light text-dark project-badge">UI Design</span>
       <span class="badge bg-primary project-badge">Spring Boot</span>
-      <span class="badge bg-success project-badge">SQL</span>
-      <span class="badge bg-warning text-dark project-badge">Base de données</span>
+      <span class="badge bg-success project-badge">PostgreSQL</span>
+      <span class="badge bg-warning text-dark project-badge">User Flows</span>
+      <span class="badge bg-danger project-badge">CRUD Interfaces</span>
     </div>
   </div>
 </section>
 
 <section class="container py-5">
+
+  <h2 class="section-title">Présentation du projet</h2>
+
   <div class="row align-items-center g-5">
-    <div class="col-lg-6"><img src="images/ehotels/1.jpg" alt="Diagramme eHotels" class="img-fluid rounded shadow-lg project-section-image"></div>
     <div class="col-lg-6">
-      <h2 class="fw-bold mb-4">Présentation du projet</h2>
-      <p>eHotels est un système complet de gestion hôtelière conçu pour gérer des chaînes hôtelières, hôtels, chambres, employés, clients, réservations et locations.</p>
-      <p>Le projet met l’accent sur la modélisation de base de données, les règles métier, les schémas relationnels et la gestion des réservations dans un contexte réaliste.</p>
+      <img src="images/ehotels/1.jpg" class="gallery-img" alt="Accueil eHotels">
+    </div>
+
+    <div class="col-lg-6">
+      <p>
+        eHotels est une interface de gestion hôtelière permettant de gérer les chaînes,
+        hôtels, chambres, clients, employés, réservations et locations.
+        Le projet met l’accent sur la conception d’une interface claire, cohérente
+        et utilisable pour plusieurs types de tâches administratives.
+      </p>
+
+      <p>
+        L’objectif principal était de rendre les opérations complexes plus accessibles
+        grâce à une navigation simple, des formulaires structurés et des actions visibles.
+      </p>
     </div>
   </div>
-</section>
 
-<section class="bg-light py-5">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Modélisation de la base de données</h2>
-    <div class="row g-4">
-      <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="images/ehotels/3.jpg" class="card-img-top" alt="Diagramme ER"><div class="card-body"><h4>Diagramme ER</h4><p>Le projet inclut un diagramme Entité-Relation complet représentant les chaînes, hôtels, chambres, clients, réservations et locations.</p></div></div></div>
-      <div class="col-md-6"><div class="card border-0 shadow-lg h-100"><img src="images/ehotels/4.jpg" class="card-img-top" alt="Diagramme Mermaid"><div class="card-body"><h4>Représentation Mermaid</h4><p>Une représentation technique Mermaid a aussi été créée pour faciliter la transition vers l’implémentation.</p></div></div></div>
-    </div>
-  </div>
-</section>
+  <h2 class="section-title">Objectifs de conception UI/UX</h2>
 
-<section class="container py-5">
-  <h2 class="fw-bold text-center mb-5">Schéma relationnel et contraintes</h2>
   <div class="row g-4">
-    <div class="col-md-6"><div class="card border-0 shadow h-100"><img src="images/ehotels/9.jpg" class="card-img-top" alt="Schéma relationnel"><div class="card-body"><h4>Schéma relationnel</h4><p>Le modèle relationnel définit les clés primaires, les clés étrangères, la normalisation et les contraintes principales.</p></div></div></div>
-    <div class="col-md-6"><div class="card border-0 shadow h-100"><img src="images/ehotels/10.jpg" class="card-img-top" alt="Contraintes de base de données"><div class="card-body"><h4>Contraintes et règles métier</h4><p>Des contraintes avancées structurent la cohérence des dates, la disponibilité des chambres et la conservation de l’historique.</p></div></div></div>
-  </div>
-</section>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Navigation claire</h5>
+          <p class="card-text">
+            Les sections principales sont accessibles depuis une barre de navigation persistante :
+            recherche, réservations, locations, clients, employés, hôtels et chambres.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<section class="bg-light py-5">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5">Points techniques importants</h2>
-    <div class="row g-4">
-      <div class="col-md-4"><div class="card feature-card border-0 shadow h-100 p-4 text-center"><h4>Modélisation relationnelle</h4><p>Transformation d’un modèle ER vers un schéma relationnel complet et exploitable.</p></div></div>
-      <div class="col-md-4"><div class="card feature-card border-0 shadow h-100 p-4 text-center"><h4>Contraintes SQL</h4><p>Intégration de clés, contraintes de domaine, règles d’unicité et relations normalisées.</p></div></div>
-      <div class="col-md-4"><div class="card feature-card border-0 shadow h-100 p-4 text-center"><h4>Logique de réservation</h4><p>Modélisation de la conversion réservation → location et de la disponibilité des chambres.</p></div></div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Formulaires guidés</h5>
+          <p class="card-text">
+            Les formulaires sont organisés par groupes logiques afin de réduire la charge cognitive
+            et faciliter la saisie des informations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Données lisibles</h5>
+          <p class="card-text">
+            Les tableaux présentent les informations essentielles avec des statuts visuels,
+            des boutons d’action et une organisation cohérente.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+
+  <h2 class="section-title">Modélisation et structure de l’information</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="images/ehotels/ER.png" class="gallery-img" alt="Diagramme ER">
+      <h3>Diagramme ER</h3>
+      <p>
+        Le diagramme ER a permis de structurer les entités principales et de comprendre
+        les relations nécessaires avant la conception des écrans.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/mermaid.png" class="gallery-img" alt="Diagramme Mermaid">
+      <h3>Représentation Mermaid</h3>
+      <p>
+        Cette représentation a facilité la transition entre la modélisation conceptuelle,
+        la logique relationnelle et l’organisation des interfaces.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Flux utilisateur : recherche et réservation</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="images/ehotels/2.jpg" class="gallery-img" alt="Recherche de chambres">
+      <h3>Recherche multicritère</h3>
+      <p>
+        L’écran de recherche permet de filtrer les chambres par dates, capacité,
+        superficie, chaîne hôtelière, catégorie, prix et zone.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/3.jpg" class="gallery-img" alt="Nouvelle réservation">
+      <h3>Création de réservation</h3>
+      <p>
+        Le formulaire de réservation guide l’utilisateur à travers les champs nécessaires :
+        client, chambre, période et statut initial.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Gestion des réservations et locations</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="images/ehotels/4.jpg" class="gallery-img" alt="Liste des réservations">
+      <h3>Liste des réservations</h3>
+      <p>
+        Les réservations sont affichées dans un tableau avec leur statut et une action
+        de conversion lorsque celle-ci est possible.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/5.jpg" class="gallery-img" alt="Conversion en location">
+      <h3>Conversion en location</h3>
+      <p>
+        Le flux de conversion transforme une réservation confirmée en location réelle,
+        avec sélection de l’employé responsable.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-6">
+      <img src="images/ehotels/6.jpg" class="gallery-img" alt="Nouvelle location">
+      <h3>Location directe</h3>
+      <p>
+        L’utilisateur peut créer une location sans réservation préalable à travers
+        un formulaire dédié et clairement séparé.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/7.jpg" class="gallery-img" alt="Liste des locations">
+      <h3>Suivi des locations</h3>
+      <p>
+        Les locations actives et passées sont affichées avec les informations essentielles
+        pour le suivi opérationnel.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Interfaces d’administration</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="images/ehotels/8.jpg" class="gallery-img" alt="Liste des clients">
+      <h3>Gestion des clients</h3>
+      <p>
+        L’écran des clients présente les profils enregistrés, leur statut et les actions
+        de modification ou d’archivage.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/9.jpg" class="gallery-img" alt="Nouveau client">
+      <h3>Création de client</h3>
+      <p>
+        Le formulaire client regroupe les informations personnelles, le NAS,
+        la date d’inscription et le statut.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-6">
+      <img src="images/ehotels/10.jpg" class="gallery-img" alt="Liste des employés">
+      <h3>Gestion des employés</h3>
+      <p>
+        Les employés sont affichés avec leur rôle, leur hôtel associé,
+        leur zone et leur statut.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/11.jpg" class="gallery-img" alt="Nouvel employé">
+      <h3>Création d’employé</h3>
+      <p>
+        Le formulaire permet d’ajouter un employé en sélectionnant son rôle
+        et l’hôtel auquel il est rattaché.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Gestion des hôtels et chambres</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="images/ehotels/12.jpg" class="gallery-img" alt="Nouvel hôtel">
+      <h3>Création d’hôtel</h3>
+      <p>
+        L’interface permet de créer un hôtel en indiquant sa chaîne, sa catégorie,
+        son adresse, sa zone et son statut.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/ehotels/13.jpg" class="gallery-img" alt="Liste des chambres">
+      <h3>Gestion des chambres</h3>
+      <p>
+        Les chambres sont présentées avec leurs attributs clés : prix, capacité,
+        superficie, vue, lit additionnel et état.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-6">
+      <img src="images/ehotels/14.jpg" class="gallery-img" alt="Nouvelle chambre">
+      <h3>Création de chambre</h3>
+      <p>
+        Le formulaire de chambre permet d’associer une nouvelle chambre à un hôtel
+        existant avec ses caractéristiques principales.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Principes d’interface appliqués</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Cohérence visuelle</h5>
+          <p class="card-text">
+            Les écrans utilisent une structure commune : en-tête, formulaire ou tableau,
+            actions principales et boutons secondaires.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Clarté des actions</h5>
+          <p class="card-text">
+            Les boutons d’ajout, de retour, de modification, d’archivage et de conversion
+            rendent les actions principales facilement identifiables.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Réduction de la complexité</h5>
+          <p class="card-text">
+            Les opérations complexes sont divisées en écrans spécialisés afin d’éviter
+            de surcharger l’utilisateur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 d-flex gap-3 flex-wrap">
+    <a href="https://github.com/MohamedBoudabbous16/eHotels" target="_blank" class="btn btn-dark btn-lg">
+      Voir sur GitHub
+    </a>
+
+    <a href="index.html" class="btn btn-outline-secondary btn-lg">
+      Retour
+    </a>
+  </div>
+
 </section>
 
-<section class="container py-5 text-center">
-  <img src="images/ehotels/14.jpg" alt="Capture finale eHotels" class="img-fluid rounded shadow-lg mb-5 project-section-image">
-  <h2 class="fw-bold mb-4">Dépôt GitHub</h2>
-  <p class="lead mb-4">Le code source et les fichiers du projet sont disponibles sur GitHub.</p>
-  <a href="https://github.com/MohamedBoudabbous16/eHotels" target="_blank" class="btn btn-dark btn-lg px-5">Voir sur GitHub</a>
-  <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2">Retour</a>
-</section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
