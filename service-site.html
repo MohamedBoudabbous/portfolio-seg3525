@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ottawa Barber Studio - Étude de cas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
+    <div class="d-flex gap-2 flex-wrap">
+      <a href="service-site/ottawa-barber-studio/index.html" class="btn btn-primary" target="_blank">Ouvrir le site</a>
+      <a href="index.html" class="btn btn-outline-light">Retour au portfolio</a>
+    </div>
+  </div>
+</nav>
+
+<section class="project-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+    <h1 class="display-2 fw-bold">Ottawa Barber Studio</h1>
+    <p class="lead project-subtitle mt-4">
+      Prototype de site de réservation pour un salon de barbier à Ottawa, conçu avec une démarche de conception centrée utilisateur.
+    </p>
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <span class="badge bg-light text-dark project-badge">React</span>
+      <span class="badge bg-primary project-badge">UI / UX</span>
+      <span class="badge bg-success project-badge">CCU</span>
+      <span class="badge bg-warning text-dark project-badge">Figma</span>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="project-overview-box">
+    <h2 class="section-title">Présentation du projet</h2>
+    <p>
+      Ottawa Barber Studio est un prototype interactif développé pour le devoir de site de service du cours SEG3525.
+      Le projet présente deux parcours utilisateurs distincts : une réservation rapide pour étudiant et une expérience premium
+      pour un client qui souhaite choisir un barbier, un service et une heure précise.
+    </p>
+    <p>
+      Le site final relie les maquettes Figma à un prototype React fonctionnel. Il inclut une première page d’accès,
+      une navigation entre les deux parcours, des choix interactifs, un résumé de réservation et une confirmation finale.
+    </p>
+    <div class="d-flex gap-3 flex-wrap mt-4">
+      <a href="service-site/ottawa-barber-studio/index.html" class="btn btn-primary btn-lg" target="_blank">Ouvrir le prototype</a>
+      <a href="service-site/ottawa-barber-studio.zip" class="btn btn-outline-dark btn-lg">Télécharger le projet React</a>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="section-title text-center mb-4">Processus CCU</h2>
+  <div class="row g-4">
+    <div class="col-md-3"><div class="card h-100 p-4"><h4>1. Comprendre</h4><p>Définition des besoins de deux personas : Amir, qui cherche une réservation étudiante rapide, et Daniel, qui veut une expérience premium.</p></div></div>
+    <div class="col-md-3"><div class="card h-100 p-4"><h4>2. Concevoir</h4><p>Création de deux scénarimages avec trois maquettes chacun afin de représenter les étapes principales du parcours utilisateur.</p></div></div>
+    <div class="col-md-3"><div class="card h-100 p-4"><h4>3. Prototyper</h4><p>Transformation des maquettes en interface React avec services, barbiers, choix de date et confirmation dynamique.</p></div></div>
+    <div class="col-md-3"><div class="card h-100 p-4"><h4>4. Améliorer</h4><p>Itérations sur la hiérarchie visuelle, les contrastes, les boutons, la lisibilité, l’espace négatif et la séparation des deux styles.</p></div></div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="section-title text-center mb-4">Scénarimages et maquettes</h2>
+  <div class="row g-4">
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/1—AmirHome 1.png" alt="Maquette Amir accueil"><h5 class="mt-3">Amir 1 - Home</h5></div>
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/2 — Amir Service Selection 1.png" alt="Maquette Amir service"><h5 class="mt-3">Amir 2 - Service Selection</h5></div>
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/3-amrconfirm 1.png" alt="Maquette Amir confirmation"><h5 class="mt-3">Amir 3 - Confirmation</h5></div>
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/4 — Daniel Premium Home 1.png" alt="Maquette Daniel accueil premium"><h5 class="mt-3">Daniel 1 - Premium Home</h5></div>
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/5 — Daniel Barber and Service 1.png" alt="Maquette Daniel choix barbier"><h5 class="mt-3">Daniel 2 - Barber and Service</h5></div>
+    <div class="col-md-4"><img class="gallery-img" src="service-site/mockup/6 — Daniel Confirmation 1.png" alt="Maquette Daniel confirmation"><h5 class="mt-3">Daniel 3 - Confirmation</h5></div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="project-overview-box">
+    <h2 class="section-title">Choix UX principaux</h2>
+    <ul class="project-list">
+      <li>Deux identités visuelles séparées : bleu/noir/blanc pour le parcours étudiant, noir/beige/doré pour le parcours premium.</li>
+      <li>Réduction de la friction avec des choix visibles au lieu de menus cachés lorsque cela améliore la rapidité.</li>
+      <li>Résumé de réservation toujours visible avant la confirmation pour réduire les erreurs.</li>
+      <li>Hiérarchie claire : titre, action principale, détails essentiels, puis confirmation.</li>
+      <li>Première page d’accès ajoutée pour simuler l’entrée dans le service sans imposer de vérification backend.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="container py-5 text-center">
+  <a href="index.html" class="btn btn-dark btn-lg">Retour au portfolio</a>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
