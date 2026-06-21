@@ -1042,3 +1042,86 @@
     width: 1.65rem;
   }
 }
+
+
+.board-surface {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-grid {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.cards-grid-easy {
+  max-width: 720px;
+}
+
+.cards-grid-medium {
+  max-width: 780px;
+}
+
+.cards-grid-hard {
+  max-width: 860px;
+}
+
+.game-board-easy .memory-card {
+  max-height: 10.5rem;
+}
+
+.game-board-medium .memory-card {
+  max-height: 9.2rem;
+}
+
+.game-board-hard .memory-card {
+  max-height: 7.4rem;
+}
+
+.memory-card-back-pattern {
+  width: 58%;
+  height: 58%;
+  border-radius: 0.85rem;
+}
+
+.memory-card-back-icon .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.memory-card-symbol .icon {
+  width: clamp(1.9rem, 3.5vw, 3rem);
+  height: clamp(1.9rem, 3.5vw, 3rem);
+}
+
+@media (min-width: 1200px) {
+  .game-board {
+    max-width: 1040px;
+    margin-inline: auto;
+  }
+
+  .cards-grid-easy {
+    max-width: 680px;
+  }
+
+  .cards-grid-medium {
+    max-width: 760px;
+  }
+
+  .cards-grid-hard {
+    max-width: 840px;
+  }
+}
+
+@media (max-width: 720px) {
+  .cards-grid-easy,
+  .cards-grid-medium,
+  .cards-grid-hard {
+    max-width: 100%;
+  }
+
+  .memory-card-back-pattern {
+    width: 64%;
+    height: 64%;
+  }
+}

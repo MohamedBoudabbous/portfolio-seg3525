@@ -55,27 +55,24 @@ function createId() {
 
   return `score-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
-
 export function calculateAccuracy({ moves = 0, totalPairs = 0, mistakes = 0 }) {
   const safeMoves = Math.max(0, Math.floor(toSafeNumber(moves)));
   const safePairs = Math.max(0, Math.floor(toSafeNumber(totalPairs)));
   const safeMistakes = Math.max(0, Math.floor(toSafeNumber(mistakes)));
 
-  if (safePairs === 0) {
+  if (safePairs === 0 || safeMoves === 0) {
     return 0;
   }
 
-  if (safeMoves === 0) {
-    return 100;
-  }
+  const idealMoves = safePairs;
+  const efficiencyScore = (idealMoves / safeMoves) * 75;
+  const mistakePenalty = Math.min(35, safeMistakes * 2.2);
+  const completionBonus = 25;
 
-  const moveEfficiency = safePairs / safeMoves;
-  const mistakePenalty = safeMistakes * 3;
-  const accuracy = moveEfficiency * 100 - mistakePenalty;
+  const accuracy = completionBonus + efficiencyScore - mistakePenalty;
 
   return Math.round(clamp(accuracy, 0, 100));
 }
-
 export function calculateMaxScore({
   levelId = "easy",
   modeId = "classic",
