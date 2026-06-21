@@ -11,31 +11,31 @@ const RANKS = [
     minRatio: 0.9,
     label: "Elite Memory",
     message: "Outstanding speed, accuracy, and recall.",
-    icon: "🏆"
+    iconName: "trophy"
   },
   {
     minRatio: 0.75,
     label: "Excellent",
     message: "Strong memory performance with very few inefficiencies.",
-    icon: "✨"
+    iconName: "score"
   },
   {
     minRatio: 0.55,
     label: "Good",
     message: "Solid performance with room to improve speed or precision.",
-    icon: "💪"
+    iconName: "target"
   },
   {
     minRatio: 0.35,
     label: "Developing",
     message: "Good effort. Try focusing on card positions before moving fast.",
-    icon: "🌱"
+    iconName: "brain"
   },
   {
     minRatio: 0,
     label: "Practice Run",
     message: "Keep training. Memory improves with repeated attempts.",
-    icon: "🔁"
+    iconName: "restart"
   }
 ];
 
@@ -46,6 +46,14 @@ function toSafeNumber(value, fallback = 0) {
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function createId() {
+  if (globalThis.crypto?.randomUUID) {
+    return globalThis.crypto.randomUUID();
+  }
+
+  return `score-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
 export function calculateAccuracy({ moves = 0, totalPairs = 0, mistakes = 0 }) {
@@ -68,12 +76,18 @@ export function calculateAccuracy({ moves = 0, totalPairs = 0, mistakes = 0 }) {
   return Math.round(clamp(accuracy, 0, 100));
 }
 
-export function calculateMaxScore({ levelId = "easy", modeId = "classic", totalPairs }) {
+export function calculateMaxScore({
+  levelId = "easy",
+  modeId = "classic",
+  totalPairs
+}) {
   const level = getLevelById(levelId);
   const safePairs = Math.max(1, Math.floor(toSafeNumber(totalPairs, level.pairsCount)));
   const modeMultiplier = MODE_MULTIPLIERS[modeId] ?? MODE_MULTIPLIERS.classic;
 
-  return Math.round(safePairs * 120 * level.scoreMultiplier * modeMultiplier + safePairs * 40);
+  return Math.round(
+    safePairs * 120 * level.scoreMultiplier * modeMultiplier + safePairs * 40
+  );
 }
 
 export function calculateScore({
@@ -104,14 +118,22 @@ export function calculateScore({
   const extraMoves = Math.max(0, safeMoves - idealMoves);
 
   const completionBonus = completed ? safePairs * 40 : 0;
-  const speedBonus = modeId === "focus" ? safeRemainingTime * 6 : Math.max(0, 90 - safeSeconds) * 2;
+  const speedBonus =
+    modeId === "focus" ? safeRemainingTime * 6 : Math.max(0, 90 - safeSeconds) * 2;
   const baseScore = safePairs * 120 * level.scoreMultiplier * modeMultiplier;
 
   const timePenalty = safeSeconds * (modeId === "focus" ? 2.5 : 1.6);
   const movePenalty = extraMoves * 14;
   const mistakePenalty = safeMistakes * level.mismatchPenalty * 8;
 
-  const rawScore = baseScore + completionBonus + speedBonus - timePenalty - movePenalty - mistakePenalty;
+  const rawScore =
+    baseScore +
+    completionBonus +
+    speedBonus -
+    timePenalty -
+    movePenalty -
+    mistakePenalty;
+
   const finalScore = completed ? rawScore : rawScore * 0.35;
 
   return Math.round(clamp(finalScore, 0, maxScore));
@@ -204,7 +226,7 @@ export function createScoreEntry({
   completed = true
 }) {
   return {
-    id: crypto.randomUUID(),
+    id: createId(),
     modeId,
     levelId,
     themeId,
@@ -228,6 +250,7 @@ export function sortScores(scores) {
     if (b.score !== a.score) return b.score - a.score;
     if (a.seconds !== b.seconds) return a.seconds - b.seconds;
     if (a.moves !== b.moves) return a.moves - b.moves;
+
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
 }

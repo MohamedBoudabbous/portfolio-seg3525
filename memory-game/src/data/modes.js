@@ -5,13 +5,14 @@ export const MODES = {
     id: "classic",
     name: "Classic Match",
     shortName: "Match",
-    icon: "🃏",
+    iconName: "cards",
     tagline: "Find every hidden pair.",
     description:
       "A classic memory card game where the player flips two cards at a time and tries to remember their positions.",
     memoryFocus: "Visual memory and spatial recall",
     cognitiveSkills: ["Visual recognition", "Spatial memory", "Attention"],
-    interactionPattern: "Flip two cards, compare them, and remember their locations.",
+    interactionPattern:
+      "Flip two cards, compare them, and remember their locations.",
     feedbackStyle: "Immediate visual feedback for matches and mismatches.",
     difficultyBehavior:
       "Higher levels increase the number of cards and the amount of information to retain.",
@@ -27,7 +28,7 @@ export const MODES = {
     id: "sequence",
     name: "Sequence Recall",
     shortName: "Sequence",
-    icon: "🔢",
+    iconName: "sequence",
     tagline: "Memorize the order.",
     description:
       "A sequence-based memory mode where the player studies a short pattern and must reproduce it in the correct order.",
@@ -51,7 +52,7 @@ export const MODES = {
     id: "focus",
     name: "Focus Challenge",
     shortName: "Focus",
-    icon: "⏱️",
+    iconName: "focus",
     tagline: "Match fast under pressure.",
     description:
       "A timed challenge mode where the player must find pairs quickly while avoiding costly mistakes.",
@@ -76,14 +77,15 @@ export const MODE_OPTIONS = Object.values(MODES).map((mode) => ({
   id: mode.id,
   name: mode.name,
   shortName: mode.shortName,
-  icon: mode.icon,
+  iconName: mode.iconName,
   tagline: mode.tagline,
   description: mode.description,
   memoryFocus: mode.memoryFocus,
   cognitiveSkills: mode.cognitiveSkills,
   bestFor: mode.bestFor,
   primaryMetric: mode.primaryMetric,
-  secondaryMetric: mode.secondaryMetric
+  secondaryMetric: mode.secondaryMetric,
+  route: mode.route
 }));
 
 export function getModeById(modeId) {
