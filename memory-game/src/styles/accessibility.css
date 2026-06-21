@@ -1,0 +1,198 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--theme-accent);
+  outline-offset: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+.memory-card:focus-visible,
+.mode-card:focus-visible,
+.config-option-card:focus-visible {
+  outline: 3px solid var(--theme-accent);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.08),
+    0 0 0 10px color-mix(in srgb, var(--theme-accent) 24%, transparent);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.ghost-button:focus-visible {
+  outline-offset: 5px;
+}
+
+.memory-card:focus-visible {
+  border-color: var(--theme-accent);
+  transform: translateY(-2px);
+}
+
+.mode-card:focus-visible,
+.config-option-card:focus-visible {
+  border-color: var(--theme-accent);
+}
+
+[aria-disabled="true"],
+button:disabled {
+  pointer-events: none;
+}
+
+[aria-live="polite"] {
+  scroll-margin-top: 2rem;
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --bg: #020617;
+    --bg-soft: #020617;
+    --surface: rgba(15, 23, 42, 0.98);
+    --surface-strong: rgba(15, 23, 42, 1);
+    --border: rgba(255, 255, 255, 0.28);
+    --border-strong: rgba(255, 255, 255, 0.45);
+    --text: #ffffff;
+    --text-soft: #e2e8f0;
+    --text-muted: #cbd5e1;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .ghost-button,
+  .mode-card,
+  .config-option-card,
+  .stat-card,
+  .memory-card,
+  .leaderboard-card,
+  .game-over-modal,
+  .result-metric {
+    border-width: 2px;
+  }
+
+  .memory-card-label,
+  .stat-helper,
+  .result-metric-helper,
+  .section-description,
+  .hero-description {
+    color: var(--text-soft);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body,
+  .app-shell,
+  .app-header,
+  .game-config,
+  .game-board,
+  .game-over-modal,
+  .config-hero-copy,
+  .config-summary-card,
+  .mode-selector,
+  .config-section,
+  .leaderboard,
+  .leaderboard-card,
+  .stat-card,
+  .result-metric,
+  .memory-card-front,
+  .memory-card-back {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .ghost-button,
+  .mode-card,
+  .config-option-card,
+  .memory-card,
+  .stat-card,
+  .result-metric,
+  .leaderboard-card,
+  .game-over-modal {
+    border: 2px solid ButtonBorder;
+    color: ButtonText;
+    background: ButtonFace;
+  }
+
+  .icon,
+  .memory-card-symbol,
+  .stat-icon,
+  .result-metric-icon,
+  .board-feedback-icon,
+  .brand-mark {
+    color: CanvasText;
+  }
+
+  :focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .memory-card-inner {
+    transition: none !important;
+  }
+
+  .memory-card-flipped .memory-card-inner,
+  .memory-card-matched .memory-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .memory-card:not(:disabled):hover,
+  .mode-card:hover:not(:disabled),
+  .config-option-card:hover:not(:disabled),
+  .leaderboard-row:hover,
+  .primary-button:hover:not(:disabled),
+  .secondary-button:hover:not(:disabled),
+  .ghost-button:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .stat-card-highlight .stat-icon,
+  .result-metric-highlight .result-metric-icon,
+  .result-badge {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  :focus-visible {
+    outline-offset: 3px;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  .memory-card:focus-visible,
+  .mode-card:focus-visible,
+  .config-option-card:focus-visible {
+    outline-width: 2px;
+    outline-offset: 3px;
+  }
+}
