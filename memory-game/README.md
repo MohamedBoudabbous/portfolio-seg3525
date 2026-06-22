@@ -308,8 +308,7 @@ Dans ce projet, j’ai utilisé des outils d’intelligence artificielle génér
 
 L’IA a été utilisée pour m’aider à structurer certaines idées de scénarimages, proposer des formulations pour les personnages, améliorer la clarté de certaines explications et assister le débogage du prototype React.
 
-L’IA a aussi été utilisée pour analyser certains problèmes techniques, notamment la logique de clic des cartes, les états React, le score, le mode Focus Challenge, le mode Sequence Recall et l’intégration du jeu dans le portfolio.
-
+L’IA a aussi été utilisée pour generer les maquettes
 Cependant, les choix finaux, les modifications, les tests, l’intégration au portfolio et l’adaptation du design ont été réalisés et validés manuellement.
 
 ## 11. Liens complémentaires
