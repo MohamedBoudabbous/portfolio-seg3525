@@ -25,7 +25,7 @@ function formatDate(dateValue) {
 function ScoreMetric({ iconName, label, value }) {
   return (
     <span className="leaderboard-metric">
-      <Icon name={iconName} size={15} />
+      <Icon name={iconName} size={16} />
       <span className="sr-only">{label}: </span>
       <span>{value}</span>
     </span>

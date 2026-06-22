@@ -35,7 +35,7 @@ const RANKS = [
     minRatio: 0,
     label: "Practice Run",
     message: "Keep training. Memory improves with repeated attempts.",
-    iconName: "restart"
+    iconName: "brain"
   }
 ];
 
@@ -87,6 +87,83 @@ export function calculateMaxScore({
   );
 }
 
+// export function calculateScore({
+//   levelId = "easy",
+//   modeId = "classic",
+//   moves = 0,
+//   seconds = 0,
+//   totalPairs,
+//   mistakes = 0,
+//   remainingTime = 0,
+//   completed = true
+// } = {}) {
+//   const level = getLevelById(levelId);
+//   const safePairs = Math.max(1, Math.floor(toSafeNumber(totalPairs, level.pairsCount)));
+//   const safeMoves = Math.max(0, Math.floor(toSafeNumber(moves)));
+//   const safeSeconds = Math.max(0, Math.floor(toSafeNumber(seconds)));
+//   const safeMistakes = Math.max(0, Math.floor(toSafeNumber(mistakes)));
+//   const safeRemainingTime = Math.max(0, Math.floor(toSafeNumber(remainingTime)));
+//   const modeMultiplier = MODE_MULTIPLIERS[modeId] ?? MODE_MULTIPLIERS.classic;
+
+//   const maxScore = calculateMaxScore({
+//     levelId,
+//     modeId,
+//     totalPairs: safePairs
+//   });
+
+//   const idealMoves = safePairs;
+//   const extraMoves = Math.max(0, safeMoves - idealMoves);
+
+//   const completionScore = completed ? maxScore * 0.42 : maxScore * 0.12;
+
+//   const pairScore =
+//     (safePairs / Math.max(1, level.pairsCount)) * maxScore * 0.22;
+
+//   const speedScore =
+//     modeId === "focus"
+//       ? Math.min(maxScore * 0.18, safeRemainingTime * 5 * level.scoreMultiplier)
+//       : Math.max(0, maxScore * 0.18 - safeSeconds * 2.2);
+
+//   const efficiencyScore = Math.max(0, maxScore * 0.18 - extraMoves * 18);
+
+//   const mistakePenalty =
+//     safeMistakes * level.mismatchPenalty * 5 * modeMultiplier;
+
+//   const rawScore =
+//     completionScore +
+//     pairScore +
+//     speedScore +
+//     efficiencyScore -
+//     mistakePenalty;
+
+//   return Math.round(clamp(rawScore, 0, maxScore));
+// }
+
+
+//   const idealMoves = safePairs;
+//   const extraMoves = Math.max(0, safeMoves - idealMoves);
+
+//   const completionBonus = completed ? safePairs * 40 : 0;
+//   const speedBonus =
+//     modeId === "focus" ? safeRemainingTime * 6 : Math.max(0, 90 - safeSeconds) * 2;
+//   const baseScore = safePairs * 120 * level.scoreMultiplier * modeMultiplier;
+
+//   const timePenalty = safeSeconds * (modeId === "focus" ? 2.5 : 1.6);
+//   const movePenalty = extraMoves * 14;
+//   const mistakePenalty = safeMistakes * level.mismatchPenalty * 8;
+
+//   const rawScore =
+//     baseScore +
+//     completionBonus +
+//     speedBonus -
+//     timePenalty -
+//     movePenalty -
+//     mistakePenalty;
+
+//   const finalScore = completed ? rawScore : rawScore * 0.35;
+
+//   return Math.round(clamp(finalScore, 0, maxScore));
+// }
 export function calculateScore({
   levelId = "easy",
   modeId = "classic",
@@ -114,26 +191,29 @@ export function calculateScore({
   const idealMoves = safePairs;
   const extraMoves = Math.max(0, safeMoves - idealMoves);
 
-  const completionBonus = completed ? safePairs * 40 : 0;
-  const speedBonus =
-    modeId === "focus" ? safeRemainingTime * 6 : Math.max(0, 90 - safeSeconds) * 2;
-  const baseScore = safePairs * 120 * level.scoreMultiplier * modeMultiplier;
+  const completionScore = completed ? maxScore * 0.42 : maxScore * 0.12;
 
-  const timePenalty = safeSeconds * (modeId === "focus" ? 2.5 : 1.6);
-  const movePenalty = extraMoves * 14;
-  const mistakePenalty = safeMistakes * level.mismatchPenalty * 8;
+  const pairScore =
+    (safePairs / Math.max(1, level.pairsCount)) * maxScore * 0.22;
+
+  const speedScore =
+    modeId === "focus"
+      ? Math.min(maxScore * 0.18, safeRemainingTime * 5 * level.scoreMultiplier)
+      : Math.max(0, maxScore * 0.18 - safeSeconds * 2.2);
+
+  const efficiencyScore = Math.max(0, maxScore * 0.18 - extraMoves * 18);
+
+  const mistakePenalty =
+    safeMistakes * level.mismatchPenalty * 5 * modeMultiplier;
 
   const rawScore =
-    baseScore +
-    completionBonus +
-    speedBonus -
-    timePenalty -
-    movePenalty -
+    completionScore +
+    pairScore +
+    speedScore +
+    efficiencyScore -
     mistakePenalty;
 
-  const finalScore = completed ? rawScore : rawScore * 0.35;
-
-  return Math.round(clamp(finalScore, 0, maxScore));
+  return Math.round(clamp(rawScore, 0, maxScore));
 }
 
 export function getScoreRatio(score, maxScore) {

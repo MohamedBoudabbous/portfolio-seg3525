@@ -1125,3 +1125,52 @@
     height: 64%;
   }
 }
+
+.leaderboard-metric .icon {
+  opacity: 0.95;
+  stroke-width: 2;
+}
+
+.bottom-start-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 42%, rgba(255, 255, 255, 0.14));
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--theme-accent) 16%, transparent), transparent 44%),
+    rgba(15, 23, 42, 0.82);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--theme-accent) 12%, transparent),
+    var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.bottom-start-copy {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.bottom-start-copy h2 {
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+}
+
+.bottom-start-button {
+  width: auto;
+  min-width: 12rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .bottom-start-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bottom-start-button {
+    width: 100%;
+  }
+}

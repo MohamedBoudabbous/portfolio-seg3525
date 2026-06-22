@@ -241,6 +241,29 @@ export default function GameConfig({
         modeName={selectedMode.name}
         levelName={selectedLevel.name}
       />
+
+      <section className="bottom-start-panel" aria-labelledby="bottom-start-title">
+        <div className="bottom-start-copy">
+          <p className="eyebrow">Ready to play</p>
+
+          <h2 id="bottom-start-title">Start your memory session</h2>
+
+          <p className="section-description">
+            You are about to play <strong>{selectedMode.name}</strong> on{" "}
+            <strong>{selectedLevel.name}</strong> difficulty using the{" "}
+            <strong>{selectedTheme.name}</strong> symbol set.
+          </p>
+        </div>
+
+        <button
+          className="primary-button bottom-start-button"
+          type="button"
+          onClick={handleStartGame}
+        >
+          <Icon name="play" size={18} />
+          <span>Start Game</span>
+        </button>
+      </section>
     </main>
   );
 }
