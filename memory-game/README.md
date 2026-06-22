@@ -315,10 +315,10 @@ Cependant, les choix finaux, les modifications, les tests, l’intégration au p
 ## 11. Liens complémentaires
 
 **Portfolio :**
-https://portfoliov2mohamed.netlify.app
+https://mohamedboudabbous.github.io/portfolio-seg3525/
 
 **Prototype NeuroMatch :**
-https://portfoliov2mohamed.netlify.app/memory-game/dist/index.html
+neuromatch-boudabbous-300376202.surge.sh
 
 **GitHub :**
 https://github.com/MohamedBoudabbous/portfolio-seg3525/tree/main/memory-game
