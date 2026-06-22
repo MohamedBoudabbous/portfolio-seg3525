@@ -304,11 +304,9 @@ npm run build
 
 ## 10. Reconnaissance de l’usage de l’IA
 
-Dans ce projet, j’ai utilisé des outils d’intelligence artificielle générative comme aide pendant la conception et le développement.
-
+Dans ce projet, j’ai utilisé des outils d’intelligence artificielle générative comme aide pendant mon travail.
 L’IA a été utilisée pour m’aider à structurer certaines idées de scénarimages, proposer des formulations pour les personnages, améliorer la clarté de certaines explications et assister le débogage du prototype React.
-
-L’IA a aussi été utilisée pour generer les maquettes
+L’IA a aussi été utilisée pour generer les maquettes.
 Cependant, les choix finaux, les modifications, les tests, l’intégration au portfolio et l’adaptation du design ont été réalisés et validés manuellement.
 
 ## 11. Liens complémentaires
@@ -323,4 +321,4 @@ neuromatch-boudabbous-300376202.surge.sh
 https://github.com/MohamedBoudabbous/portfolio-seg3525/tree/main/memory-game
 
 **Figma — scénarimages :**
-À ajouter lorsque le lien Figma final est disponible.
+https://www.figma.com/design/pDe4pPhkQ0Sxo2zebhYCG7/Ottawa-Barber-Studio-%E2%80%93-Storyboards?node-id=40-2&p=f&t=gLjkiN3u4IkyY24d-0
