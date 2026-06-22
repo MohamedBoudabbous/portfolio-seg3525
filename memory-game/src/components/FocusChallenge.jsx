@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 import Card from "./Card";
 import GameOver from "./GameOver";
 import Icon from "./Icon";
@@ -5,7 +7,6 @@ import StatsBar from "./StatsBar";
 
 import {
   FOCUS_RESULT_TYPES,
-  FOCUS_STATUS,
   useFocusChallenge
 } from "../hooks/useFocusChallenge";
 import { formatTime } from "../utils/formatTime";
@@ -58,7 +59,7 @@ function getPressureCopy({ pressureLevel, remainingTime, penaltySeconds, combo }
   return {
     iconName: "focus",
     title: "Focus mode",
-    message: "Match fast. Mistakes reduce the timer and destroy your combo."
+    message: "Match fast. Mistakes reduce the timer and reset your combo."
   };
 }
 
@@ -70,7 +71,7 @@ function getResultCopy(lastResult) {
   if (lastResult.type === FOCUS_RESULT_TYPES.match) {
     return {
       iconName: "check",
-      title: "Match",
+      title: "Match confirmed",
       message: lastResult.message
     };
   }
@@ -94,7 +95,7 @@ function getResultCopy(lastResult) {
   if (lastResult.type === FOCUS_RESULT_TYPES.warning) {
     return {
       iconName: "warning",
-      title: "Warning",
+      title: "Timer warning",
       message: lastResult.message
     };
   }
@@ -134,18 +135,22 @@ function FocusTimer({
       className={`focus-timer focus-timer-${pressureLevel}`}
       aria-labelledby="focus-timer-title"
     >
-      <div className="focus-timer-copy">
-        <p className="eyebrow">Time pressure</p>
-        <h2 id="focus-timer-title">{formatTime(remainingTime)}</h2>
-        <p>
-          {remainingTime > 0
-            ? `${remainingTime}s remaining from a ${timeLimit}s limit`
-            : "Timer expired"}
-        </p>
-      </div>
+      <div className="focus-timer-main">
+        <div className="focus-timer-copy">
+          <p className="eyebrow">Time pressure</p>
 
-      <div className="focus-timer-ring" aria-hidden="true">
-        <span>{timeProgress}%</span>
+          <h2 id="focus-timer-title">{formatTime(remainingTime)}</h2>
+
+          <p>
+            {remainingTime > 0
+              ? `${remainingTime}s remaining from a ${timeLimit}s limit`
+              : "Timer expired"}
+          </p>
+        </div>
+
+        <div className="focus-timer-ring" aria-hidden="true">
+          <span>{timeProgress}%</span>
+        </div>
       </div>
 
       <div className="focus-timer-track" aria-hidden="true">
@@ -177,6 +182,7 @@ function FocusPressurePanel({
   });
 
   const resultCopy = getResultCopy(lastResult);
+  const activeCopy = resultCopy ?? pressureCopy;
 
   return (
     <section
@@ -185,24 +191,24 @@ function FocusPressurePanel({
     >
       <div className="focus-pressure-main">
         <span className="focus-pressure-icon" aria-hidden="true">
-          <Icon name={resultCopy?.iconName ?? pressureCopy.iconName} size={22} />
+          <Icon name={activeCopy.iconName} size={22} />
         </span>
 
         <div>
-          <p className="eyebrow">{resultCopy?.title ?? pressureCopy.title}</p>
-          <h3>{resultCopy?.message ?? pressureCopy.message}</h3>
+          <p className="eyebrow">{activeCopy.title}</p>
+          <h3>{activeCopy.message}</h3>
           <span>{instruction}</span>
         </div>
       </div>
 
       <div className="focus-combo-panel">
         <div>
-          <span>Current combo</span>
+          <span>Combo</span>
           <strong>x{combo}</strong>
         </div>
 
         <div>
-          <span>Best combo</span>
+          <span>Best</span>
           <strong>x{bestCombo}</strong>
         </div>
       </div>
@@ -247,6 +253,8 @@ export default function FocusChallenge({
   themeId = "animals",
   onBackToConfig
 }) {
+  const gridSectionRef = useRef(null);
+
   const game = useFocusChallenge({
     levelId,
     themeId,
@@ -288,6 +296,27 @@ export default function FocusChallenge({
     restartGame,
     flipCard
   } = game;
+
+  useEffect(() => {
+    if (!gridSectionRef.current) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      gridSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      gridSectionRef.current.focus({
+        preventScroll: true
+      });
+    }, 250);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   const cardSize = getCardSize(level.id);
 
@@ -358,13 +387,25 @@ export default function FocusChallenge({
           </div>
         </div>
 
-        <FocusTimer
-          remainingTime={remainingTime}
-          timeLimit={timeLimit}
-          timeProgress={timeProgress}
-          pressureLevel={pressureLevel}
-          penaltySeconds={penaltySeconds}
-        />
+        <div className="focus-top-grid">
+          <FocusTimer
+            remainingTime={remainingTime}
+            timeLimit={timeLimit}
+            timeProgress={timeProgress}
+            pressureLevel={pressureLevel}
+            penaltySeconds={penaltySeconds}
+          />
+
+          <FocusPressurePanel
+            pressureLevel={pressureLevel}
+            remainingTime={remainingTime}
+            penaltySeconds={penaltySeconds}
+            combo={combo}
+            bestCombo={bestCombo}
+            lastResult={lastResult}
+            instruction={instruction}
+          />
+        </div>
 
         <StatsBar
           seconds={seconds}
@@ -392,17 +433,11 @@ export default function FocusChallenge({
           pressureLevel={pressureLevel}
         />
 
-        <FocusPressurePanel
-          pressureLevel={pressureLevel}
-          remainingTime={remainingTime}
-          penaltySeconds={penaltySeconds}
-          combo={combo}
-          bestCombo={bestCombo}
-          lastResult={lastResult}
-          instruction={instruction}
-        />
-
-        <div className="board-surface focus-board-surface">
+        <div
+          className="board-surface focus-board-surface"
+          ref={gridSectionRef}
+          tabIndex={-1}
+        >
           <div
             className={`cards-grid cards-grid-${level.id} focus-cards-grid`}
             style={gridStyle}
@@ -429,6 +464,7 @@ export default function FocusChallenge({
                     index={index}
                     size={cardSize}
                     showLabel={level.id !== "hard"}
+                    revealAll={false}
                     disabled={!canFlip || card.isMatched || card.isWrong}
                     onClick={flipCard}
                   />

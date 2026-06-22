@@ -119,6 +119,7 @@ function calculateFocusScore({
 
   const progressScore = maxScore * 0.38 * completionRatio;
   const completionScore = completed ? maxScore * 0.22 : 0;
+
   const speedScore =
     maxScore *
     0.22 *
@@ -190,12 +191,17 @@ export function useFocusChallenge({
   const settings = useMemo(() => getFocusSettings(level.id), [level.id]);
 
   const randomRef = useRef(random);
+  const statusRef = useRef(FOCUS_STATUS.ready);
+  const cardsRef = useRef([]);
+  const selectedCardsRef = useRef([]);
+  const movesRef = useRef(0);
+  const mistakesRef = useRef(0);
+  const matchedPairsRef = useRef(0);
+  const comboRef = useRef(0);
+  const bestComboRef = useRef(0);
+  const remainingTimeRef = useRef(settings.timeLimit);
   const mismatchTimeoutRef = useRef(null);
   const matchTimeoutRef = useRef(null);
-
-  useEffect(() => {
-    randomRef.current = random;
-  }, [random]);
 
   const [status, setStatus] = useState(FOCUS_STATUS.ready);
   const [cards, setCards] = useState([]);
@@ -228,6 +234,76 @@ export function useFocusChallenge({
     }
   }, []);
 
+  const setFocusStatus = useCallback((nextStatus) => {
+    statusRef.current = nextStatus;
+    setStatus(nextStatus);
+  }, []);
+
+  const commitCards = useCallback((nextCards) => {
+    cardsRef.current = nextCards;
+    setCards(nextCards);
+  }, []);
+
+  const commitSelectedCards = useCallback((nextSelectedCards) => {
+    selectedCardsRef.current = nextSelectedCards;
+    setSelectedCards(nextSelectedCards);
+  }, []);
+
+  const loseGame = useCallback((message = "Time is up. The challenge is over.") => {
+    clearTimers();
+
+    selectedCardsRef.current = [];
+    setSelectedCards([]);
+
+    setFocusStatus(FOCUS_STATUS.lost);
+
+    setLastResult({
+      type: FOCUS_RESULT_TYPES.timeout,
+      message,
+      intensity: "danger",
+      penaltySeconds: 0,
+      combo: 0,
+      uid: null,
+      matchedUid: null
+    });
+  }, [clearTimers, setFocusStatus]);
+
+  useEffect(() => {
+    randomRef.current = random;
+  }, [random]);
+
+  useEffect(() => {
+    cardsRef.current = cards;
+  }, [cards]);
+
+  useEffect(() => {
+    selectedCardsRef.current = selectedCards;
+  }, [selectedCards]);
+
+  useEffect(() => {
+    movesRef.current = moves;
+  }, [moves]);
+
+  useEffect(() => {
+    mistakesRef.current = mistakes;
+  }, [mistakes]);
+
+  useEffect(() => {
+    matchedPairsRef.current = matchedPairs;
+  }, [matchedPairs]);
+
+  useEffect(() => {
+    comboRef.current = combo;
+  }, [combo]);
+
+  useEffect(() => {
+    bestComboRef.current = bestCombo;
+  }, [bestCombo]);
+
+  useEffect(() => {
+    remainingTimeRef.current = remainingTime;
+  }, [remainingTime]);
+
   const startGame = useCallback(() => {
     clearTimers();
 
@@ -238,6 +314,16 @@ export function useFocusChallenge({
         randomRef.current
       )
     );
+
+    cardsRef.current = nextCards;
+    selectedCardsRef.current = [];
+    movesRef.current = 0;
+    mistakesRef.current = 0;
+    matchedPairsRef.current = 0;
+    comboRef.current = 0;
+    bestComboRef.current = 0;
+    remainingTimeRef.current = settings.timeLimit;
+    statusRef.current = FOCUS_STATUS.playing;
 
     setCards(nextCards);
     setSelectedCards([]);
@@ -266,6 +352,7 @@ export function useFocusChallenge({
 
   useEffect(() => {
     if (!autoStart) {
+      remainingTimeRef.current = settings.timeLimit;
       setRemainingTime(settings.timeLimit);
       return;
     }
@@ -289,6 +376,7 @@ export function useFocusChallenge({
 
       setRemainingTime((currentRemainingTime) => {
         const nextRemainingTime = Math.max(0, currentRemainingTime - 1);
+        remainingTimeRef.current = nextRemainingTime;
 
         if (nextRemainingTime === settings.warningThreshold) {
           setLastResult((currentResult) => ({
@@ -301,27 +389,7 @@ export function useFocusChallenge({
         }
 
         if (nextRemainingTime === 0) {
-          setStatus((currentStatus) => {
-            if (
-              currentStatus === FOCUS_STATUS.won ||
-              currentStatus === FOCUS_STATUS.lost
-            ) {
-              return currentStatus;
-            }
-
-            return FOCUS_STATUS.lost;
-          });
-
-          setSelectedCards([]);
-          setLastResult({
-            type: FOCUS_RESULT_TYPES.timeout,
-            message: "Time is up. The challenge is over.",
-            intensity: "danger",
-            penaltySeconds: 0,
-            combo: 0,
-            uid: null,
-            matchedUid: null
-          });
+          loseGame("Time is up. The challenge is over.");
         }
 
         return nextRemainingTime;
@@ -331,207 +399,213 @@ export function useFocusChallenge({
     return () => {
       globalThis.clearInterval(intervalId);
     };
-  }, [status, settings.warningThreshold]);
+  }, [status, settings.warningThreshold, loseGame]);
 
   const applyPenalty = useCallback(
     (penaltySeconds) => {
-      setRemainingTime((currentRemainingTime) => {
-        const nextRemainingTime = Math.max(0, currentRemainingTime - penaltySeconds);
+      const nextRemainingTime = Math.max(
+        0,
+        remainingTimeRef.current - penaltySeconds
+      );
 
-        if (nextRemainingTime === 0) {
-          setStatus((currentStatus) => {
-            if (currentStatus === FOCUS_STATUS.won) {
-              return currentStatus;
-            }
+      remainingTimeRef.current = nextRemainingTime;
+      setRemainingTime(nextRemainingTime);
 
-            return FOCUS_STATUS.lost;
-          });
+      if (nextRemainingTime === 0) {
+        loseGame("The penalty drained the timer.");
+      }
 
-          setLastResult({
-            type: FOCUS_RESULT_TYPES.timeout,
-            message: "The penalty drained the timer.",
-            intensity: "danger",
-            penaltySeconds,
-            combo: 0,
-            uid: null,
-            matchedUid: null
-          });
-        }
-
-        return nextRemainingTime;
-      });
+      return nextRemainingTime;
     },
-    []
+    [loseGame]
   );
 
-  const flipCard = useCallback(
-    (uid) => {
-      if (status !== FOCUS_STATUS.playing) {
-        return;
-      }
+  const flipCard = useCallback((uid) => {
+    if (statusRef.current !== FOCUS_STATUS.playing) {
+      return;
+    }
 
-      if (selectedCards.length >= 2) {
-        return;
-      }
+    const currentSelectedCards = selectedCardsRef.current;
+    const currentCards = cardsRef.current;
 
-      const targetCard = cards.find((card) => card.uid === uid);
+    if (currentSelectedCards.length >= 2) {
+      return;
+    }
 
-      if (
-        !targetCard ||
-        targetCard.isMatched ||
-        targetCard.isFlipped ||
-        targetCard.isWrong
-      ) {
-        return;
-      }
+    const targetCard = currentCards.find((card) => card.uid === uid);
 
-      const nextSelectedCards = [...selectedCards, uid];
+    if (
+      !targetCard ||
+      targetCard.isMatched ||
+      targetCard.isFlipped ||
+      targetCard.isWrong
+    ) {
+      return;
+    }
 
-      setCards((currentCards) =>
-        currentCards.map((card) =>
-          card.uid === uid
+    const nextSelectedCards = [...currentSelectedCards, uid];
+
+    const flippedCards = currentCards.map((card) =>
+      card.uid === uid
+        ? {
+            ...card,
+            isFlipped: true,
+            isWrong: false
+          }
+        : card
+    );
+
+    commitCards(flippedCards);
+    commitSelectedCards(nextSelectedCards);
+
+    if (nextSelectedCards.length !== 2) {
+      return;
+    }
+
+    const [firstUid, secondUid] = nextSelectedCards;
+    const firstCard = flippedCards.find((card) => card.uid === firstUid);
+    const secondCard = flippedCards.find((card) => card.uid === secondUid);
+
+    if (!firstCard || !secondCard) {
+      commitSelectedCards([]);
+      setFocusStatus(FOCUS_STATUS.playing);
+      return;
+    }
+
+    const nextMoves = movesRef.current + 1;
+    movesRef.current = nextMoves;
+    setMoves(nextMoves);
+
+    setFocusStatus(FOCUS_STATUS.checking);
+
+    const isMatch = firstCard.pairId === secondCard.pairId;
+
+    if (isMatch) {
+      matchTimeoutRef.current = globalThis.setTimeout(() => {
+        if (statusRef.current !== FOCUS_STATUS.checking) {
+          return;
+        }
+
+        const matchedCards = cardsRef.current.map((card) =>
+          nextSelectedCards.includes(card.uid)
             ? {
                 ...card,
+                isMatched: true,
                 isFlipped: true,
                 isWrong: false
               }
             : card
-        )
-      );
-
-      setSelectedCards(nextSelectedCards);
-
-      if (nextSelectedCards.length !== 2) {
-        return;
-      }
-
-      setStatus(FOCUS_STATUS.checking);
-      setMoves((currentMoves) => currentMoves + 1);
-
-      const [firstUid, secondUid] = nextSelectedCards;
-      const firstCard = cards.find((card) => card.uid === firstUid);
-      const secondCard = cards.find((card) => card.uid === secondUid);
-
-      if (!firstCard || !secondCard) {
-        setStatus(FOCUS_STATUS.playing);
-        setSelectedCards([]);
-        return;
-      }
-
-      const isMatch = firstCard.pairId === secondCard.pairId;
-
-      if (isMatch) {
-        matchTimeoutRef.current = globalThis.setTimeout(() => {
-          setCards((currentCards) =>
-            currentCards.map((card) =>
-              nextSelectedCards.includes(card.uid)
-                ? {
-                    ...card,
-                    isMatched: true,
-                    isFlipped: true,
-                    isWrong: false
-                  }
-                : card
-            )
-          );
-
-          setSelectedCards([]);
-
-          setMatchedPairs((currentMatchedPairs) => {
-            const nextMatchedPairs = currentMatchedPairs + 1;
-            const complete = nextMatchedPairs >= totalPairs;
-
-            setStatus(complete ? FOCUS_STATUS.won : FOCUS_STATUS.playing);
-
-            setLastResult({
-              type: complete
-                ? FOCUS_RESULT_TYPES.complete
-                : combo + 1 >= 3
-                  ? FOCUS_RESULT_TYPES.combo
-                  : FOCUS_RESULT_TYPES.match,
-              message: complete
-                ? "Challenge complete. Excellent focus under pressure."
-                : combo + 1 >= 3
-                  ? `Combo x${combo + 1}. Keep the pressure high.`
-                  : "Match confirmed. Keep moving.",
-              intensity: complete ? "victory" : combo + 1 >= 3 ? "high" : "success",
-              penaltySeconds: 0,
-              combo: combo + 1,
-              uid: firstUid,
-              matchedUid: secondUid
-            });
-
-            return nextMatchedPairs;
-          });
-
-          setCombo((currentCombo) => {
-            const nextCombo = currentCombo + 1;
-            setBestCombo((currentBestCombo) => Math.max(currentBestCombo, nextCombo));
-            return nextCombo;
-          });
-        }, settings.checkDelayMs);
-
-        return;
-      }
-
-      setMistakes((currentMistakes) => currentMistakes + 1);
-      setCombo(0);
-      applyPenalty(settings.mismatchPenaltySeconds);
-
-      setCards((currentCards) =>
-        currentCards.map((card) =>
-          nextSelectedCards.includes(card.uid)
-            ? {
-                ...card,
-                isFlipped: true,
-                isWrong: true
-              }
-            : card
-        )
-      );
-
-      setLastResult({
-        type: FOCUS_RESULT_TYPES.mismatch,
-        message: `Mismatch. -${settings.mismatchPenaltySeconds}s penalty applied.`,
-        intensity: "danger",
-        penaltySeconds: settings.mismatchPenaltySeconds,
-        combo: 0,
-        uid: firstUid,
-        matchedUid: secondUid
-      });
-
-      mismatchTimeoutRef.current = globalThis.setTimeout(() => {
-        setCards((currentCards) =>
-          currentCards.map((card) =>
-            nextSelectedCards.includes(card.uid) && !card.isMatched
-              ? {
-                  ...card,
-                  isFlipped: false,
-                  isWrong: false
-                }
-              : card
-          )
         );
 
-        setSelectedCards([]);
+        commitCards(matchedCards);
+        commitSelectedCards([]);
 
-        setStatus((currentStatus) =>
-          currentStatus === FOCUS_STATUS.lost ? currentStatus : FOCUS_STATUS.playing
-        );
-      }, settings.mismatchDelayMs);
-    },
-    [
-      status,
-      selectedCards,
-      cards,
-      totalPairs,
-      combo,
-      settings.checkDelayMs,
-      settings.mismatchDelayMs,
-      settings.mismatchPenaltySeconds,
-      applyPenalty
-    ]
-  );
+        const nextMatchedPairs = matchedPairsRef.current + 1;
+        const nextCombo = comboRef.current + 1;
+        const nextBestCombo = Math.max(bestComboRef.current, nextCombo);
+        const complete = nextMatchedPairs >= totalPairs;
+
+        matchedPairsRef.current = nextMatchedPairs;
+        comboRef.current = nextCombo;
+        bestComboRef.current = nextBestCombo;
+
+        setMatchedPairs(nextMatchedPairs);
+        setCombo(nextCombo);
+        setBestCombo(nextBestCombo);
+
+        setLastResult({
+          type: complete
+            ? FOCUS_RESULT_TYPES.complete
+            : nextCombo >= 3
+              ? FOCUS_RESULT_TYPES.combo
+              : FOCUS_RESULT_TYPES.match,
+          message: complete
+            ? "Challenge complete. Excellent focus under pressure."
+            : nextCombo >= 3
+              ? `Combo x${nextCombo}. Keep the pressure high.`
+              : "Match confirmed. Keep moving.",
+          intensity: complete ? "victory" : nextCombo >= 3 ? "high" : "success",
+          penaltySeconds: 0,
+          combo: nextCombo,
+          uid: firstUid,
+          matchedUid: secondUid
+        });
+
+        setFocusStatus(complete ? FOCUS_STATUS.won : FOCUS_STATUS.playing);
+        matchTimeoutRef.current = null;
+      }, settings.checkDelayMs);
+
+      return;
+    }
+
+    const nextMistakes = mistakesRef.current + 1;
+
+    mistakesRef.current = nextMistakes;
+    comboRef.current = 0;
+
+    setMistakes(nextMistakes);
+    setCombo(0);
+
+    const wrongCards = cardsRef.current.map((card) =>
+      nextSelectedCards.includes(card.uid)
+        ? {
+            ...card,
+            isFlipped: true,
+            isWrong: true
+          }
+        : card
+    );
+
+    commitCards(wrongCards);
+
+    const remainingAfterPenalty = applyPenalty(settings.mismatchPenaltySeconds);
+
+    setLastResult({
+      type: FOCUS_RESULT_TYPES.mismatch,
+      message: `Mismatch. -${settings.mismatchPenaltySeconds}s penalty applied.`,
+      intensity: "danger",
+      penaltySeconds: settings.mismatchPenaltySeconds,
+      combo: 0,
+      uid: firstUid,
+      matchedUid: secondUid
+    });
+
+    mismatchTimeoutRef.current = globalThis.setTimeout(() => {
+      if (statusRef.current === FOCUS_STATUS.lost) {
+        return;
+      }
+
+      const resetCards = cardsRef.current.map((card) =>
+        nextSelectedCards.includes(card.uid) && !card.isMatched
+          ? {
+              ...card,
+              isFlipped: false,
+              isWrong: false
+            }
+          : card
+      );
+
+      commitCards(resetCards);
+      commitSelectedCards([]);
+
+      setFocusStatus(
+        remainingAfterPenalty <= 0
+          ? FOCUS_STATUS.lost
+          : FOCUS_STATUS.playing
+      );
+
+      mismatchTimeoutRef.current = null;
+    }, settings.mismatchDelayMs);
+  }, [
+    applyPenalty,
+    commitCards,
+    commitSelectedCards,
+    setFocusStatus,
+    settings.checkDelayMs,
+    settings.mismatchDelayMs,
+    settings.mismatchPenaltySeconds,
+    totalPairs
+  ]);
 
   const progress = useMemo(() => {
     return Math.round((matchedPairs / Math.max(1, totalPairs)) * 100);

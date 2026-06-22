@@ -2,10 +2,19 @@ import { memo } from "react";
 
 import Icon from "./Icon";
 
-function getCardState({ isFlipped, isMatched, isWrong }) {
-  if (isMatched) return "matched";
-  if (isWrong) return "wrong";
-  if (isFlipped) return "flipped";
+function getCardState({ isVisible, isMatched, isWrong }) {
+  if (isMatched) {
+    return "matched";
+  }
+
+  if (isWrong) {
+    return "wrong";
+  }
+
+  if (isVisible) {
+    return "flipped";
+  }
+
   return "hidden";
 }
 
@@ -27,9 +36,9 @@ function Card({
     isWrong = false
   } = card;
 
-  const isVisible = isFlipped || isMatched || revealAll;
+  const isVisible = revealAll || isFlipped || isMatched || isWrong;
   const isDisabled = disabled || isMatched;
-  const state = getCardState({ isFlipped: isVisible, isMatched, isWrong });
+  const state = getCardState({ isVisible, isMatched, isWrong });
 
   const className = [
     "memory-card",
@@ -43,7 +52,7 @@ function Card({
     .join(" ");
 
   const ariaLabel = isVisible
-    ? `${label} card${isMatched ? ", matched" : ""}`
+    ? `${label} card${isMatched ? ", matched" : ""}${isWrong ? ", wrong selection" : ""}`
     : `Hidden card${Number.isInteger(index) ? ` ${index + 1}` : ""}`;
 
   function handleClick() {
@@ -103,6 +112,7 @@ export default memo(Card, (previousProps, nextProps) => {
   return (
     previousProps.card.uid === nextProps.card.uid &&
     previousProps.card.symbolName === nextProps.card.symbolName &&
+    previousProps.card.label === nextProps.card.label &&
     previousProps.card.isFlipped === nextProps.card.isFlipped &&
     previousProps.card.isMatched === nextProps.card.isMatched &&
     previousProps.card.isWrong === nextProps.card.isWrong &&
