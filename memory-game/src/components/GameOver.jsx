@@ -69,6 +69,92 @@ function BestScoreNote({ scores, currentScore }) {
   );
 }
 
+function getProgressLabel(modeId) {
+  if (modeId === "sequence") {
+    return "Steps";
+  }
+
+  return "Pairs";
+}
+
+function getProgressHelper({
+  modeId,
+  matchedPairs,
+  totalPairs,
+  completed
+}) {
+  if (modeId === "sequence") {
+    if (completed) {
+      return "Full sequence recalled";
+    }
+
+    if (matchedPairs === 1) {
+      return `1 of ${totalPairs} step recalled`;
+    }
+
+    return `${matchedPairs} of ${totalPairs} steps recalled`;
+  }
+
+  if (completed) {
+    return "All pairs found";
+  }
+
+  if (matchedPairs === 0) {
+    return `0 of ${totalPairs} pairs found`;
+  }
+
+  if (matchedPairs === 1) {
+    return `1 of ${totalPairs} pair found`;
+  }
+
+  return `${matchedPairs} of ${totalPairs} pairs found`;
+}
+
+function getAccuracyHelper(mistakes) {
+  if (mistakes === 0) {
+    return "No mistakes";
+  }
+
+  if (mistakes === 1) {
+    return "1 mistake";
+  }
+
+  return `${mistakes} mistakes`;
+}
+
+function getResultEyebrow(completed) {
+  return completed ? "Challenge completed" : "Challenge ended";
+}
+
+function getResultTitle(completed) {
+  return completed ? "Memory session complete" : "Memory session ended";
+}
+
+function getResultDescription({
+  completed,
+  modeName,
+  levelName,
+  themeName
+}) {
+  if (completed) {
+    return (
+      <>
+        You completed <strong>{modeName}</strong> on{" "}
+        <strong>{levelName}</strong> difficulty using the{" "}
+        <strong>{themeName}</strong> theme.
+      </>
+    );
+  }
+
+  return (
+    <>
+      You played <strong>{modeName}</strong> on{" "}
+      <strong>{levelName}</strong> difficulty using the{" "}
+      <strong>{themeName}</strong> theme, but did not complete the challenge.
+    </>
+  );
+}
+
 export default function GameOver({
   modeId = "classic",
   levelId = "easy",
@@ -103,11 +189,21 @@ export default function GameOver({
   const safeTotalPairs = Math.max(0, Math.round(Number(totalPairs) || 0));
   const scorePercent = Math.min(100, Math.max(0, Math.round((safeScore / safeMaxScore) * 100)));
 
+  const completed = safeTotalPairs > 0 && safeMatchedPairs >= safeTotalPairs;
+
   const rankLabel = rank?.label ?? "Session Complete";
   const rankMessage =
     rank?.message ??
     "You completed the memory challenge. Try again to improve your speed, accuracy, and recall.";
-  const rankIconName = rank?.iconName ?? "trophy";
+  const rankIconName = completed ? rank?.iconName ?? "trophy" : "brain";
+
+  const progressLabel = getProgressLabel(modeId);
+  const progressHelper = getProgressHelper({
+    modeId,
+    matchedPairs: safeMatchedPairs,
+    totalPairs: safeTotalPairs,
+    completed
+  });
 
   const resultFingerprint = useMemo(() => {
     return [
@@ -118,7 +214,10 @@ export default function GameOver({
       safeMoves,
       safeMistakes,
       safeScore,
-      safeAccuracy
+      safeAccuracy,
+      safeMatchedPairs,
+      safeTotalPairs,
+      completed
     ].join(":");
   }, [
     modeId,
@@ -128,7 +227,10 @@ export default function GameOver({
     safeMoves,
     safeMistakes,
     safeScore,
-    safeAccuracy
+    safeAccuracy,
+    safeMatchedPairs,
+    safeTotalPairs,
+    completed
   ]);
 
   useEffect(() => {
@@ -147,7 +249,7 @@ export default function GameOver({
         seconds: safeSeconds,
         mistakes: safeMistakes,
         accuracy: safeAccuracy,
-        completed: true
+        completed
       }),
       fingerprint: resultFingerprint
     };
@@ -169,6 +271,7 @@ export default function GameOver({
     safeSeconds,
     safeMistakes,
     safeAccuracy,
+    completed,
     resultFingerprint,
     setScores
   ]);
@@ -197,14 +300,17 @@ export default function GameOver({
             <Icon name={rankIconName} size={34} />
           </div>
 
-          <p className="eyebrow">Challenge completed</p>
+          <p className="eyebrow">{getResultEyebrow(completed)}</p>
 
-          <h2 id="game-over-title">Memory session complete</h2>
+          <h2 id="game-over-title">{getResultTitle(completed)}</h2>
 
           <p id="game-over-description" className="result-description">
-            You completed <strong>{modeName}</strong> on{" "}
-            <strong>{levelName}</strong> difficulty using the{" "}
-            <strong>{themeName}</strong> theme.
+            {getResultDescription({
+              completed,
+              modeName,
+              levelName,
+              themeName
+            })}
           </p>
 
           <RatingScale value={stars} />
@@ -257,9 +363,9 @@ export default function GameOver({
 
           <ResultMetric
             iconName="check"
-            label="Pairs"
+            label={progressLabel}
             value={`${safeMatchedPairs}/${safeTotalPairs}`}
-            helper="All pairs found"
+            helper={progressHelper}
             highlight
           />
 
@@ -267,7 +373,7 @@ export default function GameOver({
             iconName="target"
             label="Accuracy"
             value={`${safeAccuracy}%`}
-            helper={safeMistakes === 0 ? "No mistakes" : `${safeMistakes} mistakes`}
+            helper={getAccuracyHelper(safeMistakes)}
           />
 
           <ResultMetric

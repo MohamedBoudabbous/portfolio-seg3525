@@ -32,31 +32,33 @@ export const FOCUS_RESULT_TYPES = {
 
 const FOCUS_SETTINGS = {
   easy: {
-    timeLimit: 70,
-    mismatchPenaltySeconds: 4,
-    checkDelayMs: 620,
-    mismatchDelayMs: 780,
-    warningThreshold: 15,
+    timeLimit: 90,
+    mismatchPenaltySeconds: 2,
+    checkDelayMs: 700,
+    mismatchDelayMs: 850,
+    warningThreshold: 20,
     perfectBonus: 320,
     comboStep: 28,
     intensityMultiplier: 1
   },
+
   medium: {
-    timeLimit: 85,
-    mismatchPenaltySeconds: 5,
-    checkDelayMs: 560,
-    mismatchDelayMs: 720,
-    warningThreshold: 18,
+    timeLimit: 120,
+    mismatchPenaltySeconds: 3,
+    checkDelayMs: 620,
+    mismatchDelayMs: 760,
+    warningThreshold: 25,
     perfectBonus: 520,
     comboStep: 42,
     intensityMultiplier: 1.25
   },
+
   hard: {
-    timeLimit: 125,
-    mismatchPenaltySeconds: 7,
-    checkDelayMs: 500,
+    timeLimit: 180,
+    mismatchPenaltySeconds: 4,
+    checkDelayMs: 540,
     mismatchDelayMs: 680,
-    warningThreshold: 24,
+    warningThreshold: 35,
     perfectBonus: 900,
     comboStep: 64,
     intensityMultiplier: 1.55
@@ -166,6 +168,47 @@ function calculateFocusScore({
     timePressurePenalty;
 
   return Math.round(clamp(rawScore, 0, maxScore));
+}
+
+function getFocusRankScore({
+  score,
+  maxScore,
+  accuracy,
+  mistakes,
+  totalPairs,
+  isWon
+}) {
+  const safeScore = Math.max(0, Math.floor(toSafeNumber(score)));
+  const safeMaxScore = Math.max(1, Math.floor(toSafeNumber(maxScore, 1)));
+  const safeAccuracy = clamp(toSafeNumber(accuracy), 0, 100);
+  const safeMistakes = Math.max(0, Math.floor(toSafeNumber(mistakes)));
+  const safeTotalPairs = Math.max(1, Math.floor(toSafeNumber(totalPairs, 1)));
+
+  let capRatio = 1;
+
+  if (!isWon) {
+    capRatio = Math.min(capRatio, 0.34);
+  }
+
+  if (safeAccuracy < 25) {
+    capRatio = Math.min(capRatio, 0.34);
+  } else if (safeAccuracy < 45) {
+    capRatio = Math.min(capRatio, 0.44);
+  } else if (safeAccuracy < 60) {
+    capRatio = Math.min(capRatio, 0.54);
+  } else if (safeAccuracy < 75) {
+    capRatio = Math.min(capRatio, 0.69);
+  }
+
+  if (safeMistakes >= safeTotalPairs * 2) {
+    capRatio = Math.min(capRatio, 0.34);
+  } else if (safeMistakes >= safeTotalPairs) {
+    capRatio = Math.min(capRatio, 0.54);
+  } else if (safeMistakes >= Math.ceil(safeTotalPairs / 2)) {
+    capRatio = Math.min(capRatio, 0.74);
+  }
+
+  return Math.round(Math.min(safeScore, safeMaxScore * capRatio));
 }
 
 function createInitialResult() {
@@ -657,13 +700,24 @@ export function useFocusChallenge({
     isWon
   ]);
 
+  const rankScore = useMemo(() => {
+    return getFocusRankScore({
+      score,
+      maxScore,
+      accuracy,
+      mistakes,
+      totalPairs,
+      isWon
+    });
+  }, [score, maxScore, accuracy, mistakes, totalPairs, isWon]);
+
   const rank = useMemo(() => {
-    return getScoreRank(score, maxScore);
-  }, [score, maxScore]);
+    return getScoreRank(rankScore, maxScore);
+  }, [rankScore, maxScore]);
 
   const stars = useMemo(() => {
-    return getStarRating(score, maxScore);
-  }, [score, maxScore]);
+    return getStarRating(rankScore, maxScore);
+  }, [rankScore, maxScore]);
 
   const gridStyle = useMemo(() => {
     return getGridStyle(level.id);
