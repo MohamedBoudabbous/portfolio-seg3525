@@ -1,8 +1,10 @@
 import { useState } from "react";
 
+import FocusChallenge from "./components/FocusChallenge";
 import GameBoard from "./components/GameBoard";
 import GameConfig from "./components/GameConfig";
 import Header from "./components/Header";
+import SequenceGame from "./components/SequenceGame";
 
 import { DEFAULT_LEVEL_ID } from "./data/levels";
 import { DEFAULT_MODE_ID } from "./data/modes";
@@ -12,6 +14,40 @@ const SCREENS = {
   config: "config",
   playing: "playing"
 };
+
+function renderGameMode({ modeId, levelId, themeId, onBackToConfig }) {
+  if (modeId === "sequence") {
+    return (
+      <SequenceGame
+        key={`${modeId}-${levelId}-${themeId}`}
+        levelId={levelId}
+        themeId={themeId}
+        onBackToConfig={onBackToConfig}
+      />
+    );
+  }
+
+  if (modeId === "focus") {
+    return (
+      <FocusChallenge
+        key={`${modeId}-${levelId}-${themeId}`}
+        levelId={levelId}
+        themeId={themeId}
+        onBackToConfig={onBackToConfig}
+      />
+    );
+  }
+
+  return (
+    <GameBoard
+      key={`${modeId}-${levelId}-${themeId}`}
+      modeId={modeId}
+      levelId={levelId}
+      themeId={themeId}
+      onBackToConfig={onBackToConfig}
+    />
+  );
+}
 
 export default function App() {
   const [screen, setScreen] = useState(SCREENS.config);
@@ -54,13 +90,12 @@ export default function App() {
 
       {screen === SCREENS.playing && (
         <main className="game-screen">
-          <GameBoard
-            key={`${modeId}-${levelId}-${themeId}`}
-            modeId={modeId}
-            levelId={levelId}
-            themeId={themeId}
-            onBackToConfig={handleBackToConfig}
-          />
+          {renderGameMode({
+            modeId,
+            levelId,
+            themeId,
+            onBackToConfig: handleBackToConfig
+          })}
         </main>
       )}
     </div>

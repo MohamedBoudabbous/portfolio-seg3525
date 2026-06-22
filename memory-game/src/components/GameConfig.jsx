@@ -113,16 +113,18 @@ export default function GameConfig({
       <ModeSelector
         selectedModeId={selectedMode.id}
         onModeChange={onModeChange}
-        enabledModeIds={["classic"]}
+        enabledModeIds={["classic", "sequence", "focus"]}
       />
 
       <section className="config-section" aria-labelledby="level-section-title">
         <div className="section-heading">
           <p className="eyebrow">Difficulty</p>
+
           <h2 id="level-section-title">Choose a level</h2>
+
           <p className="section-description">
-            Higher levels increase the number of cards and the amount of visual
-            information to remember.
+            Higher levels increase the number of cards, the sequence length,
+            and the amount of visual information to remember.
           </p>
         </div>
 
@@ -170,6 +172,12 @@ export default function GameConfig({
                     <span>
                       Pairs: <strong>{level.pairsCount}</strong>
                     </span>
+
+                    {level.sequenceLength && (
+                      <span>
+                        Sequence: <strong>{level.sequenceLength}</strong>
+                      </span>
+                    )}
                   </span>
                 </button>
               </div>
@@ -181,10 +189,12 @@ export default function GameConfig({
       <section className="config-section" aria-labelledby="theme-section-title">
         <div className="section-heading">
           <p className="eyebrow">Visual theme</p>
+
           <h2 id="theme-section-title">Choose a symbol set</h2>
+
           <p className="section-description">
             Each theme uses a consistent SVG symbol system to support fast
-            recognition without relying on platform-dependent emojis.
+            recognition with stable, platform-independent visuals.
           </p>
         </div>
 
