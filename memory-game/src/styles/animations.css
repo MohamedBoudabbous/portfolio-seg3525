@@ -306,7 +306,7 @@
 }
 
 .header-back-button:hover:not(:disabled) .icon,
-.ghost-button:hover:not(:disabled) .icon[name="back"] {
+.ghost-button:hover:not(:disabled) .icon[data-icon-name="back"] {
   transform: translateX(-2px);
 }
 
@@ -481,7 +481,6 @@
 .config-summary-card:hover .summary-card-icon {
   transform: scale(1.04);
 }
-
 @supports not (color: color-mix(in srgb, white, black)) {
   @keyframes glow-victory {
     0% {
@@ -508,9 +507,7 @@
     }
 
     70% {
-      box-shadow:.ghost-button:hover:not(:disabled) .icon[data-icon-name="back"] {
-  transform: translateX(-2px);
-}
+      box-shadow:
         0 0 0 12px transparent,
         0 0 38px rgba(56, 189, 248, 0.24);
     }
