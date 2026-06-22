@@ -170,11 +170,11 @@ Nora passe à la phase de rappel. Elle voit les symboles disponibles, l’ordre 
 
 À la fin du mode Sequence Recall, Nora voit son score, son temps, le nombre d’étapes réussies, ses erreurs et sa précision. Cette synthèse confirme si l’ordre complet a été reproduit correctement.
 
-![Nora - Résultat Sequence](mockup/nora-sequence-result.png)
+![Nora - Résultat Sequence](mockup/ex.png)
 
 ## Vue globale des scénarimages
 
-L’image suivante montre les trois scénarimages exportés depuis Figma.
+L’image suivante montre les trois scénarimages tout d'abord réalisé avec un outil D'IA ert ensuite a la fin du fichier vous allez trouver le lien vers figma.
 
 ![Export Figma des scénarimages](mockup/export_depuis_figma.png)
 
