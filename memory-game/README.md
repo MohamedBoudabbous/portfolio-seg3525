@@ -44,7 +44,7 @@ Cette idée a été utilisée dans le mode **Focus Challenge**, où le joueur do
 
 ## 4. Scénarimages avec maquettes
 
-## a. Définition des deux personnages
+## a. Définition des trois personnages
 
 ### Personnage 1 — Léa Martin
 
@@ -85,6 +85,26 @@ Il aime les jeux de mémoire, mais il trouve souvent les versions classiques tro
 **Objectif :** tester sa concentration sous pression.
 **Besoin principal :** avoir un défi plus intense avec score et progression.
 **Solution proposée :** un mode Focus Challenge avec chronomètre, pénalités, combo, score et classement final.
+
+### Personnage 3 — Nora Haddad
+
+Nora est une étudiante qui veut entraîner sa mémoire de travail. Elle ne cherche pas seulement à retrouver des paires : elle veut retenir un ordre précis et vérifier si elle peut le reproduire sans se tromper.
+
+**Caractéristiques intrinsèques :**
+
+* Elle aime les exercices structurés avec des étapes claires.
+* Elle se concentre mieux quand l’interface indique la phase active.
+* Elle veut comprendre rapidement si son rappel est correct ou non.
+
+**Relation à la technologie :**
+Nora utilise facilement les applications interactives, mais elle a besoin d’un guidage clair quand une tâche comporte plusieurs phases.
+
+**Relation au domaine :**
+Elle connaît les jeux de mémoire classiques, mais elle veut une variante plus cognitive qui teste l’ordre, la concentration et la mémoire courte.
+
+**Objectif :** mémoriser puis reproduire une séquence de symboles.
+**Besoin principal :** voir clairement la phase de mémorisation, la phase de rappel et sa progression.
+**Solution proposée :** un mode Sequence Recall avec aperçu temporaire, ordre à reproduire, indicateur d’étape, feedback progressif et score final.
 
 ## b. Scénarimage 1 — Léa : jouer rapidement en mode classique
 
@@ -130,9 +150,31 @@ Karim joue contre le chronomètre. Chaque erreur réduit le temps restant. L’i
 
 ![Karim - Résultat Focus](mockup/karim-focus-result.png)
 
+## Scénarimage 3 — Nora : mémoriser une séquence
+
+Ce scénarimage représente le parcours d’une utilisatrice qui veut entraîner sa mémoire de travail avec une tâche d’ordre séquentiel.
+
+### Maquette 1 — Sélection du mode Sequence
+
+Nora choisit le mode **Sequence Recall**. L’interface explique que le joueur doit mémoriser un ordre de symboles puis le reproduire dans le bon ordre.
+
+![Nora - Sélection Sequence](mockup/nora-sequence-selection.png)
+
+### Maquette 2 — Rappel de la séquence
+
+Nora passe à la phase de rappel. Elle voit les symboles disponibles, l’ordre attendu, sa position dans la séquence et un feedback de progression étape par étape.
+
+![Nora - Gameplay Sequence](mockup/nora-sequence-gameplay.png)
+
+### Maquette 3 — Résultat Sequence
+
+À la fin du mode Sequence Recall, Nora voit son score, son temps, le nombre d’étapes réussies, ses erreurs et sa précision. Cette synthèse confirme si l’ordre complet a été reproduit correctement.
+
+![Nora - Résultat Sequence](mockup/nora-sequence-result.png)
+
 ## Vue globale des scénarimages
 
-L’image suivante montre les deux scénarimages exportés depuis Figma.
+L’image suivante montre les trois scénarimages exportés depuis Figma.
 
 ![Export Figma des scénarimages](mockup/export_depuis_figma.png)
 
@@ -140,7 +182,7 @@ L’image suivante montre les deux scénarimages exportés depuis Figma.
 
 ## a. Explication des choix de conception visuelle
 
-Le prototype haute-fidélité a été conçu en React afin de transformer les scénarimages en une expérience interactive complète. Le jeu combine les besoins des deux personnages : simplicité pour Léa et défi cognitif pour Karim.
+Le prototype haute-fidélité a été conçu en React afin de transformer les scénarimages en une expérience interactive complète. Le jeu combine les besoins des trois personnages : simplicité pour Léa, défi sous pression pour Karim et rappel séquentiel pour Nora.
 
 ### Thème visuel
 
