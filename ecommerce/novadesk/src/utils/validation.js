@@ -3,43 +3,73 @@ function getText(value) {
 }
 
 function normalizeCardNumber(value) {
+  return getText(value).replace(/[\s-]+/g, "");
+}
+
+function normalizeExpiryDate(value) {
   return getText(value).replace(/\s+/g, "");
 }
 
 function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(getText(email));
 }
 
 function isValidPostalCode(postalCode) {
-  const value = getText(postalCode);
+  const value = getText(postalCode).toUpperCase();
 
   if (value.length === 0) {
     return false;
   }
 
-  return /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/.test(value);
+  return /^[A-Z]\d[A-Z][ -]?\d[A-Z]\d$/.test(value);
+}
+
+function parseExpiryDate(expiry) {
+  const value = normalizeExpiryDate(expiry);
+
+  const shortFormat = /^(0[1-9]|1[0-2])\/(\d{2})$/;
+  const longFormat = /^(0[1-9]|1[0-2])\/(\d{4})$/;
+
+  let match = value.match(shortFormat);
+
+  if (match) {
+    return {
+      month: Number(match[1]),
+      year: 2000 + Number(match[2]),
+    };
+  }
+
+  match = value.match(longFormat);
+
+  if (match) {
+    return {
+      month: Number(match[1]),
+      year: Number(match[2]),
+    };
+  }
+
+  return null;
 }
 
 function isValidExpiryDate(expiry) {
-  const value = getText(expiry);
+  const parsedExpiry = parseExpiryDate(expiry);
 
-  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(value)) {
+  if (!parsedExpiry) {
     return false;
   }
-
-  const [monthText, yearText] = value.split("/");
-  const month = Number(monthText);
-  const year = 2000 + Number(yearText);
 
   const now = new Date();
   const currentMonth = now.getMonth() + 1;
   const currentYear = now.getFullYear();
 
-  if (year < currentYear) {
+  if (parsedExpiry.year < currentYear) {
     return false;
   }
 
-  if (year === currentYear && month < currentMonth) {
+  if (
+    parsedExpiry.year === currentYear &&
+    parsedExpiry.month < currentMonth
+  ) {
     return false;
   }
 
@@ -95,7 +125,8 @@ export function validatePaymentForm(form) {
   }
 
   if (!isValidExpiryDate(expiry)) {
-    errors.expiry = "Enter a valid future expiry date in MM/YY format.";
+    errors.expiry =
+      "Enter a valid future expiry date, such as 11/30 or 11/2030.";
   }
 
   if (!/^\d{3,4}$/.test(cvv)) {

@@ -92,7 +92,7 @@ export function PaymentStep({
             onChange={onChange}
             autoComplete="cc-exp"
             inputMode="numeric"
-            placeholder="12/28"
+            placeholder="12/28 Or 12/2028"
             aria-invalid={Boolean(paymentErrors.expiry)}
             aria-describedby={paymentErrors.expiry ? "expiry-error" : undefined}
           />
