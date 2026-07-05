@@ -1,0 +1,62 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { min-height: 100vh; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6vw;
+  background: rgba(15, 23, 42, 0.96);
+  color: white;
+}
+.site-header button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+.brand { font-weight: 800; font-size: 1.25rem; }
+.site-header nav { display: flex; gap: 0.75rem; }
+.site-header nav button[aria-current="page"] { text-decoration: underline; }
+
+.hero {
+  padding: 5rem 6vw;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+.hero h1 { max-width: 720px; font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1; margin: 0.5rem 0; }
+.hero p { max-width: 620px; color: #cbd5e1; }
+.hero button {
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+  background: #38bdf8;
+  color: #082f49;
+  font-weight: 800;
+}
+.eyebrow { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; }
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  padding: 2rem 6vw;
+}
+.shop-main { min-width: 0; }
+
+@media (max-width: 800px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .shop-layout { grid-template-columns: 1fr; }
+}
