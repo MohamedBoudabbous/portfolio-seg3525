@@ -3,47 +3,82 @@ export const facets = [
     id: "category",
     label: "Category",
     type: "checkbox",
-    options: ["Laptop setup", "Desk lighting", "Organization", "Writing", "Audio", "Bags"]
+    description: "Browse by product family.",
+    options: [
+      "Laptop setup",
+      "Desk lighting",
+      "Organization",
+      "Writing",
+      "Audio",
+      "Bags"
+    ]
   },
   {
-    id: "useCase",
+    id: "studyGoal",
     label: "Study goal",
     type: "checkbox",
-    options: ["Study focus", "Remote classes", "Dorm room", "Commuting", "Minimal setup"]
+    description: "Filter by the user need behind the purchase.",
+    options: [
+      "Study focus",
+      "Remote classes",
+      "Dorm room",
+      "Commuting",
+      "Minimal setup"
+    ]
   },
   {
     id: "color",
     label: "Color",
     type: "checkbox",
-    options: ["Black", "White", "Blue", "Green", "Silver", "Natural"]
+    description: "Choose the visual style that fits the workspace.",
+    options: [
+      "Black",
+      "White",
+      "Blue",
+      "Green",
+      "Silver",
+      "Natural",
+      "Gray"
+    ]
   },
   {
     id: "material",
     label: "Material",
     type: "checkbox",
-    options: ["Aluminum", "Recycled plastic", "Cotton", "Paper", "Wood", "Fabric"]
+    description: "Compare products by material and finish.",
+    options: [
+      "Aluminum",
+      "Recycled plastic",
+      "Cotton",
+      "Paper",
+      "Wood",
+      "Fabric"
+    ]
   },
   {
-    id: "price",
+    id: "maxPrice",
     label: "Maximum price",
     type: "range",
+    description: "Limit results to products within the selected budget.",
     min: 0,
     max: 200,
-    step: 10
+    step: 10,
+    unit: "$"
   },
   {
     id: "eco",
     label: "Eco option",
-    type: "radio",
-    options: ["All", "Eco-friendly only"]
+    type: "toggle",
+    description: "Show only products marked as eco-friendly.",
+    text: "Eco-friendly products only"
   }
 ];
 
 export const initialFilters = {
   category: [],
-  useCase: [],
+  studyGoal: [],
   color: [],
   material: [],
-  price: 200,
-  eco: "All"
+  maxPrice: 200,
+  eco: false
 };

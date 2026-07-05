@@ -12,8 +12,7 @@ export const products = [
     image: "./images/products/alto-laptop-stand.jpg",
     imageAlt: "Premium wooden laptop stand in a clean modern workspace",
     tags: ["portable", "ergonomic"],
-    description:
-      "Raises your laptop to eye level for cleaner posture during online classes and long study sessions."
+    description: "Raises your laptop to eye level for cleaner posture during online classes and long study sessions."
   },
   {
     id: 2,
@@ -28,8 +27,7 @@ export const products = [
     image: "./images/products/luma-desk-lamp.jpg",
     imageAlt: "Modern desk lamp in a minimalist workspace",
     tags: ["adjustable", "soft light"],
-    description:
-      "A compact LED lamp with warm and cool modes to reduce eye strain during focused work."
+    description: "A compact LED lamp with warm and cool modes to reduce eye strain during focused work."
   },
   {
     id: 3,
@@ -44,8 +42,7 @@ export const products = [
     image: "./images/products/cablenest-organizer.jpg",
     imageAlt: "Clean technology workspace with organized desk accessories",
     tags: ["cable management", "minimal"],
-    description:
-      "Keeps chargers, cables, and small desk accessories grouped neatly in one place."
+    description: "Keeps chargers, cables, and small desk accessories grouped neatly in one place."
   },
   {
     id: 4,
@@ -60,8 +57,7 @@ export const products = [
     image: "./images/products/campus-notes-bundle.jpg",
     imageAlt: "Notebook and planning materials arranged on a desk",
     tags: ["notebooks", "planning"],
-    description:
-      "A set of smooth notebooks designed for lectures, revision plans, and daily academic notes."
+    description: "A set of smooth notebooks designed for lectures, revision plans, and daily academic notes."
   },
   {
     id: 5,
@@ -76,8 +72,7 @@ export const products = [
     image: "./images/products/quietcore-headphones.jpg",
     imageAlt: "Premium headphones photographed on a clean studio background",
     tags: ["noise reduction", "deep work"],
-    description:
-      "Comfortable headphones that help block distractions in libraries, cafés, and shared spaces."
+    description: "Comfortable headphones that help block distractions in libraries, cafés, and shared spaces."
   },
   {
     id: 6,
@@ -92,8 +87,7 @@ export const products = [
     image: "./images/products/metropack-student-backpack.jpg",
     imageAlt: "Minimal backpack suitable for students and daily commuting",
     tags: ["campus", "laptop pocket"],
-    description:
-      "A durable backpack with padded laptop storage and practical compartments for campus life."
+    description: "A durable backpack with padded laptop storage and practical compartments for campus life."
   },
   {
     id: 7,
@@ -108,8 +102,7 @@ export const products = [
     image: "./images/products/desknest-wooden-tray.jpg",
     imageAlt: "Organized wooden desk surface with warm natural tones",
     tags: ["storage", "desk tray"],
-    description:
-      "A warm wooden tray that keeps pens, sticky notes, keys, and small essentials visible."
+    description: "A warm wooden tray that keeps pens, sticky notes, keys, and small essentials visible."
   },
   {
     id: 8,
@@ -124,8 +117,7 @@ export const products = [
     image: "./images/products/flowwrite-pen-kit.jpg",
     imageAlt: "Pen and notebook on a clean writing desk",
     tags: ["writing", "lecture notes"],
-    description:
-      "Smooth pens built for fast note-taking, planning, diagrams, and daily writing tasks."
+    description: "Smooth pens built for fast note-taking, planning, diagrams, and daily writing tasks."
   },
   {
     id: 9,
@@ -140,8 +132,7 @@ export const products = [
     image: "./images/products/minifocus-timer.jpg",
     imageAlt: "Clock on a desk used for focused study sessions",
     tags: ["pomodoro", "time management"],
-    description:
-      "A visual study timer that supports Pomodoro sessions, exam revision, and focused work blocks."
+    description: "A visual study timer that supports Pomodoro sessions, exam revision, and focused work blocks."
   },
   {
     id: 10,
@@ -156,8 +147,7 @@ export const products = [
     image: "./images/products/cloudpad-desk-mat.jpg",
     imageAlt: "Minimal office desk with clean work surface and computer setup",
     tags: ["desk mat", "comfort"],
-    description:
-      "A soft desk mat that creates a cleaner workspace for your keyboard, mouse, and notebooks."
+    description: "A soft desk mat that creates a cleaner workspace for your keyboard, mouse, and notebooks."
   },
   {
     id: 11,
@@ -172,8 +162,7 @@ export const products = [
     image: "./images/products/brightdock-charging-hub.jpg",
     imageAlt: "Silver laptop and technology accessories on a clean desk",
     tags: ["charging", "multi-port"],
-    description:
-      "A compact hub that connects and charges laptops, phones, tablets, and study devices."
+    description: "A compact hub that connects and charges laptops, phones, tablets, and study devices."
   },
   {
     id: 12,
@@ -188,8 +177,7 @@ export const products = [
     image: "./images/products/softglow-clip-lamp.jpg",
     imageAlt: "Small lamp in a calm study room setting",
     tags: ["clip-on", "small desk"],
-    description:
-      "A flexible clip lamp designed for dorm rooms, small desks, and late-night reading."
+    description: "A flexible clip lamp designed for dorm rooms, small desks, and late-night reading."
   },
   {
     id: 13,
@@ -204,8 +192,7 @@ export const products = [
     image: "./images/products/papertrail-weekly-planner.jpg",
     imageAlt: "Planner and calendar materials arranged for weekly organization",
     tags: ["weekly planning", "deadlines"],
-    description:
-      "A weekly planner that helps students organize deadlines, assignments, and study sessions."
+    description: "A weekly planner that helps students organize deadlines, assignments, and study sessions."
   },
   {
     id: 14,
@@ -220,8 +207,7 @@ export const products = [
     image: "./images/products/urbancommute-laptop-sleeve.jpg",
     imageAlt: "Laptop and commuting accessories on a minimalist desk",
     tags: ["laptop protection", "slim"],
-    description:
-      "A slim protective sleeve for students moving between campus, home, libraries, and cafés."
+    description: "A slim protective sleeve for students moving between campus, home, libraries, and cafés."
   },
   {
     id: 15,
@@ -236,8 +222,7 @@ export const products = [
     image: "./images/products/clearsound-earbuds.jpg",
     imageAlt: "Wireless earbuds photographed on a clean surface",
     tags: ["calls", "online classes"],
-    description:
-      "Lightweight earbuds made for online lectures, video calls, and focused listening."
+    description: "Lightweight earbuds made for online lectures, video calls, and focused listening."
   },
   {
     id: 16,
@@ -252,8 +237,7 @@ export const products = [
     image: "./images/products/oakline-monitor-riser.jpg",
     imageAlt: "Minimal wood-toned office setup with modern desk furniture",
     tags: ["monitor height", "storage"],
-    description:
-      "A wooden monitor riser that improves screen height while adding hidden storage space."
+    description: "A wooden monitor riser that improves screen height while adding hidden storage space."
   },
   {
     id: 17,
@@ -268,8 +252,7 @@ export const products = [
     image: "./images/products/dormdock-wall-organizer.jpg",
     imageAlt: "Clean dorm room interior with organized living space",
     tags: ["wall storage", "small spaces"],
-    description:
-      "A hanging organizer for dorm rooms, notebooks, chargers, stationery, and daily essentials."
+    description: "A hanging organizer for dorm rooms, notebooks, chargers, stationery, and daily essentials."
   },
   {
     id: 18,
@@ -284,8 +267,7 @@ export const products = [
     image: "./images/products/ecocarry-campus-tote.jpg",
     imageAlt: "Minimal tote bag used for everyday campus carrying",
     tags: ["reusable", "campus"],
-    description:
-      "A reusable cotton tote for books, notebooks, groceries, and everyday campus items."
+    description: "A reusable cotton tote for books, notebooks, groceries, and everyday campus items."
   },
   {
     id: 19,
@@ -300,8 +282,7 @@ export const products = [
     image: "./images/products/focusboard-whiteboard.jpg",
     imageAlt: "Planning board and collaborative workspace for organizing ideas",
     tags: ["brainstorming", "planning"],
-    description:
-      "A compact whiteboard for planning assignments, solving problems, and visualizing ideas."
+    description: "A compact whiteboard for planning assignments, solving problems, and visualizing ideas."
   },
   {
     id: 20,
@@ -316,7 +297,6 @@ export const products = [
     image: "./images/products/airdesk-laptop-cushion.jpg",
     imageAlt: "Comfortable laptop workspace in a relaxed study setting",
     tags: ["comfort", "portable"],
-    description:
-      "A soft laptop cushion for studying from a bed, couch, or compact dorm room setup."
+    description: "A soft laptop cushion for studying from a bed, couch, or compact dorm room setup."
   }
 ];
