@@ -1,34 +1,555 @@
-<div class="col-md-3">
-  <div class="card h-100">
+<!DOCTYPE html>
+<html lang="en">
 
-    <img src="../images/ecommerce-placeholder.jpg"
-         class="card-img-top"
-         alt="NovaDesk e-commerce prototype">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="card-body d-flex flex-column">
+  <title>Portfolio - Mohamed Boudabbous</title>
 
-      <h5 class="card-title">
-        NovaDesk
-      </h5>
+  <meta
+    name="description"
+    content="English portfolio of Mohamed Boudabbous, software engineering student at the University of Ottawa. Projects in UI/UX, web development, software engineering, AI and SEG3525 prototypes."
+  >
 
-      <p class="card-text">
-        React e-commerce prototype for student desk accessories:
-        faceted search, cart, inventory, guided checkout and UX survey.
-      </p>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-      <div class="mt-auto d-grid gap-2">
-        <a href="ecommerce.html"
-           class="btn btn-outline-primary">
-          Case Study
-        </a>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
 
-        <a href="../ecommerce/novadesk-site/index.html"
-           class="btn btn-primary"
-           target="_blank">
-          Open Website
-        </a>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="#home">
+      Mohamed Boudabbous
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#home">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#about">
+            About
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#process">
+            Process
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">
+            Projects
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">
+            Contact
+          </a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-outline-light btn-sm lang-switch"
+             href="../index.html">
+            Français
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<header id="home" class="hero-section text-center">
+  <div class="container">
+
+    <img src="../images/moi.png"
+         alt="Photo of Mohamed Boudabbous"
+         class="profile-image mb-4">
+
+    <h1>
+      Mohamed Boudabbous
+    </h1>
+
+    <p class="hero-subtitle">
+      Software engineering student passionate about web development, UI/UX,
+      intelligent systems and artificial intelligence.
+    </p>
+
+    <div class="hero-buttons mt-4">
+      <a href="#projects"
+         class="btn btn-primary btn-lg me-3">
+        View my projects
+      </a>
+
+      <a href="#contact"
+         class="btn btn-outline-light btn-lg">
+        Contact
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+  <section id="about" class="container my-5">
+
+    <h2>
+      About Me
+    </h2>
+
+    <p>
+      I am a software engineering student at the University of Ottawa with an
+      interest in web development, user interfaces and artificial intelligence.
+      I have also worked on technical projects related to graphs, algorithms and
+      machine learning.
+    </p>
+
+    <p>
+      This portfolio was created as part of the SEG3525 course to explore the
+      foundations of UI/UX design and visual communication. Through this
+      project, I am progressively learning how to design more modern,
+      structured and accessible interfaces using HTML, CSS, Bootstrap and
+      JavaScript.
+    </p>
+
+    <p>
+      The portfolio evolves throughout the semester to present the different
+      projects and prototypes completed as part of the course.
+    </p>
+
+  </section>
+
+  <section class="container my-5">
+
+    <h2>
+      Skills
+    </h2>
+
+    <div class="row g-3 mt-3">
+
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h5>HTML5</h5>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h5>CSS3</h5>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h5>Bootstrap 5</h5>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h5>Artificial Intelligence</h5>
+        </div>
       </div>
 
     </div>
-  </div>
-</div>
+
+  </section>
+
+  <section id="process" class="container my-5">
+
+    <h2>
+      How I Work
+    </h2>
+
+    <p>
+      As part of SEG3525, I am learning how to design clearer, more accessible
+      and more structured interfaces using HTML, CSS, Bootstrap and visual
+      communication principles.
+    </p>
+
+  </section>
+
+  <section id="projects" class="container my-5">
+
+    <h2>
+      Case Studies
+    </h2>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/compilateur.jpg"
+               class="card-img-top"
+               alt="French compiler project">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              French Compiler
+            </h5>
+
+            <p class="card-text">
+              Java compilation pipeline: lexer, parser, semantic analysis and
+              Java code generation.
+            </p>
+
+            <div class="mt-auto">
+              <a href="french-compiler.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/memory.jpg"
+               class="card-img-top"
+               alt="CardGame project">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              Memory Game
+            </h5>
+
+            <p class="card-text">
+              Modular C++ memory game with object-oriented programming, game
+              modes and tests.
+            </p>
+
+            <div class="mt-auto">
+              <a href="memory-game.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/ecommerce.jpg"
+               class="card-img-top"
+               alt="PC Order application">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              PC Order App
+            </h5>
+
+            <p class="card-text">
+              Android application for PC order management with MVC architecture
+              and authentication.
+            </p>
+
+            <div class="mt-auto">
+              <a href="pcorderapplication.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/hotel.jpg"
+               class="card-img-top"
+               alt="eHotels system">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              eHotels System
+            </h5>
+
+            <p class="card-text">
+              Hotel management system based on PostgreSQL, Spring Boot and
+              relational modeling.
+            </p>
+
+            <div class="mt-auto">
+              <a href="dashboard.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/logicells.jpg"
+               class="card-img-top"
+               alt="LogiCells AI research">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              LogiCells
+            </h5>
+
+            <p class="card-text">
+              Experience in artificial intelligence, Graph Neural Networks,
+              graphs and conceptual hypergraphs.
+            </p>
+
+            <div class="mt-auto">
+              <a href="LogiCells.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container my-5">
+
+    <h2>
+      SEG3525 Course Prototypes
+    </h2>
+
+    <p class="mb-4">
+      The following sections present prototypes and case studies developed as
+      part of the SEG3525 course, with a strong focus on user-centered design.
+    </p>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/service.jpg"
+               class="card-img-top"
+               alt="Ottawa Barber Studio service website">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              Ottawa Barber Studio
+            </h5>
+
+            <p class="card-text">
+              Interactive booking website designed with a UCD process:
+              personas, storyboards, Figma mockups and a React prototype.
+            </p>
+
+            <div class="mt-auto d-grid gap-2">
+
+              <a href="service-site.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+
+              <a href="../service-site/ottawa-barber-studio/index.html"
+                 class="btn btn-primary"
+                 target="_blank"
+                 rel="noreferrer">
+                Open Website
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/memory-placeholder.jpg"
+               class="card-img-top"
+               alt="NeuroMatch interactive memory game">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              NeuroMatch
+            </h5>
+
+            <p class="card-text">
+              Interactive React memory game with Classic, Sequence Recall and
+              Focus Challenge modes.
+            </p>
+
+            <div class="mt-auto d-grid gap-2">
+
+              <a href="../memory-game/dist/index.html"
+                 class="btn btn-primary"
+                 target="_blank"
+                 rel="noreferrer">
+                Play
+              </a>
+
+              <a href="memory-game2.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 project-card">
+
+          <img src="../ecommerce/novadesk-site/images/products/alto-laptop-stand.jpg"
+               class="card-img-top project-card-img"
+               alt="NovaDesk e-commerce prototype"
+               style="width: 100%; height: 220px; max-height: 220px; object-fit: cover; display: block;">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              NovaDesk
+            </h5>
+
+            <p class="card-text">
+              React e-commerce prototype for student desk accessories:
+              faceted search, cart, inventory, guided checkout and UX survey.
+            </p>
+
+            <div class="mt-auto d-grid gap-2">
+
+              <a href="ecommerce.html"
+                 class="btn btn-outline-primary">
+                Case Study
+              </a>
+
+              <a href="../ecommerce/novadesk-site/index.html"
+                 class="btn btn-primary"
+                 target="_blank"
+                 rel="noreferrer">
+                Open Website
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100">
+
+          <img src="../images/dashboard-placeholder.jpg"
+               class="card-img-top"
+               alt="Analytics dashboard">
+
+          <div class="card-body d-flex flex-column">
+
+            <h5 class="card-title">
+              Analytics Dashboard
+            </h5>
+
+            <p class="card-text">
+              Future data visualization interface oriented toward BI, sports or
+              finance.
+            </p>
+
+            <div class="mt-auto">
+              <a href="dashboard-placeholder.html"
+                 class="btn btn-outline-primary">
+                Coming Soon
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer id="contact" class="text-center py-5 bg-dark text-white">
+
+  <h2 class="mb-4">
+    Contact
+  </h2>
+
+  <p class="mb-2">
+    Email: mboud014@uottawa.ca
+  </p>
+
+  <p class="mb-2">
+    <a class="footer-link"
+       href="https://github.com/MohamedBoudabbous16"
+       target="_blank"
+       rel="noreferrer">
+      GitHub: github.com/MohamedBoudabbous16
+    </a>
+  </p>
+
+  <p class="mb-2">
+    <a class="footer-link"
+       href="https://www.linkedin.com/in/mohamed-boudabbous-313256300"
+       target="_blank"
+       rel="noreferrer">
+      LinkedIn: linkedin.com/in/mohamed-boudabbous
+    </a>
+  </p>
+
+  <p class="mt-4 mb-0">
+    © 2026 Mohamed Boudabbous
+  </p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
