@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Coming Soon Project</title>
+  <title>NovaDesk - E-Commerce Case Study</title>
+
+  <meta
+    name="description"
+    content="NovaDesk e-commerce prototype case study for SEG3525: faceted search, cart, inventory, guided checkout, UX survey and Nielsen heuristics."
+  >
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet">
@@ -16,226 +21,567 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-
   <div class="container">
 
     <a class="navbar-brand fw-bold" href="index.html">
       Mohamed Boudabbous
     </a>
 
-    <a href="index.html"
-       class="btn btn-outline-light">
+    <div class="d-flex gap-2">
+      <a href="../ecommerce.html"
+         class="btn btn-outline-light btn-sm">
+        Français
+      </a>
 
-      Back to Portfolio
-
-    </a>
+      <a href="index.html#projects"
+         class="btn btn-outline-light btn-sm">
+        Back to Portfolio
+      </a>
+    </div>
 
   </div>
-
 </nav>
 
-<section class="project-hero text-center text-white d-flex align-items-center">
-
+<header class="project-hero text-center text-white d-flex align-items-center">
   <div class="container">
 
+    <p class="text-uppercase fw-bold mb-3">
+      SEG3525 — User Interface Design and Analysis
+    </p>
+
     <h1 class="display-2 fw-bold">
-      Coming Soon Project
+      NovaDesk
     </h1>
 
     <p class="lead project-subtitle mt-4">
-      This page will present a future prototype
-      developed as part of the SEG3525 course.
+      A React e-commerce prototype for student workspace accessories, designed
+      to demonstrate faceted search, inventory-aware shopping, a guided checkout
+      flow and a user feedback survey.
     </p>
 
     <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
 
       <span class="badge bg-light text-dark project-badge">
-        UI / UX
+        React
       </span>
 
       <span class="badge bg-primary project-badge">
-        Bootstrap
+        E-Commerce
       </span>
 
       <span class="badge bg-success project-badge">
-        HTML / CSS
+        UX / UI
       </span>
 
       <span class="badge bg-warning text-dark project-badge">
-        Coming Soon
+        Faceted Search
       </span>
 
     </div>
 
+    <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+
+      <a href="../ecommerce/novadesk-site/index.html"
+         class="btn btn-primary btn-lg"
+         target="_blank">
+        Open Prototype
+      </a>
+
+      <a href="https://github.com/MohamedBoudabbous/portfolio-seg3525"
+         class="btn btn-outline-light btn-lg"
+         target="_blank">
+        View GitHub Repository
+      </a>
+
+    </div>
+
   </div>
+</header>
 
-</section>
+<main>
 
-<section class="container py-5">
+  <section class="container py-5">
 
-  <div class="project-overview-box">
+    <div class="project-overview-box">
 
-    <h2 class="section-title">
-      Overview
+      <h2 class="section-title">
+        Project Overview
+      </h2>
+
+      <p>
+        NovaDesk is a high-fidelity e-commerce prototype designed for students
+        who want to improve their study and work environment. The store presents
+        desk accessories, organization tools, lighting, writing products, audio
+        products and bags.
+      </p>
+
+      <p>
+        The main goal was to design a clear, interactive and credible shopping
+        interface while meeting the SEG3525 requirements: divergent and
+        convergent exploration, guided process, user communication,
+        accessibility and evaluation with Nielsen’s usability heuristics.
+      </p>
+
+      <div class="row g-4 mt-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Problem
+            </h3>
+
+            <p class="mb-0">
+              An e-commerce catalog can quickly become difficult to use when
+              products, filters, cart actions and checkout steps are not clearly
+              organized.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Solution
+            </h3>
+
+            <p class="mb-0">
+              NovaDesk structures the experience around faceted search,
+              readable product cards, a detailed cart and a step-by-step
+              checkout flow.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Result
+            </h3>
+
+            <p class="mb-0">
+              The prototype allows users to search, filter, add products to the
+              cart, check inventory, simulate an order and submit UX feedback.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <h2 class="section-title text-center">
+      Integrated Interaction Processes
     </h2>
 
-    <p>
-      This section will progressively evolve throughout
-      the semester to present the different stages
-      of the design process, UI/UX mockups,
-      visual decisions and future improvements.
+    <p class="text-center text-muted mb-5">
+      The prototype includes the three interaction processes required for the
+      assignment.
     </p>
 
-    <p>
-      The project may eventually include:
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-primary align-self-start mb-3">
+            Process 1
+          </span>
+
+          <h3 class="h4">
+            Faceted Search
+          </h3>
+
+          <p>
+            Users can explore the full catalog and then narrow the results using
+            multiple filters: category, study goal, color, material, maximum
+            price and eco-friendly option.
+          </p>
+
+          <p class="mb-0">
+            This supports divergent exploration at the beginning, followed by a
+            more precise convergent selection.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-success align-self-start mb-3">
+            Process 2
+          </span>
+
+          <h3 class="h4">
+            Guided Checkout
+          </h3>
+
+          <p>
+            The checkout is divided into visible steps: cart review, contact
+            information, simulated payment and confirmation.
+          </p>
+
+          <p class="mb-0">
+            Users always know where they are, what has been completed and what
+            remains to be done.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-warning text-dark align-self-start mb-3">
+            Process 3
+          </span>
+
+          <h3 class="h4">
+            UX Survey
+          </h3>
+
+          <p>
+            After the shopping experience, users can rate the prototype, answer
+            whether it was useful and leave an optional comment.
+          </p>
+
+          <p class="mb-0">
+            This section represents the communication process between the system
+            and the user.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        Main Features
+      </h2>
+
+      <div class="row g-4 mt-3">
+
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Catalog of 20 NovaDesk products.</li>
+            <li>Filters by category, study goal, color, material, price and eco option.</li>
+            <li>Active filter badges with quick removal.</li>
+            <li>Product cards with image, price, description, rating and tags.</li>
+            <li>Display of available stock, cart quantity and remaining stock.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Cart with add, remove and quantity controls.</li>
+            <li>Inventory protection when the stock limit is reached.</li>
+            <li>Order summary with subtotal, estimated taxes and total.</li>
+            <li>Forms with validation and clear error messages.</li>
+            <li>Order confirmation and satisfaction survey.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <h2 class="section-title text-center">
+      UI / UX Design Decisions
+    </h2>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            Visual Hierarchy
+          </h3>
+
+          <p class="mb-0">
+            Titles, prices, buttons and inventory information use a clear visual
+            hierarchy to help users understand available actions quickly.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            Consistency
+          </h3>
+
+          <p class="mb-0">
+            Cards, buttons, badges and forms reuse consistent styles to make the
+            interface predictable and easy to learn.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            Error Prevention
+          </h3>
+
+          <p class="mb-0">
+            The prototype prevents users from exceeding available stock and
+            clearly states that the payment process is simulated.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        Accessibility
+      </h2>
+
+      <p>
+        The interface was designed with accessibility principles in mind to
+        improve the experience for keyboard users, screen reader users and small
+        screen users.
+      </p>
+
+      <ul class="project-list">
+        <li>Real buttons are used for interactive actions.</li>
+        <li>Product images include alternative text.</li>
+        <li>Visible focus states support keyboard navigation.</li>
+        <li>Error messages are displayed close to invalid fields.</li>
+        <li>Form fields use explicit labels.</li>
+        <li>The layout is responsive on mobile, tablet and desktop.</li>
+        <li>Important buttons and badges use strong visual contrast.</li>
+      </ul>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <h2 class="section-title text-center">
+      Evaluation with Nielsen’s Heuristics
+    </h2>
+
+    <p class="text-center text-muted mb-5">
+      The prototype applies Nielsen’s ten usability heuristics through visible
+      interface elements.
     </p>
 
-    <ul class="project-list">
+    <div class="row g-4">
 
-      <li>
-        User needs analysis
-      </li>
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            1. Visibility of System Status
+          </h3>
 
-      <li>
-        Wireframes and mockups
-      </li>
+          <p class="mb-0">
+            The number of displayed products, active filters, cart counter,
+            checkout steps and order confirmation constantly communicate the
+            system status.
+          </p>
+        </div>
+      </div>
 
-      <li>
-        Interactive prototype
-      </li>
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            2. Match Between System and Real World
+          </h3>
 
-      <li>
-        UI / UX design decisions
-      </li>
+          <p class="mb-0">
+            Terms such as cart, stock, price, delivery, payment and confirmation
+            match common e-commerce vocabulary.
+          </p>
+        </div>
+      </div>
 
-      <li>
-        Accessibility improvements
-      </li>
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            3. User Control and Freedom
+          </h3>
 
-      <li>
-        Responsive desktop and mobile versions
-      </li>
+          <p class="mb-0">
+            Users can remove a product, change quantities, clear the cart, go
+            back during checkout or return to the catalog.
+          </p>
+        </div>
+      </div>
 
-    </ul>
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            4. Consistency and Standards
+          </h3>
 
-  </div>
+          <p class="mb-0">
+            Buttons, cards, fields, badges and messages follow a consistent
+            visual logic throughout the prototype.
+          </p>
+        </div>
+      </div>
 
-</section>
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            5. Error Prevention
+          </h3>
 
-<section class="container py-5">
+          <p class="mb-0">
+            The system prevents users from adding more items than the available
+            stock and clearly identifies the payment as simulated.
+          </p>
+        </div>
+      </div>
 
-  <h2 class="section-title text-center">
-    Design Process
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            6. Recognition Rather Than Recall
+          </h3>
+
+          <p class="mb-0">
+            Active filters, categories, tags, prices and checkout steps remain
+            visible to reduce the user’s memory load.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            7. Flexibility and Efficiency of Use
+          </h3>
+
+          <p class="mb-0">
+            Users can quickly combine several filters, remove one specific
+            filter or reset the full search.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            8. Aesthetic and Minimalist Design
+          </h3>
+
+          <p class="mb-0">
+            The interface uses spacious cards, a coherent palette, readable
+            typography and content limited to useful information.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            9. Help Users Recognize and Recover from Errors
+          </h3>
+
+          <p class="mb-0">
+            Form errors are displayed near the relevant field with a clear
+            message, for example for email, postal code or expiry date.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 p-4">
+          <h3 class="h5">
+            10. Help and Documentation
+          </h3>
+
+          <p class="mb-0">
+            The prototype includes helper text, filter descriptions, a simulated
+            payment warning and a footer explaining the overall experience.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="container py-5">
+
+    <div class="project-overview-box text-center">
+
+      <h2 class="section-title">
+        Final Prototype
+      </h2>
+
+      <p>
+        The NovaDesk prototype can be opened directly from the portfolio. It
+        includes the interactive catalog, filters, cart, checkout and feedback
+        survey.
+      </p>
+
+      <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+
+        <a href="../ecommerce/novadesk-site/index.html"
+           class="btn btn-primary btn-lg"
+           target="_blank">
+          Open NovaDesk
+        </a>
+
+        <a href="index.html#projects"
+           class="btn btn-outline-primary btn-lg">
+          Back to Projects
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer id="contact" class="text-center py-5 bg-dark text-white">
+  <h2 class="mb-4">
+    Contact
   </h2>
 
-  <div class="pipeline-box">
-    Problem Analysis
-  </div>
+  <p class="mb-2">
+    Email: mboud014@uottawa.ca
+  </p>
 
-  <div class="text-center mb-2">
-    ↓
-  </div>
+  <p class="mb-2">
+    <a class="footer-link"
+       href="https://github.com/MohamedBoudabbous16"
+       target="_blank">
+      GitHub: github.com/MohamedBoudabbous16
+    </a>
+  </p>
 
-  <div class="pipeline-box">
-    UI / UX Research
-  </div>
+  <p class="mb-2">
+    <a class="footer-link"
+       href="https://www.linkedin.com/in/mohamed-boudabbous-313256300"
+       target="_blank">
+      LinkedIn: linkedin.com/in/mohamed-boudabbous
+    </a>
+  </p>
 
-  <div class="text-center mb-2">
-    ↓
-  </div>
-
-  <div class="pipeline-box">
-    Wireframe Creation
-  </div>
-
-  <div class="text-center mb-2">
-    ↓
-  </div>
-
-  <div class="pipeline-box">
-    Prototype Development
-  </div>
-
-  <div class="text-center mb-2">
-    ↓
-  </div>
-
-  <div class="pipeline-box">
-    Testing and Improvements
-  </div>
-
-</section>
-
-<section class="container py-5">
-
-  <div class="row g-4">
-
-    <div class="col-md-4">
-
-      <div class="card h-100 p-4">
-
-        <h4>
-          Modern Interface
-        </h4>
-
-        <p>
-          Design of a clean, modern and responsive
-          interface adapted to different devices.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-4">
-
-      <div class="card h-100 p-4">
-
-        <h4>
-          User Experience
-        </h4>
-
-        <p>
-          Progressive improvement of navigation,
-          readability and overall usability.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-4">
-
-      <div class="card h-100 p-4">
-
-        <h4>
-          Web Development
-        </h4>
-
-        <p>
-          Use of HTML, CSS, Bootstrap
-          and JavaScript to create
-          modern interfaces.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="container py-5 text-center">
-
-  <a href="index.html"
-     class="btn btn-dark btn-lg">
-
-    Back to Portfolio
-
-  </a>
-
-</section>
+  <p class="mt-4 mb-0">
+    © 2026 Mohamed Boudabbous
+  </p>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
