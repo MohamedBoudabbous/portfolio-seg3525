@@ -3,6 +3,7 @@ import { useCallback, useMemo, useState } from "react";
 import { products } from "./data/products";
 import { facets, initialFilters } from "./data/facets";
 import { filterProducts } from "./utils/filterProducts";
+import { useCart } from "./hooks/useCart";
 
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
@@ -32,97 +33,20 @@ function cloneInitialFilters() {
   };
 }
 
-function calculateCartSummary(cart) {
-  const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-  const taxes = subtotal * 0.13;
-  const total = subtotal + taxes;
-
-  return {
-    itemCount,
-    subtotal,
-    taxes,
-    total,
-  };
-}
-
 export default function App() {
   const [page, setPage] = useState("shop");
   const [filters, setFilters] = useState(() => cloneInitialFilters());
-  const [cart, setCart] = useState([]);
   const [statusMessage, setStatusMessage] = useState("");
+
+  const cart = useCart();
 
   const filteredProducts = useMemo(() => {
     return filterProducts(products, filters);
   }, [filters]);
 
-  const cartSummary = useMemo(() => {
-    return calculateCartSummary(cart);
-  }, [cart]);
-
   const goToPage = useCallback((nextPage) => {
     setPage(nextPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
-  const addToCart = useCallback((product) => {
-    setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => item.id === product.id);
-
-      if (existingItem) {
-        return currentCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-
-      return [...currentCart, { ...product, quantity: 1 }];
-    });
-
-    setStatusMessage(`${product.name} was added to your cart.`);
-  }, []);
-
-  const removeFromCart = useCallback((productId) => {
-    setCart((currentCart) => {
-      const removedItem = currentCart.find((item) => item.id === productId);
-
-      if (removedItem) {
-        setStatusMessage(`${removedItem.name} was removed from your cart.`);
-      }
-
-      return currentCart.filter((item) => item.id !== productId);
-    });
-  }, []);
-
-  const increaseQuantity = useCallback((productId) => {
-    setCart((currentCart) =>
-      currentCart.map((item) =>
-        item.id === productId
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
-  }, []);
-
-  const decreaseQuantity = useCallback((productId) => {
-    setCart((currentCart) =>
-      currentCart
-        .map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  }, []);
-
-  const clearCart = useCallback(() => {
-    setCart([]);
-    setStatusMessage("Your cart has been cleared.");
   }, []);
 
   const resetFilters = useCallback(() => {
@@ -130,19 +54,48 @@ export default function App() {
     setStatusMessage("All filters have been cleared.");
   }, []);
 
+  const handleAddToCart = useCallback(
+    (product) => {
+      cart.addItem(product);
+      setStatusMessage(`${product.name} was added to your cart.`);
+    },
+    [cart]
+  );
+
+  const handleRemoveFromCart = useCallback(
+    (productId) => {
+      const removedItem = cart.items.find(
+        (item) => String(item.id) === String(productId)
+      );
+
+      cart.removeItem(productId);
+
+      if (removedItem) {
+        setStatusMessage(`${removedItem.name} was removed from your cart.`);
+      }
+    },
+    [cart]
+  );
+
+  const handleClearCart = useCallback(() => {
+    cart.clearCart();
+    setStatusMessage("Your cart has been cleared.");
+  }, [cart]);
+
   const startCheckout = useCallback(() => {
-    if (cart.length === 0) {
+    if (cart.isEmpty) {
       setStatusMessage("Add at least one product before starting checkout.");
       return;
     }
 
     goToPage("checkout");
-  }, [cart.length, goToPage]);
+  }, [cart.isEmpty, goToPage]);
 
   const finishCheckout = useCallback(() => {
-    clearCart();
+    cart.clearCart();
+    setStatusMessage("Your order was confirmed. The cart is now empty.");
     goToPage("survey");
-  }, [clearCart, goToPage]);
+  }, [cart, goToPage]);
 
   return (
     <div className="app-shell">
@@ -153,7 +106,7 @@ export default function App() {
       <Header
         page={page}
         setPage={goToPage}
-        cartCount={cartSummary.itemCount}
+        cartCount={cart.totalItems}
       />
 
       <div className="sr-only" role="status" aria-live="polite">
@@ -190,7 +143,7 @@ export default function App() {
               <ProductGrid
                 products={filteredProducts}
                 total={products.length}
-                addToCart={addToCart}
+                addToCart={handleAddToCart}
               />
             </section>
           </main>
@@ -204,12 +157,12 @@ export default function App() {
           aria-label={PAGE_TITLES.cart}
         >
           <CartPanel
-            cart={cart}
-            cartSummary={cartSummary}
-            removeFromCart={removeFromCart}
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-            clearCart={clearCart}
+            cart={cart.items}
+            cartSummary={cart.summary}
+            removeFromCart={handleRemoveFromCart}
+            increaseQuantity={cart.increaseQuantity}
+            decreaseQuantity={cart.decreaseQuantity}
+            clearCart={handleClearCart}
             setPage={goToPage}
             onCheckout={startCheckout}
           />
@@ -223,9 +176,8 @@ export default function App() {
           aria-label={PAGE_TITLES.checkout}
         >
           <CheckoutFlow
-            cart={cart}
-            cartSummary={cartSummary}
-            setCart={setCart}
+            cart={cart.items}
+            cartSummary={cart.summary}
             setPage={goToPage}
             onBackToCart={() => goToPage("cart")}
             onFinish={finishCheckout}
