@@ -42,6 +42,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  color: var(--text);
   background:
     radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32rem),
     radial-gradient(circle at top right, rgba(20, 184, 166, 0.12), transparent 28rem),
@@ -355,12 +356,12 @@ textarea:focus-visible {
 }
 
 .hero h1 {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0;
   color: var(--text-dark);
-  font-size: clamp(3rem, 7vw, 5.8rem);
-  line-height: 0.92;
-  letter-spacing: -0.085em;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
 }
 
 .hero p:not(.eyebrow) {
@@ -468,6 +469,13 @@ textarea:focus-visible {
 
 /* Shop layout */
 
+#main-content,
+.shop-layout,
+.product-results,
+.active-filters {
+  scroll-margin-top: 6.5rem;
+}
+
 .shop-layout {
   width: min(var(--max-width), calc(100% - 2rem));
   margin: 0 auto;
@@ -476,12 +484,6 @@ textarea:focus-visible {
   grid-template-columns: 300px minmax(0, 1fr);
   gap: 1.4rem;
   align-items: start;
-  scroll-margin-top: 6.5rem;
-}
-
-.product-results,
-.active-filters {
-  scroll-margin-top: 6.5rem;
 }
 
 .shop-main {
@@ -499,6 +501,8 @@ textarea:focus-visible {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.35) transparent;
   border-radius: var(--radius-lg);
   padding: 1.15rem;
   background: rgba(255, 255, 255, 0.94);
@@ -1696,6 +1700,123 @@ textarea:focus-visible {
 .survey-actions {
   justify-content: flex-end;
 }
+
+/* UX quality corrections */
+
+.brand-link,
+.nav-link,
+.cart-button,
+.hero button,
+.facet-option,
+.facet-toggle,
+.filter-badge,
+.product-card,
+.add-to-cart-button,
+.quantity-control button,
+.remove-item-button,
+.rating-option,
+.radio-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.facet-option,
+.facet-toggle,
+.rating-option,
+.radio-card {
+  cursor: pointer;
+}
+
+.facet-option:hover,
+.facet-toggle:hover,
+.rating-option:hover,
+.radio-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.24);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+}
+
+.filter-badge:hover {
+  transform: translateY(-1px);
+  background: #bfdbfe;
+}
+
+.product-image {
+  object-position: center;
+  transition: transform 0.28s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.035);
+}
+
+.form-field input[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+  border-color: rgba(220, 38, 38, 0.5);
+  background: #fff7f7;
+}
+
+.checkout-card .eyebrow,
+.survey-card .eyebrow {
+  color: var(--primary);
+}
+
+.checkout-card .form-error,
+.survey-card .form-error {
+  color: var(--danger);
+}
+
+.checkout-empty {
+  border-radius: 24px;
+  padding: 1.35rem;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+}
+
+.checkout-empty h3 {
+  margin: 0 0 0.45rem;
+  color: var(--text-dark);
+}
+
+.checkout-empty p {
+  margin: 0 0 1rem;
+}
+
+.stepper-button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.stepper-item.upcoming .stepper-button {
+  background: #f8fafc;
+  color: var(--muted);
+}
+
+.stepper-item.upcoming .step-icon {
+  background: #e2e8f0;
+}
+
+.stepper-connector {
+  display: none;
+}
+
+.rating-option,
+.radio-card {
+  position: relative;
+}
+
+.rating-option:focus-within,
+.radio-card:focus-within,
+.facet-toggle:focus-within,
+.facet-option:focus-within {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 3px;
+}
+
 .survey-help {
   margin: 0;
   color: var(--muted);
@@ -1752,6 +1873,22 @@ textarea:focus-visible {
   color: var(--text);
   line-height: 1.6;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 
 /* Footer */
 
@@ -1939,6 +2076,10 @@ textarea:focus-visible {
 
   .hero {
     padding-top: 3.5rem;
+  }
+
+  .hero h1 {
+    letter-spacing: -0.04em;
   }
 
   .product-grid,
