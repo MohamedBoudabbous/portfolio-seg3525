@@ -1,7 +1,7 @@
 import { formatPrice } from "../utils/cartTotals";
 
 function getRatingLabel(rating) {
-  if (typeof rating !== "number") {
+  if (typeof rating !== "number" || !Number.isFinite(rating)) {
     return "No rating yet";
   }
 
@@ -16,17 +16,46 @@ function getProductImage(product) {
   return "./images/products/alto-laptop-stand.jpg";
 }
 
-export function ProductCard({ product, onAddToCart }) {
+function getAvailableStock(product) {
+  if (typeof product?.stock === "number" && Number.isFinite(product.stock)) {
+    return Math.max(0, Math.floor(product.stock));
+  }
+
+  return 0;
+}
+
+function getOrderedQuantity(value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return 0;
+  }
+
+  return Math.max(0, Math.floor(value));
+}
+
+export function ProductCard({ product, orderedQuantity = 0, onAddToCart }) {
   if (!product) {
     return null;
   }
 
   const ratingLabel = getRatingLabel(product.rating);
+  const availableStock = getAvailableStock(product);
+  const safeOrderedQuantity = getOrderedQuantity(orderedQuantity);
+  const remainingStock = Math.max(availableStock - safeOrderedQuantity, 0);
+
+  const isOutOfStock = availableStock === 0;
+  const hasReachedLimit = safeOrderedQuantity >= availableStock;
+  const isLowStock = remainingStock > 0 && remainingStock <= 3;
 
   function handleAddToCart() {
-    if (typeof onAddToCart === "function") {
-      onAddToCart(product);
+    if (typeof onAddToCart !== "function") {
+      return;
     }
+
+    if (isOutOfStock || hasReachedLimit) {
+      return;
+    }
+
+    onAddToCart(product);
   }
 
   return (
@@ -42,6 +71,12 @@ export function ProductCard({ product, onAddToCart }) {
         {product.eco && (
           <span className="product-badge eco-badge">Eco-friendly</span>
         )}
+
+        {isLowStock && (
+          <span className="product-badge stock-badge">
+            Low stock
+          </span>
+        )}
       </div>
 
       <div className="product-card-body">
@@ -49,7 +84,10 @@ export function ProductCard({ product, onAddToCart }) {
           <span className="product-category">{product.category}</span>
 
           <span className="product-rating" aria-label={ratingLabel}>
-            ★ {typeof product.rating === "number" ? product.rating.toFixed(1) : "New"}
+            ★{" "}
+            {typeof product.rating === "number" && Number.isFinite(product.rating)
+              ? product.rating.toFixed(1)
+              : "New"}
           </span>
         </div>
 
@@ -67,19 +105,44 @@ export function ProductCard({ product, onAddToCart }) {
           </div>
         )}
 
+        <div className="product-availability" aria-label="Product availability">
+          <div className="availability-pill">
+            <span>Available</span>
+            <strong>{availableStock}</strong>
+          </div>
+
+          <div className="availability-pill ordered">
+            <span>In cart</span>
+            <strong>{safeOrderedQuantity}</strong>
+          </div>
+
+          <div className="availability-pill remaining">
+            <span>Remaining</span>
+            <strong>{remainingStock}</strong>
+          </div>
+        </div>
+
         <div className="product-card-footer">
           <div className="product-price-block">
             <span className="price-label">Price</span>
-            <strong className="product-price">{formatPrice(product.price)}</strong>
+
+            <strong className="product-price">
+              {formatPrice(product.price)}
+            </strong>
           </div>
 
           <button
             className="add-to-cart-button"
             type="button"
             onClick={handleAddToCart}
-            aria-label={`Add ${product.name} to cart`}
+            disabled={isOutOfStock || hasReachedLimit}
+            aria-label={`Add ${product.name} to cart. ${remainingStock} remaining.`}
           >
-            Add to cart
+            {isOutOfStock
+              ? "Out of stock"
+              : hasReachedLimit
+                ? "Max in cart"
+                : "Add to cart"}
           </button>
         </div>
       </div>

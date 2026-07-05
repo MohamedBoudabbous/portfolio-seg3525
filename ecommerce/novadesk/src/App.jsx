@@ -144,6 +144,7 @@ export default function App() {
                 products={filteredProducts}
                 total={products.length}
                 addToCart={handleAddToCart}
+                getItemQuantity={cart.getItemQuantity}
               />
             </section>
           </main>

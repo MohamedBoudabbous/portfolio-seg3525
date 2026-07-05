@@ -10,7 +10,10 @@ function normalizeProduct(product) {
     image: product.image,
     imageAlt: product.imageAlt,
     eco: product.eco,
+    stock: product.stock,
+    description: product.description,
     quantity: 1,
+
   };
 }
 

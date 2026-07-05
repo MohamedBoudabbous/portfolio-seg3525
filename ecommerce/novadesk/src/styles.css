@@ -938,6 +938,73 @@ textarea:focus-visible {
   font-weight: 800;
 }
 
+
+.product-availability {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.availability-pill {
+  min-width: 0;
+  border-radius: 16px;
+  padding: 0.55rem 0.6rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 0.15rem;
+}
+
+.availability-pill span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.availability-pill strong {
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.availability-pill.ordered {
+  background: var(--primary-soft);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.availability-pill.ordered strong {
+  color: var(--primary-dark);
+}
+
+.availability-pill.remaining {
+  background: var(--accent-soft);
+  border-color: rgba(20, 184, 166, 0.25);
+}
+
+.availability-pill.remaining strong {
+  color: #0f766e;
+}
+
+.stock-badge {
+  left: auto;
+  right: 0.85rem;
+  background: rgba(254, 243, 199, 0.96);
+  color: #92400e;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.add-to-cart-button:disabled,
+.add-to-cart-button:disabled:hover {
+  background: #cbd5e1;
+  color: #475569;
+  box-shadow: none;
+  transform: none;
+}
+
 .product-card-footer {
   display: flex;
   align-items: center;
@@ -2083,6 +2150,7 @@ textarea:focus-visible {
   }
 
   .product-grid,
+  .product-availability,
   .form-grid,
   .survey-option-group,
   .survey-summary,

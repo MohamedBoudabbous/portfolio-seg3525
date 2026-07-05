@@ -5,22 +5,42 @@ function getSafeProducts(products) {
   return Array.isArray(products) ? products : [];
 }
 
+function getSafeTotal(total, fallback) {
+  return Number.isFinite(total) && total >= 0 ? total : fallback;
+}
+
 export function ProductGrid({
   products = [],
   total = 0,
   onAddToCart,
   addToCart,
+  getItemQuantity,
 }) {
   const safeProducts = getSafeProducts(products);
-  const handleAddToCart = onAddToCart || addToCart;
   const resultCount = safeProducts.length;
-  const totalCount = Number.isFinite(total) && total > 0 ? total : resultCount;
+  const totalCount = getSafeTotal(total, resultCount);
+  const handleAddToCart = onAddToCart || addToCart;
+
+  function getOrderedQuantity(productId) {
+    if (typeof getItemQuantity !== "function") {
+      return 0;
+    }
+
+    const quantity = getItemQuantity(productId);
+
+    if (typeof quantity !== "number" || !Number.isFinite(quantity)) {
+      return 0;
+    }
+
+    return Math.max(0, quantity);
+  }
 
   if (resultCount === 0) {
     return (
       <section
         className="product-results"
         aria-labelledby="product-results-title"
+        aria-live="polite"
       >
         <div className="product-results-header">
           <div>
@@ -29,8 +49,8 @@ export function ProductGrid({
             <h2 id="product-results-title">No matching products</h2>
 
             <p>
-              Your filters are active, but no NovaDesk products match this
-              exact combination.
+              Your filters are active, but no NovaDesk products match this exact
+              combination.
             </p>
           </div>
         </div>
@@ -48,6 +68,7 @@ export function ProductGrid({
     <section
       className="product-results"
       aria-labelledby="product-results-title"
+      aria-live="polite"
     >
       <div className="product-results-header">
         <div>
@@ -58,8 +79,8 @@ export function ProductGrid({
           </h2>
 
           <p>
-            Showing {resultCount} of {totalCount} NovaDesk products based on
-            the selected filters.
+            Showing {resultCount} of {totalCount} NovaDesk products based on the
+            selected filters.
           </p>
         </div>
 
@@ -74,6 +95,7 @@ export function ProductGrid({
           <ProductCard
             key={product.id}
             product={product}
+            orderedQuantity={getOrderedQuantity(product.id)}
             onAddToCart={handleAddToCart}
           />
         ))}
