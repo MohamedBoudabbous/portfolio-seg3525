@@ -461,17 +461,6 @@ Le prototype permet de tester directement :
 - le checkout guidé ;
 - le sondage UX.
 
-### Code source
-
-**Dépôt GitHub :**  
-https://github.com/MohamedBoudabbous/portfolio-seg3525
-
-**Dossier source du prototype React :**  
-`ecommerce/novadesk`
-
-**Dossier du build intégré au portfolio :**  
-`ecommerce/novadesk-site`
-
 ## 6. Code
 
 Le code du projet est disponible dans le dépôt GitHub suivant :
@@ -631,8 +620,7 @@ Le site contient des textes d’aide, des descriptions de filtres, un message in
 **Pourquoi c’est conforme :**  
 L’utilisateur reçoit suffisamment d’informations pour comprendre le fonctionnement du prototype sans documentation externe.
 
-**Capture d’écran à ajouter :**  
-Avertissement “Prototype only” dans le paiement ou footer.
+
 
 ## 10. Reconnaissance de l’usage de l’IA générative
 
@@ -641,10 +629,7 @@ Dans ce projet, j’ai utilisé des outils d’intelligence artificielle génér
 L’IA a été utilisée pour :
 
 - Structurer certaines idées du rapport
-- Améliorer la clarté des explications
-- Proposer des formulations pour les sections UX
 - Aider au débogage du code React
-- Améliorer certains composants et styles CSS
 - Vérifier que les exigences du devoir étaient couvertes
 
 Cependant, les choix finaux de conception, l’intégration au portfolio, la sélection du thème, l’organisation du prototype et les décisions finales ont été faits par moi.
