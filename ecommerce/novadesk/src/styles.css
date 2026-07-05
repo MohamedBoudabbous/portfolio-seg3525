@@ -476,6 +476,12 @@ textarea:focus-visible {
   grid-template-columns: 300px minmax(0, 1fr);
   gap: 1.4rem;
   align-items: start;
+  scroll-margin-top: 6.5rem;
+}
+
+.product-results,
+.active-filters {
+  scroll-margin-top: 6.5rem;
 }
 
 .shop-main {
@@ -488,14 +494,33 @@ textarea:focus-visible {
 
 .facet-panel {
   position: sticky;
-  top: 6rem;
+  top: 5.75rem;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   border-radius: var(--radius-lg);
   padding: 1.15rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
 }
+.facet-panel::-webkit-scrollbar {
+  width: 0.55rem;
+}
 
+.facet-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.facet-panel::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.35);
+}
+
+.facet-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.55);
+}
 .facet-panel-header {
   display: flex;
   align-items: flex-start;
@@ -1882,6 +1907,8 @@ textarea:focus-visible {
 
   .facet-panel {
     position: static;
+    max-height: none;
+    overflow: visible;
   }
 
   .stepper-list {
