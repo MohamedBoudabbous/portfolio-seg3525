@@ -107,21 +107,20 @@ export function ProductCard({ product, orderedQuantity = 0, onAddToCart }) {
 
         <div className="product-availability" aria-label="Product availability">
           <div className="availability-pill">
-            <span>Available</span>
+            <span>Stock</span>
             <strong>{availableStock}</strong>
           </div>
 
           <div className="availability-pill ordered">
-            <span>In cart</span>
+            <span>Cart</span>
             <strong>{safeOrderedQuantity}</strong>
           </div>
 
           <div className="availability-pill remaining">
-            <span>Remaining</span>
+            <span>Left</span>
             <strong>{remainingStock}</strong>
           </div>
         </div>
-
         <div className="product-card-footer">
           <div className="product-price-block">
             <span className="price-label">Price</span>
