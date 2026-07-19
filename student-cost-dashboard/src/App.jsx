@@ -83,7 +83,10 @@ function App() {
               {t.charts.sectionLabel}
             </p>
 
-            <h2 id="charts-section-title">
+            <h2
+              id="charts-section-title"
+              className="section-title"
+            >
               {t.charts.sectionTitle}
             </h2>
           </header>
