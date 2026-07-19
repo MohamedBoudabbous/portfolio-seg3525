@@ -179,6 +179,25 @@ a {
   padding-block: 1.25rem;
   border-bottom: 1px solid rgb(255 255 255 / 14%);
 }
+.dashboard-header__eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.dashboard-header__year {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding-inline: 0.625rem;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgb(255 255 255 / 12%);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
 
 .portfolio-link,
 .language-button {

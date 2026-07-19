@@ -96,7 +96,14 @@ function Header({
 
           <div className="dashboard-header__content">
             <p className="dashboard-header__eyebrow">
-              {t.header.eyebrow}
+              <span>{t.header.eyebrow}</span>
+
+              <time
+                className="dashboard-header__year"
+                dateTime={t.common.year}
+              >
+                {t.common.year}
+              </time>
             </p>
 
             <h1
