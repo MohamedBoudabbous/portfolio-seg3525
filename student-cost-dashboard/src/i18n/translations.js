@@ -58,7 +58,7 @@ export const translations = deepFreeze({
     },
 
     header: {
-      eyebrow: "Budget étudiant · Canada · 2026",
+      eyebrow: "Budget étudiant · Canada",
       title: "Coût de la vie étudiante",
       subtitle:
         "Explorez l’évolution d’un budget étudiant fictif et comparez les principales catégories de dépenses au cours de l’année."
@@ -67,7 +67,7 @@ export const translations = deepFreeze({
     dataNotice: {
       title: "Données synthétiques",
       description:
-        "Les montants présentés ont été créés à des fins éducatives. Ils ne représentent ni une personne réelle ni des statistiques officielles."
+        "Ce tableau de bord utilise des données synthétiques créées à des fins éducatives. Elles ne représentent pas les dépenses réelles d’une personne."
     },
 
     summary: {
@@ -261,7 +261,7 @@ export const translations = deepFreeze({
     },
 
     header: {
-      eyebrow: "Student budget · Canada · 2026",
+      eyebrow: "Student budget · Canada",
       title: "Student Cost of Living",
       subtitle:
         "Explore changes in a fictional student budget and compare the main expense categories throughout the year."
@@ -270,7 +270,7 @@ export const translations = deepFreeze({
     dataNotice: {
       title: "Synthetic data",
       description:
-        "The amounts shown were created for educational purposes. They do not represent a real person or official statistics."
+        "This dashboard uses synthetic data created for educational purposes. It does not represent a real person’s expenses."
     },
 
     summary: {
