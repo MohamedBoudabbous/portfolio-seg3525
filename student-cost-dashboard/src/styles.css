@@ -799,3 +799,125 @@ a {
     transition: none;
   }
 }
+
+.metric-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.metric-card__indicator {
+  flex: 0 0 auto;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-block-start: 0.3rem;
+  border-radius: 50%;
+  background: var(--metric-accent);
+}
+
+.metric-card__content {
+  min-width: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary-grid__item {
+  display: flex;
+  min-width: 0;
+}
+
+.metric-card {
+  --metric-accent: #2563a6;
+
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 1.4rem;
+  border: 1px solid #dbe3ec;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgb(15 39 66 / 7%);
+}
+
+.metric-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.3rem;
+  background: var(--metric-accent);
+  content: "";
+}
+
+.metric-card[data-tone="teal"] {
+  --metric-accent: #0f766e;
+}
+
+.metric-card[data-tone="violet"] {
+  --metric-accent: #7c3aed;
+}
+
+.metric-card[data-tone="amber"] {
+  --metric-accent: #b45309;
+}
+
+.metric-card__label {
+  margin: 0;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.metric-card__value {
+  margin: 0.8rem 0 0;
+  color: #0f2742;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-card__detail {
+  margin: 0.55rem 0 0;
+  color: var(--metric-accent);
+  font-size: 0.925rem;
+  font-weight: 850;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-card__description {
+  margin: auto 0 0;
+  padding-block-start: 1rem;
+  color: #64748b;
+  font-size: 0.825rem;
+  line-height: 1.55;
+}
+@media (forced-colors: active) {
+  .metric-card {
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+
+  .metric-card::before {
+    background: Highlight;
+  }
+
+  .metric-card__detail {
+    color: CanvasText;
+  }
+}
