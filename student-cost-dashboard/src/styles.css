@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, Blink,MacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #172033;
+  background: #f3f6fa;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.temporary-page {
+  width: min(100% - 2rem, 900px);
+  margin-inline: auto;
+  padding-block: 5rem;
+}
+
+.temporary-page h1 {
+  margin: 0 0 1rem;
+  color: #0f2742;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.temporary-page p {
+  max-width: 650px;
+  margin: 0;
+  color: #64748b;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
