@@ -159,10 +159,7 @@ function SummaryCards({
         </h2>
       </header>
 
-      <ul
-        className="summary-grid"
-        role="list"
-      >
+      <ul className="summary-grid">
         {metrics.map((metric) => (
           <li
             key={metric.id}
