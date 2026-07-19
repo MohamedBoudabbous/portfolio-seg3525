@@ -400,21 +400,21 @@ function ExpenseTrendChart({
   );
 
   const chart = hasData ? (
-    <div
-      id={chartRegionId}
-      className="chart-card__chart-mount"
+  <div
+    id={chartRegionId}
+    className="chart-card__chart-mount"
+  >
+    <Line
       role="img"
       aria-label={
         t.charts.trend.ariaLabel(
           categoryLabel
         )
       }
-    >
-      <Line
-        data={chartData}
-        options={chartOptions}
-      />
-    </div>
+      data={chartData}
+      options={chartOptions}
+    />
+  </div>
   ) : (
     <p
       id={chartRegionId}

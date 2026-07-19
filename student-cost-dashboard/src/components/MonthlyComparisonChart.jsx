@@ -424,21 +424,21 @@ function MonthlyComparisonChart({
   );
 
   const chart = hasData ? (
-    <div
-      id={chartRegionId}
-      className="chart-card__chart-mount"
+  <div
+    id={chartRegionId}
+    className="chart-card__chart-mount"
+  >
+    <Bar
       role="img"
       aria-label={
         t.charts.comparison.ariaLabel(
           selectedMonthLabel
         )
       }
-    >
-      <Bar
-        data={chartData}
-        options={chartOptions}
-      />
-    </div>
+      data={chartData}
+      options={chartOptions}
+    />
+  </div>
   ) : (
     <p
       id={chartRegionId}
