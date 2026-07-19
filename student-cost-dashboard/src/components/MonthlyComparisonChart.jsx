@@ -257,8 +257,9 @@ function MonthlyComparisonChart({
         ticks: {
           autoSkip: false,
           color: "#475569",
-          maxRotation: 0,
-          minRotation: 0
+          maxRotation: 35,
+          minRotation: 35,
+          padding: 6
         }
       },
 
