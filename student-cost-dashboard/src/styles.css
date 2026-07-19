@@ -607,6 +607,9 @@ a {
   border-radius: 1rem;
   background: #ffffff;
   box-shadow: 0 12px 32px rgb(15 39 66 / 8%);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
 .chart-card__header {
@@ -713,16 +716,42 @@ a {
 }
 
 .chart-card__visualization {
+  position: relative;
+  flex: 0 0 auto;
   min-width: 0;
+  block-size: clamp(18rem, 32vw, 22rem);
   margin-block-start: 1.5rem;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
 }
 
-/*
- * Aucun espace vide n’est affiché avant
- * l’implémentation du véritable graphique.
- */
-.chart-card__visualization:empty {
-  display: none;
+.chart-card__chart-mount {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-card__insight {
+  min-block-size: 3.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  border-inline-start: 0.25rem solid #2563a6;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #334155;
+  background: #eff6ff;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.chart-card__insight:empty {
+  visibility: hidden;
+}
+
+.chart-card__table {
+  min-width: 0;
+  margin-block-start: 1rem;
 }
 
 @media (max-width: 600px) {
@@ -742,6 +771,15 @@ a {
   .chart-control__select {
     min-height: 48px;
   }
+  .chart-card__visualization {
+    block-size: 18rem;
+    padding: 0.5rem;
+  }
+
+  .chart-card__insight {
+    min-block-size: 3.5rem;
+    margin-block-start: 1rem;
+  }
 }
 
 @media (forced-colors: active) {
@@ -756,6 +794,15 @@ a {
 
   .chart-control__chevron {
     color: ButtonText;
+  }
+  .chart-card__visualization {
+  border: 1px solid CanvasText;
+  }
+
+  .chart-card__insight {
+    border-inline-start-color: Highlight;
+    color: CanvasText;
+    background: Canvas;
   }
 }
 
