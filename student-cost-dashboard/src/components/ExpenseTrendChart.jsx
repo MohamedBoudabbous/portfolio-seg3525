@@ -17,7 +17,6 @@ import {
 
 import {
   formatCurrency,
-  formatInteger,
   formatMonth,
   getLocale
 } from "../utils/formatters.js";
@@ -37,6 +36,7 @@ function createTrendInsight({
   }
 
   const firstValue = values[0];
+
   const lastValue =
     values[values.length - 1];
 
@@ -134,8 +134,8 @@ function createTrendInsight({
    * Si janvier et décembre sont identiques,
    * mais que les mois intermédiaires varient,
    * annoncer seulement le maximum évite
-   * d’affirmer incorrectement que la série
-   * est restée stable.
+   * d’affirmer incorrectement que toute
+   * la série est restée stable.
    */
   return peakInsight;
 }
@@ -241,6 +241,7 @@ function ExpenseTrendChart({
           text:
             t.charts.trend.xAxisTitle,
           color: "#334155",
+
           font: {
             weight: "bold"
           }
@@ -268,6 +269,7 @@ function ExpenseTrendChart({
           text:
             t.charts.trend.yAxisTitle,
           color: "#334155",
+
           font: {
             weight: "bold"
           }
@@ -311,15 +313,15 @@ function ExpenseTrendChart({
       rowHeader: true
     },
     {
+      key: "category",
+      header:
+        t.dataTable.categoryHeader
+    },
+    {
       key: "amount",
       header:
         t.dataTable.amountHeader,
       align: "end"
-    },
-    {
-      key: "currency",
-      header:
-        t.dataTable.currencyHeader
     }
   ];
 
@@ -327,16 +329,18 @@ function ExpenseTrendChart({
     monthlyExpenses.map(
       (monthData) => ({
         id: monthData.id,
+
         month: formatMonth(
           monthData.month,
           language
         ),
-        amount: formatInteger(
+
+        category: categoryLabel,
+
+        amount: formatCurrency(
           monthData[selectedCategory],
           language
-        ),
-        currency:
-          t.common.currencyCode
+        )
       })
     );
 
@@ -371,8 +375,10 @@ function ExpenseTrendChart({
                 key={category}
                 value={category}
               >
-                {t.categories[category] ??
-                  t.common.unavailable}
+                {
+                  t.categories[category] ??
+                  t.common.unavailable
+                }
               </option>
             )
           )}
@@ -399,22 +405,27 @@ function ExpenseTrendChart({
     </div>
   );
 
+  /*
+   * Oxlint ne sait pas que le composant
+   * React Chart.js génère un élément canvas.
+   */
+  /* oxlint-disable jsx-a11y/prefer-tag-over-role -- Chart.js renders a canvas element. */
   const chart = hasData ? (
-  <div
-    id={chartRegionId}
-    className="chart-card__chart-mount"
-  >
-    <Line
-      role="img"
-      aria-label={
-        t.charts.trend.ariaLabel(
-          categoryLabel
-        )
-      }
-      data={chartData}
-      options={chartOptions}
-    />
-  </div>
+    <div
+      id={chartRegionId}
+      className="chart-card__chart-mount"
+    >
+      <Line
+        role="img"
+        aria-label={
+          t.charts.trend.ariaLabel(
+            categoryLabel
+          )
+        }
+        data={chartData}
+        options={chartOptions}
+      />
+    </div>
   ) : (
     <p
       id={chartRegionId}
@@ -423,6 +434,7 @@ function ExpenseTrendChart({
       {t.charts.trend.emptyMessage}
     </p>
   );
+  /* oxlint-enable jsx-a11y/prefer-tag-over-role */
 
   const table = (
     <AccessibleDataTable

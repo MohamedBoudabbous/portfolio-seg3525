@@ -40,9 +40,10 @@ const barColours = Object.freeze({
 });
 
 /**
- * Splits long category labels over multiple lines.
+ * Divise les libellés longs sur plusieurs lignes.
  *
- * Chart.js accepts an array of strings for a multiline label.
+ * Chart.js accepte un tableau de chaînes pour
+ * afficher un libellé sur plusieurs lignes.
  *
  * @param {string} label
  * @returns {string | Array<string>}
@@ -241,6 +242,7 @@ function MonthlyComparisonChart({
             t.charts.comparison
               .xAxisTitle,
           color: "#334155",
+
           font: {
             weight: "bold"
           }
@@ -272,6 +274,7 @@ function MonthlyComparisonChart({
             t.charts.comparison
               .yAxisTitle,
           color: "#334155",
+
           font: {
             weight: "bold"
           }
@@ -308,6 +311,7 @@ function MonthlyComparisonChart({
           month: selectedMonthLabel,
           category:
             highestCategoryLabel,
+
           value: formatCurrency(
             maximumValue,
             language
@@ -423,22 +427,27 @@ function MonthlyComparisonChart({
     </div>
   );
 
+  /*
+   * Oxlint ne sait pas que le composant
+   * React Chart.js génère un élément canvas.
+   */
+  /* oxlint-disable jsx-a11y/prefer-tag-over-role -- Chart.js renders a canvas element. */
   const chart = hasData ? (
-  <div
-    id={chartRegionId}
-    className="chart-card__chart-mount"
-  >
-    <Bar
-      role="img"
-      aria-label={
-        t.charts.comparison.ariaLabel(
-          selectedMonthLabel
-        )
-      }
-      data={chartData}
-      options={chartOptions}
-    />
-  </div>
+    <div
+      id={chartRegionId}
+      className="chart-card__chart-mount"
+    >
+      <Bar
+        role="img"
+        aria-label={
+          t.charts.comparison.ariaLabel(
+            selectedMonthLabel
+          )
+        }
+        data={chartData}
+        options={chartOptions}
+      />
+    </div>
   ) : (
     <p
       id={chartRegionId}
@@ -450,6 +459,7 @@ function MonthlyComparisonChart({
       }
     </p>
   );
+  /* oxlint-enable jsx-a11y/prefer-tag-over-role */
 
   const table = (
     <AccessibleDataTable

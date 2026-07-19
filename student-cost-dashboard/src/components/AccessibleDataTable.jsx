@@ -1,10 +1,11 @@
-import {
-  useId,
-  useState
-} from "react";
+import { useState } from "react";
 
 /**
- * Collapsible accessible representation of chart data.
+ * Représentation tabulaire accessible des données d’un graphique.
+ *
+ * Le composant utilise nativement <details> et <summary>,
+ * ce qui fournit le comportement clavier attendu sans ARIA
+ * personnalisée supplémentaire.
  *
  * @param {object} props
  * @param {string} props.caption
@@ -20,28 +21,23 @@ function AccessibleDataTable({
   showLabel,
   hideLabel
 }) {
-  const regionId = useId();
-
   const [
     isExpanded,
     setIsExpanded
   ] = useState(false);
 
-  function handleToggle() {
+  function handleToggle(event) {
     setIsExpanded(
-      (currentValue) => !currentValue
+      event.currentTarget.open
     );
   }
 
   return (
-    <div className="data-table">
-      <button
-        className="data-table__toggle"
-        type="button"
-        aria-expanded={isExpanded}
-        aria-controls={regionId}
-        onClick={handleToggle}
-      >
+    <details
+      className="data-table"
+      onToggle={handleToggle}
+    >
+      <summary className="data-table__toggle">
         <span>
           {isExpanded
             ? hideLabel
@@ -66,13 +62,9 @@ function AccessibleDataTable({
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </summary>
 
-      <div
-        id={regionId}
-        className="data-table__region"
-        hidden={!isExpanded}
-      >
+      <div className="data-table__region">
         <div className="data-table__scroll">
           <table className="data-table__table">
             <caption>
@@ -104,7 +96,8 @@ function AccessibleDataTable({
                         key={column.key}
                         scope="row"
                         data-align={
-                          column.align ?? "start"
+                          column.align ??
+                          "start"
                         }
                       >
                         {row[column.key]}
@@ -113,7 +106,8 @@ function AccessibleDataTable({
                       <td
                         key={column.key}
                         data-align={
-                          column.align ?? "start"
+                          column.align ??
+                          "start"
                         }
                       >
                         {row[column.key]}
@@ -126,7 +120,7 @@ function AccessibleDataTable({
           </table>
         </div>
       </div>
-    </div>
+    </details>
   );
 }
 
