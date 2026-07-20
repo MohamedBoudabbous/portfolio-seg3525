@@ -184,15 +184,15 @@ function ExpenseTrendChart({
         label:
           `${t.charts.trend.datasetLabel} — ${categoryLabel}`,
         data: values,
-        borderColor: "#2563a6",
+        borderColor: "#2563eb",
         backgroundColor:
-          "rgba(37, 99, 166, 0.12)",
+          "rgba(37, 99, 235, 0.12)",
         borderWidth: 3,
         pointRadius: 4,
         pointHoverRadius: 6,
         pointHitRadius: 12,
         pointBackgroundColor: "#ffffff",
-        pointBorderColor: "#2563a6",
+        pointBorderColor: "#2563eb",
         pointBorderWidth: 2,
         fill: false,
         tension: 0.25,

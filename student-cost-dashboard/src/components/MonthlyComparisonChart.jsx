@@ -32,12 +32,12 @@ const availableMonths = Object.freeze(
   )
 );
 
-const barColours = Object.freeze({
-  defaultBackground: "#2563a6",
-  defaultBorder: "#1d4f7a",
-  highestBackground: "#d97706",
-  highestBorder: "#9a3412"
-});
+  const barColours = Object.freeze({
+    defaultBackground: "#2563eb",
+    defaultBorder: "#1d4ed8",
+    highestBackground: "#f97316",
+    highestBorder: "#c2410c"
+  });
 
 /**
  * Divise les libellés longs sur plusieurs lignes.
