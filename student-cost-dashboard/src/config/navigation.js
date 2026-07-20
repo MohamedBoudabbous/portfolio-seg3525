@@ -1,6 +1,6 @@
 const portfolioHrefs = Object.freeze({
-  fr: "../index.html",
-  en: "../en/index.html"
+  fr: "../../index.html#projects",
+  en: "../../en/index.html#projects"
 });
 
 /**
