@@ -303,3 +303,66 @@ img {
   object-fit: cover !important;
   display: block !important;
 }
+
+/* Case-study navigation */
+.case-study-nav .container {
+  gap: 0.75rem;
+}
+
+.case-study-nav__actions {
+  margin-inline-start: auto;
+}
+
+.case-study-nav__actions .btn {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.case-study-nav a:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+@media (max-width: 767.98px) {
+  .case-study-nav .container {
+    align-items: stretch;
+  }
+
+  .case-study-nav .navbar-brand {
+    width: 100%;
+    margin-inline-end: 0;
+  }
+
+  .case-study-nav__actions {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .case-study-nav__actions .btn {
+    flex: 1 1 10rem;
+  }
+}
+
+@media (max-width: 419.98px) {
+  .case-study-nav__actions .btn {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card {
+    animation: none;
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

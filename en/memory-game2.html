@@ -10,12 +10,39 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top case-study-nav"
+  aria-label="Case study navigation"
+>
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
-    <div class="d-flex gap-2 flex-wrap">
-      <a href="../memory-game2.html" class="btn btn-outline-light btn-sm lang-switch">Français</a>
-      <a href="index.html" class="btn btn-outline-light">Back to Portfolio</a>
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
+
+    <div class="case-study-nav__actions d-flex gap-2 flex-wrap justify-content-end">
+      <a
+        href="../memory-game2.html"
+        class="btn btn-outline-light btn-sm lang-switch"
+        lang="fr"
+      >
+        Français
+      </a>
+
+      <a
+        href="../memory-game/dist/index.html"
+        class="btn btn-primary btn-sm"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open game
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-sm"
+      >
+        Back to portfolio
+      </a>
     </div>
   </div>
 </nav>
@@ -89,3 +116,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

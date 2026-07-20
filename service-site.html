@@ -8,12 +8,39 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top case-study-nav"
+  aria-label="Navigation de l’étude de cas"
+>
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">Mohamed Boudabbous</a>
-    <div class="d-flex gap-2 flex-wrap">
-      <a href="service-site/ottawa-barber-studio/index.html" class="btn btn-primary" target="_blank">Ouvrir le site</a>
-      <a href="index.html" class="btn btn-outline-light">Retour au portfolio</a>
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
+
+    <div class="case-study-nav__actions d-flex gap-2 flex-wrap justify-content-end">
+      <a
+        href="en/service-site.html"
+        class="btn btn-outline-light btn-sm lang-switch"
+        lang="en"
+      >
+        English
+      </a>
+
+      <a
+        href="service-site/ottawa-barber-studio/index.html"
+        class="btn btn-primary btn-sm"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Ouvrir le site
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-sm"
+      >
+        Retour au portfolio
+      </a>
     </div>
   </div>
 </nav>
@@ -88,9 +115,10 @@
 </section>
 
 <section class="container py-5 text-center">
-  <a href="index.html" class="btn btn-dark btn-lg">Retour au portfolio</a>
+  <a href="index.html#projects" class="btn btn-outline-primary btn-lg">Retour aux projets</a>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
