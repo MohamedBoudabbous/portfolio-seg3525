@@ -366,3 +366,45 @@ img {
     transform: none;
   }
 }
+
+/* Uniform closing action panel for case studies */
+.case-study-cta {
+  text-align: center;
+}
+
+.case-study-cta .section-title {
+  margin-bottom: 1rem;
+}
+
+.case-study-cta__description {
+  max-width: 72ch;
+  margin: 0 auto;
+  color: #495057;
+  line-height: 1.7;
+}
+
+.case-study-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.case-study-cta__actions .btn {
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 575.98px) {
+  .case-study-cta__actions {
+    align-items: stretch;
+  }
+
+  .case-study-cta__actions .btn {
+    width: 100%;
+  }
+}
+
