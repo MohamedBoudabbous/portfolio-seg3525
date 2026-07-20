@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Cost Dashboard — Case Study</title>
+
+  <meta
+    name="description"
+    content="Case study of a bilingual React student cost dashboard featuring interactive visualizations, synthetic data, accessibility and responsive design."
+  >
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<a
+  class="visually-hidden-focusable position-absolute top-0 start-0 z-3 m-3 p-3 bg-white text-dark rounded"
+  href="#main-content"
+>
+  Skip to main content
+</a>
+
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+  aria-label="Case study navigation"
+>
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
+
+    <div class="d-flex gap-2 flex-wrap justify-content-end">
+      <a
+        href="../student-cost-dashboard.html"
+        class="btn btn-outline-light btn-sm"
+        lang="fr"
+      >
+        Français
+      </a>
+
+      <a
+        href="../student-cost-dashboard/dist/index.html"
+        class="btn btn-primary btn-sm"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open dashboard
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-sm"
+      >
+        Back to portfolio
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<header class="project-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+
+    <p class="text-uppercase fw-bold mb-3">
+      SEG3525 — Interactive dashboard
+    </p>
+
+    <h1 class="display-2 fw-bold">
+      Student Cost Dashboard
+    </h1>
+
+    <p class="lead project-subtitle mt-4">
+      Bilingual React dashboard designed to explore changes in a synthetic
+      student budget and compare six expense categories throughout 2026.
+    </p>
+
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <span class="badge bg-light text-dark project-badge">
+        React
+      </span>
+
+      <span class="badge bg-primary project-badge">
+        Chart.js
+      </span>
+
+      <span class="badge bg-success project-badge">
+        Accessibility
+      </span>
+
+      <span class="badge bg-warning text-dark project-badge">
+        Français / English
+      </span>
+    </div>
+
+    <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+      <a
+        href="../student-cost-dashboard/dist/index.html"
+        class="btn btn-primary btn-lg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Explore the prototype
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-lg"
+      >
+        View other projects
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="container py-5">
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        Project overview
+      </h2>
+
+      <p>
+        This project transforms a synthetic dataset about student living costs
+        in Canada into a clear, interactive and understandable interface. Users
+        can first review four key indicators, then explore the data through two
+        complementary visualizations.
+      </p>
+
+      <p>
+        The main objective was to design an experience that remains useful
+        without relying exclusively on charts. Important values are therefore
+        also communicated through written summaries and data tables accessible
+        to keyboard and assistive technology users.
+      </p>
+
+      <div class="row g-4 mt-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Problem
+            </h3>
+
+            <p class="mb-0">
+              A long list of monthly expenses is difficult to compare quickly,
+              especially when users need to identify trends and maximum values.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Solution
+            </h3>
+
+            <p class="mb-0">
+              A progressive overview combining indicators, explicit filters,
+              charts, dynamic observations and accessible data tables.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Outcome
+            </h3>
+
+            <p class="mb-0">
+              A bilingual, responsive and accessible prototype that explains
+              the data without requiring previous financial analysis knowledge.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="preview-title">
+    <h2 id="preview-title" class="section-title text-center">
+      Dashboard preview
+    </h2>
+
+    <figure class="compiler-image-card mb-0">
+      <img
+        class="project-section-image"
+        src="../images/student-cost-dashboard-preview.webp"
+        alt="Dashboard preview showing the annual indicators and student expense charts"
+        width="1440"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <figcaption class="text-center text-white mt-3">
+        French interface showing the annual indicators and both interactive
+        visualizations.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="container py-5" aria-labelledby="data-overview-title">
+    <h2 id="data-overview-title" class="section-title text-center">
+      Data at a glance
+    </h2>
+
+    <p class="text-center text-muted mb-5">
+      All values are synthetic and are used exclusively to demonstrate the
+      prototype’s interactions.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">12</p>
+          <h3 class="h6 mb-0">Months analyzed</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">6</p>
+          <h3 class="h6 mb-0">Expense categories</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">4</p>
+          <h3 class="h6 mb-0">Calculated indicators</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">2</p>
+          <h3 class="h6 mb-0">Available languages</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="interactions-title">
+    <h2 id="interactions-title" class="section-title text-center">
+      Main interactions
+    </h2>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-primary align-self-start mb-3">
+            View 1
+          </span>
+
+          <h3 class="h4">
+            Annual indicators
+          </h3>
+
+          <p class="mb-0">
+            Four cards automatically calculate the annual total, monthly
+            average, highest expense category and most expensive month. No
+            result is manually hard-coded.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-success align-self-start mb-3">
+            View 2
+          </span>
+
+          <h3 class="h4">
+            Category trend
+          </h3>
+
+          <p class="mb-0">
+            A line chart lets users select a category and examine its values
+            across twelve months, with localized axes, tooltips and summary.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-warning text-dark align-self-start mb-3">
+            View 3
+          </span>
+
+          <h3 class="h4">
+            Monthly comparison
+          </h3>
+
+          <p class="mb-0">
+            A bar chart compares all six categories for a selected month. The
+            highest expense is highlighted in orange and identified in the
+            written observation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        UI / UX design decisions
+      </h2>
+
+      <div class="row g-4 mt-3">
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Hierarchy moving from the annual overview to detailed exploration.</li>
+            <li>Controls placed before each chart to respect the reading order.</li>
+            <li>Explicit labels instead of relying on icons or colours alone.</li>
+            <li>Limited palette with stronger contrast for important information.</li>
+            <li>Stable chart height to prevent unexpected content movement.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Dynamic observations written in plain language.</li>
+            <li>Progressive disclosure of tables through native <code>details</code> and <code>summary</code> elements.</li>
+            <li>Immediately visible notice explaining the synthetic data.</li>
+            <li>Localized numbers, month names and Canadian dollar amounts.</li>
+            <li>No unnecessary 3D decoration or nonessential animation.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="accessibility-title">
+    <h2 id="accessibility-title" class="section-title text-center">
+      Accessibility and bilingual support
+    </h2>
+
+    <div class="row g-4 mt-3">
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Keyboard navigation</h3>
+          <p class="mb-0">
+            A skip link, logical tab order, native controls and visible focus
+            indicators support use without a mouse.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Chart alternatives</h3>
+          <p class="mb-0">
+            Each visualization has an accessible name, a dynamic observation
+            and a table with a caption and semantic headers.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Complete localization</h3>
+          <p class="mb-0">
+            Switching languages updates the text, document title,
+            <code>lang</code> attribute, axes, tooltips and data tables.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-overview-box mt-4">
+      <ul class="project-list mb-0">
+        <li>Support for <code>prefers-reduced-motion</code>.</li>
+        <li>Styles provided for forced-colours mode.</li>
+        <li>Interactive targets measuring at least 44 pixels.</li>
+        <li>Important information communicated with text as well as colour.</li>
+        <li>Tables scroll locally on smaller screens.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="responsive-title">
+    <div class="project-overview-box">
+      <h2 id="responsive-title" class="section-title">
+        Responsive design
+      </h2>
+
+      <p>
+        The layout adapts progressively instead of simply shrinking its
+        elements. The four indicators move to two columns on tablets and one
+        column on smaller screens. Charts move from two columns to one while
+        maintaining a readable height.
+      </p>
+
+      <p class="mb-0">
+        The header, controls, tables and footer are also reorganized to prevent
+        overlap and global horizontal scrolling at widths of 1440, 1024, 768,
+        390 and 320 pixels.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="technology-title">
+    <h2 id="technology-title" class="section-title text-center">
+      Technical architecture
+    </h2>
+
+    <div class="row g-4 mt-3">
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">React</h3>
+          <p class="mb-0">
+            Reusable components and local state limited to the interactions that
+            require it.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Chart.js</h3>
+          <p class="mb-0">
+            Responsive charts with options, axes and tooltips recalculated for
+            the active language.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">JavaScript</h3>
+          <p class="mb-0">
+            Pure statistical functions and localized formatting through the
+            browser’s internationalization API.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Vite</h3>
+          <p class="mb-0">
+            Fast development and a static build using relative paths for
+            portfolio integration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="project-overview-box text-center">
+      <h2 class="section-title">
+        Final prototype
+      </h2>
+
+      <p>
+        The prototype lets users explore all twelve months, compare six
+        categories, display the accessible data tables and switch instantly
+        between French and English.
+      </p>
+
+      <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+        <a
+          href="../student-cost-dashboard/dist/index.html"
+          class="btn btn-primary btn-lg"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open dashboard
+        </a>
+
+        <a
+          href="https://github.com/MohamedBoudabbous/portfolio-seg3525/tree/devoir5-dashboard/student-cost-dashboard"
+          class="btn btn-outline-dark btn-lg"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View source code
+        </a>
+
+        <a
+          href="index.html#projects"
+          class="btn btn-outline-primary btn-lg"
+        >
+          Back to projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact" class="text-center py-5 bg-dark text-white">
+  <h2 class="mb-4">
+    Contact
+  </h2>
+
+  <p class="mb-2">
+    Email: mboud014@uottawa.ca
+  </p>
+
+  <p class="mb-2">
+    <a
+      class="footer-link"
+      href="https://github.com/MohamedBoudabbous16"
+      target="_blank"
+      rel="noreferrer"
+    >
+      GitHub: github.com/MohamedBoudabbous16
+    </a>
+  </p>
+
+  <p class="mb-2">
+    <a
+      class="footer-link"
+      href="https://www.linkedin.com/in/mohamed-boudabbous-313256300"
+      target="_blank"
+      rel="noreferrer"
+    >
+      LinkedIn: linkedin.com/in/mohamed-boudabbous
+    </a>
+  </p>
+
+  <p class="mt-4 mb-0">
+    © 2026 Mohamed Boudabbous
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
