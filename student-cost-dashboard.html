@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Coût de la vie étudiante — Étude de cas</title>
+
+  <meta
+    name="description"
+    content="Étude de cas du tableau de bord React bilingue sur le coût de la vie étudiante : visualisations interactives, données synthétiques, accessibilité et conception responsive."
+  >
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+
+<body>
+
+<a
+  class="visually-hidden-focusable position-absolute top-0 start-0 z-3 m-3 p-3 bg-white text-dark rounded"
+  href="#main-content"
+>
+  Aller au contenu principal
+</a>
+
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top case-study-nav"
+  aria-label="Navigation de l’étude de cas"
+>
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="index.html">
+      Mohamed Boudabbous
+    </a>
+
+    <div class="case-study-nav__actions d-flex gap-2 flex-wrap justify-content-end">
+      <a
+        href="en/student-cost-dashboard.html"
+        class="btn btn-outline-light btn-sm"
+        lang="en"
+      >
+        English
+      </a>
+
+      <a
+        href="student-cost-dashboard/dist/index.html"
+        class="btn btn-primary btn-sm"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Ouvrir le tableau de bord
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-sm"
+      >
+        Retour au portfolio
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<header class="project-hero text-center text-white d-flex align-items-center">
+  <div class="container">
+
+    <p class="text-uppercase fw-bold mb-3">
+      SEG3525 — Tableau de bord interactif
+    </p>
+
+    <h1 class="display-2 fw-bold">
+      Coût de la vie étudiante
+    </h1>
+
+    <p class="lead project-subtitle mt-4">
+      Tableau de bord React bilingue conçu pour explorer l’évolution d’un
+      budget étudiant synthétique et comparer six catégories de dépenses tout
+      au long de l’année 2026.
+    </p>
+
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <span class="badge bg-light text-dark project-badge">
+        React
+      </span>
+
+      <span class="badge bg-primary project-badge">
+        Chart.js
+      </span>
+
+      <span class="badge bg-success project-badge">
+        Accessibilité
+      </span>
+
+      <span class="badge bg-warning text-dark project-badge">
+        Français / English
+      </span>
+    </div>
+
+    <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+      <a
+        href="student-cost-dashboard/dist/index.html"
+        class="btn btn-primary btn-lg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Explorer le prototype
+      </a>
+
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-light btn-lg"
+      >
+        Voir les autres projets
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="container py-5">
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        Présentation du projet
+      </h2>
+
+      <p>
+        Ce projet transforme un jeu de données synthétiques sur le coût de la
+        vie étudiante au Canada en une interface claire, interactive et
+        compréhensible. L’utilisateur peut d’abord consulter quatre indicateurs
+        clés, puis approfondir les données avec deux visualisations
+        complémentaires.
+      </p>
+
+      <p>
+        L’objectif principal était de concevoir une expérience qui demeure
+        utile sans dépendre uniquement des graphiques. Les valeurs importantes
+        sont donc également présentées sous forme de résumés textuels et de
+        tableaux accessibles au clavier et aux technologies d’assistance.
+      </p>
+
+      <div class="row g-4 mt-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Problème
+            </h3>
+
+            <p class="mb-0">
+              Une longue liste de dépenses mensuelles est difficile à comparer
+              rapidement, particulièrement lorsqu’il faut repérer des tendances
+              et des valeurs maximales.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Solution
+            </h3>
+
+            <p class="mb-0">
+              Une vue progressive combinant indicateurs, filtres explicites,
+              graphiques, observations dynamiques et tableaux de données.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 p-4">
+            <h3 class="h5">
+              Résultat
+            </h3>
+
+            <p class="mb-0">
+              Un prototype bilingue, responsive et accessible qui permet de
+              comprendre les données sans connaissance préalable en analyse
+              financière.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="preview-title">
+    <h2 id="preview-title" class="section-title text-center">
+      Aperçu du tableau de bord
+    </h2>
+
+    <figure class="compiler-image-card mb-0">
+      <img
+        class="project-section-image"
+        src="images/student-cost-dashboard-preview.webp"
+        alt="Aperçu du tableau de bord montrant les indicateurs et les graphiques des dépenses étudiantes"
+        width="1440"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <figcaption class="text-center text-white mt-3">
+        Interface française présentant les indicateurs annuels et les deux
+        visualisations interactives.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="container py-5" aria-labelledby="data-overview-title">
+    <h2 id="data-overview-title" class="section-title text-center">
+      Données en un coup d’œil
+    </h2>
+
+    <p class="text-center text-muted mb-5">
+      Toutes les valeurs sont synthétiques et servent exclusivement à illustrer
+      les interactions du prototype.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">12</p>
+          <h3 class="h6 mb-0">Mois analysés</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">6</p>
+          <h3 class="h6 mb-0">Catégories de dépenses</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">4</p>
+          <h3 class="h6 mb-0">Indicateurs calculés</h3>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="card h-100 p-4 text-center">
+          <p class="h2 fw-bold text-primary mb-2">2</p>
+          <h3 class="h6 mb-0">Langues disponibles</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="interactions-title">
+    <h2 id="interactions-title" class="section-title text-center">
+      Interactions principales
+    </h2>
+
+    <div class="row g-4 mt-3">
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-primary align-self-start mb-3">
+            Vue 1
+          </span>
+
+          <h3 class="h4">
+            Indicateurs annuels
+          </h3>
+
+          <p class="mb-0">
+            Quatre cartes calculent automatiquement la dépense annuelle, la
+            moyenne mensuelle, la catégorie la plus coûteuse et le mois le plus
+            élevé. Aucun résultat n’est codé manuellement.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-success align-self-start mb-3">
+            Vue 2
+          </span>
+
+          <h3 class="h4">
+            Évolution par catégorie
+          </h3>
+
+          <p class="mb-0">
+            Un graphique linéaire permet de choisir une catégorie et d’observer
+            son évolution sur douze mois, avec axes, info-bulles et résumé
+            localisés.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <span class="badge bg-warning text-dark align-self-start mb-3">
+            Vue 3
+          </span>
+
+          <h3 class="h4">
+            Comparaison mensuelle
+          </h3>
+
+          <p class="mb-0">
+            Un graphique à barres compare les six catégories d’un mois donné.
+            La dépense maximale est mise en évidence en orange et annoncée dans
+            le résumé textuel.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="project-overview-box">
+
+      <h2 class="section-title">
+        Choix de conception UI / UX
+      </h2>
+
+      <div class="row g-4 mt-3">
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Hiérarchie allant du résumé annuel vers l’exploration détaillée.</li>
+            <li>Contrôles placés avant chaque graphique pour respecter l’ordre de lecture.</li>
+            <li>Libellés explicites plutôt que dépendance aux icônes ou aux couleurs.</li>
+            <li>Palette limitée avec un contraste renforcé pour les informations importantes.</li>
+            <li>Hauteur stable des graphiques afin d’éviter les déplacements de contenu.</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <ul class="project-list">
+            <li>Observations dynamiques rédigées en langage naturel.</li>
+            <li>Divulgation progressive des tableaux avec les éléments natifs <code>details</code> et <code>summary</code>.</li>
+            <li>Avertissement immédiatement visible sur la nature synthétique des données.</li>
+            <li>Formatage local des nombres, mois et montants en dollars canadiens.</li>
+            <li>Interface sans décoration 3D ou animation non essentielle.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="accessibility-title">
+    <h2 id="accessibility-title" class="section-title text-center">
+      Accessibilité et bilinguisme
+    </h2>
+
+    <div class="row g-4 mt-3">
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Navigation clavier</h3>
+          <p class="mb-0">
+            Lien d’évitement, ordre de tabulation logique, contrôles natifs et
+            indicateurs de focus visibles facilitent l’utilisation sans souris.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Alternatives aux graphiques</h3>
+          <p class="mb-0">
+            Chaque visualisation possède un nom accessible, une observation
+            dynamique et un tableau avec légende et en-têtes sémantiques.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Localisation complète</h3>
+          <p class="mb-0">
+            Le changement de langue actualise les textes, le titre du document,
+            l’attribut <code>lang</code>, les axes, les info-bulles et les
+            tableaux.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-overview-box mt-4">
+      <ul class="project-list mb-0">
+        <li>Prise en charge de <code>prefers-reduced-motion</code>.</li>
+        <li>Styles prévus pour le mode de couleurs forcées.</li>
+        <li>Zones interactives d’au moins 44 pixels.</li>
+        <li>Information maximale communiquée par le texte en plus de la couleur.</li>
+        <li>Tableaux défilables localement sur les petits écrans.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="responsive-title">
+    <div class="project-overview-box">
+      <h2 id="responsive-title" class="section-title">
+        Conception responsive
+      </h2>
+
+      <p>
+        La mise en page s’adapte progressivement plutôt que de simplement
+        réduire les éléments. Les quatre indicateurs passent à deux colonnes sur
+        tablette, puis à une colonne sur petit écran. Les graphiques passent de
+        deux colonnes à une seule et conservent une hauteur lisible.
+      </p>
+
+      <p class="mb-0">
+        Le header, les contrôles, les tableaux et le footer sont également
+        réorganisés afin d’éviter tout chevauchement et tout défilement
+        horizontal global à 1440, 1024, 768, 390 et 320 pixels.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-5" aria-labelledby="technology-title">
+    <h2 id="technology-title" class="section-title text-center">
+      Architecture technique
+    </h2>
+
+    <div class="row g-4 mt-3">
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">React</h3>
+          <p class="mb-0">
+            Composants réutilisables et états locaux limités aux interactions
+            qui en ont besoin.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Chart.js</h3>
+          <p class="mb-0">
+            Graphiques responsives avec options, axes et info-bulles recalculés
+            selon la langue.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">JavaScript</h3>
+          <p class="mb-0">
+            Fonctions pures pour les statistiques et formatage avec l’API
+            internationale du navigateur.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-4">
+          <h3 class="h5">Vite</h3>
+          <p class="mb-0">
+            Développement rapide et build statique utilisant des chemins
+            relatifs pour l’intégration au portfolio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+  <div class="project-overview-box case-study-cta">
+    <h2 class="section-title">Prototype final</h2>
+    <p class="case-study-cta__description">
+      Explorez les douze mois, comparez les six catégories et consultez les
+      tableaux de données accessibles.
+    </p>
+    <div class="case-study-cta__actions">
+      <a
+        href="student-cost-dashboard/dist/index.html"
+        class="btn btn-primary btn-lg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Ouvrir le tableau de bord
+      </a>
+      <a
+        href="https://github.com/MohamedBoudabbous/portfolio-seg3525/tree/devoir5-dashboard/student-cost-dashboard"
+        class="btn btn-outline-dark btn-lg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Voir le code source
+      </a>
+      <a
+        href="index.html#projects"
+        class="btn btn-outline-primary btn-lg"
+      >
+        Retour aux projets
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="text-center py-5 bg-dark text-white">
+  <h2 class="mb-4">
+    Contact
+  </h2>
+
+  <p class="mb-2">
+    Email : mboud014@uottawa.ca
+  </p>
+
+  <p class="mb-2">
+    <a
+      class="footer-link"
+      href="https://github.com/MohamedBoudabbous16"
+      target="_blank"
+      rel="noreferrer"
+    >
+      GitHub : github.com/MohamedBoudabbous16
+    </a>
+  </p>
+
+  <p class="mb-2">
+    <a
+      class="footer-link"
+      href="https://www.linkedin.com/in/mohamed-boudabbous-313256300"
+      target="_blank"
+      rel="noreferrer"
+    >
+      LinkedIn : linkedin.com/in/mohamed-boudabbous
+    </a>
+  </p>
+
+  <p class="mt-4 mb-0">
+    © 2026 Mohamed Boudabbous
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
