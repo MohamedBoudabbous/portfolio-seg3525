@@ -233,8 +233,12 @@ export const translations = deepFreeze({
       course: "SEG3525 — Conception et analyse d’interfaces usagers",
       syntheticNotice:
         "Prototype éducatif utilisant exclusivement des données synthétiques.",
+      metadataLabel: "Informations sur le tableau de bord",
+      yearLabel: "Année",
+      currencyLabel: "Devise",
       portfolioLabel: "Portfolio de Mohamed Boudabbous",
-      copyright: "© 2026 Mohamed Boudabbous"
+      copyright: (year) =>
+        `© ${year} Mohamed Boudabbous`
     }
   },
 
@@ -436,8 +440,12 @@ export const translations = deepFreeze({
       course: "SEG3525 — User Interface Design and Analysis",
       syntheticNotice:
         "Educational prototype using exclusively synthetic data.",
+      metadataLabel: "Dashboard information",
+      yearLabel: "Year",
+      currencyLabel: "Currency",
       portfolioLabel: "Mohamed Boudabbous’s portfolio",
-      copyright: "© 2026 Mohamed Boudabbous"
+      copyright: (year) =>
+        `© ${year} Mohamed Boudabbous`
     }
   }
 });

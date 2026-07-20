@@ -2,6 +2,7 @@ import { getPortfolioHref } from "../config/navigation.js";
 
 function Footer({ t }) {
   const language = t.language.code;
+  const year = t.common.year;
 
   const portfolioHref =
     getPortfolioHref(language);
@@ -37,7 +38,7 @@ function Footer({ t }) {
             </svg>
           </div>
 
-          <div>
+          <div className="dashboard-footer__content">
             <p className="dashboard-footer__course">
               {t.footer.course}
             </p>
@@ -80,8 +81,39 @@ function Footer({ t }) {
             </span>
           </a>
 
+          <ul
+            className="dashboard-footer__metadata"
+            aria-label={t.footer.metadataLabel}
+          >
+            <li className="dashboard-footer__metadata-item">
+              <span className="dashboard-footer__metadata-label">
+                {t.footer.yearLabel}
+              </span>
+
+              <time
+                className="dashboard-footer__metadata-value"
+                dateTime={year}
+              >
+                {year}
+              </time>
+            </li>
+
+            <li className="dashboard-footer__metadata-item">
+              <span className="dashboard-footer__metadata-label">
+                {t.footer.currencyLabel}
+              </span>
+
+              <abbr
+                className="dashboard-footer__metadata-value"
+                title={t.common.currencyName}
+              >
+                {t.common.currencyCode}
+              </abbr>
+            </li>
+          </ul>
+
           <small className="dashboard-footer__copyright">
-            {t.footer.copyright}
+            {t.footer.copyright(year)}
           </small>
         </div>
       </div>
