@@ -10,8 +10,7 @@ lerna-debug.log*
 node_modules
 dist-ssr
 *.local
-# Generated production build
-dist/
+# dist/ is intentionally tracked for static portfolio deployment.
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
